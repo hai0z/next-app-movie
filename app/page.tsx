@@ -23,16 +23,16 @@ export interface Movie {
     genres: number[];
     name?: string;
 }
-export const getData = async () => {
-    const respone = await fetch(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}`
-    );
-    const data = await respone.json();
-    console.log(data.result);
-    return data;
-};
 
 export default async function Home() {
+    const getData = async () => {
+        const respone = await fetch(
+            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}`
+        );
+        const data = await respone.json();
+        console.log(data.result);
+        return data;
+    };
     const ImagePath = "https://image.tmdb.org/t/p/";
     const trendingList: MovieList = await getData();
     return (
