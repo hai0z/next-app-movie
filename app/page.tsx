@@ -1,7 +1,6 @@
 import Link from "next/link";
 import MovieCard from "./components/MovieCard";
 import Slider from "./components/Slider";
-
 export interface MovieList {
     results: {
         id?: number;
@@ -24,7 +23,7 @@ export interface Movie {
     genres: number[];
     name?: string;
 }
-export const getMovie = async () => {
+export const getData = async () => {
     const respone = await fetch(
         `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}`
     );
@@ -35,8 +34,7 @@ export const getMovie = async () => {
 
 export default async function Home() {
     const ImagePath = "https://image.tmdb.org/t/p/";
-
-    const trendingList: MovieList = await getMovie();
+    const trendingList: MovieList = await getData();
     return (
         <div className="w-full flex flex-col min-h-screen ">
             <div className="h-full">

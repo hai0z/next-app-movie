@@ -6,12 +6,20 @@ import Image from "next/image";
 import { MovieList } from "../page";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Autoplay } from "swiper";
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     return (
         <AnimatePresence>
-            <Swiper autoplay slidesPerView={1} grabCursor={true}>
+            <Swiper
+                autoplay={{
+                    delay: 10000,
+                    disableOnInteraction: false,
+                }}
+                slidesPerView={1}
+                grabCursor={true}
+                modules={[Autoplay]}
+            >
                 {movie.results.map((m, index) => (
                     <SwiperSlide key={index}>
                         <motion.div layout>
@@ -63,11 +71,9 @@ function Slider({ movie }: { movie: MovieList }) {
                                         src={`${ImagePath}/original//${m.poster_path}`}
                                         alt="film"
                                         className="w-[400px] rounded-3xl"
-                                        initial={{
-                                            scaleX: 0,
-                                        }}
-                                        animate={{ scaleX: 1 }}
-                                        exit={{ scaleX: 0 }}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
                                     />
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ function MovieCard({ movie }: { movie: MovieList }) {
             {movie.results.map((m, index) => (
                 <SwiperSlide key={index}>
                     <Link
-                        href={"/moive/" + m.id}
+                        href={"/movie/" + m.id}
                         className="mt-4 flex flex-col relative group mx-1"
                     >
                         <div className="flex justify-center items-center">
