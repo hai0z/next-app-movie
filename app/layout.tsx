@@ -1,7 +1,8 @@
+import { Suspense } from "react";
 import Header from "./components/Header";
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import Head from "next/head";
+import Loading from "./loading";
 const poppins = Poppins({
     subsets: ["latin"],
     weight: ["200", "500", "700"],
@@ -20,13 +21,16 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" data-theme="cupcake" className="font-poppins">
-            <body className={poppins.className}>
+            <head>
                 <link
                     rel="stylesheet"
+                    as="style"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                 />
+            </head>
+            <body className={poppins.className}>
                 <Header />
-                {children}
+                <Suspense fallback={<Loading />}>{children}</Suspense>
             </body>
         </html>
     );

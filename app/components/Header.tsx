@@ -24,7 +24,7 @@ function Header() {
         <div
             className={`w-full ${
                 isScroll
-                    ? "bg-black backdrop-blur-sm bg-opacity-95 h-20"
+                    ? "bg-[#0f0f0f] backdrop-blur-sm bg-opacity-95 h-20"
                     : "h-32"
             } flex flex-row justify-between p-6 items-center fixed z-10 transition-all duration-200`}
         >

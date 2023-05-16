@@ -1,10 +1,11 @@
 import { create } from "zustand";
 
 interface Store {
-    openModal: boolean;
+    videoId: string;
+    setVideoId: (id: string) => void;
 }
 const useStore = create<Store>((set) => ({
-    openModal: false,
-    setOpenModal: () => set((state) => ({ openModal: !state.openModal })),
+    videoId: "",
+    setVideoId: (param) => set((state) => ({ videoId: param })),
 }));
 export default useStore;
