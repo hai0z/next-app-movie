@@ -13,25 +13,33 @@ interface Cast {
         name: string;
     }[];
 }
+export const metadata = {
+    title: "Movie",
+};
 async function MovieDetail({ params }: MovieDetailProp) {
     const ImagePath = "https://image.tmdb.org/t/p/";
 
     const getData = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=en-US`,
+            {
+                cache: "default",
+            }
         );
         const data = await respone.json();
+
         return data;
     };
     const getCast = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=en-US`,
+            { cache: "default" }
         );
         const data = await respone.json();
         return data;
     };
     const movie: Movie = await getData();
-    const listCast: Cast = await getCast();
+    const { cast }: Cast = await getCast();
     return (
         <div className="w-full flex flex-col min-h-screen">
             <Image
@@ -46,8 +54,8 @@ async function MovieDetail({ params }: MovieDetailProp) {
                 <div className="flex flex-row mx-28">
                     <div className="flex">
                         <Image
-                            src={`${ImagePath}/original/${movie.poster_path}`}
-                            width={1920}
+                            src={`${ImagePath}/w500/${movie.poster_path}`}
+                            width={500}
                             height={500}
                             priority
                             className="w-[400px] rounded-[32px]"
@@ -76,7 +84,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
                             </p>
                             <p>Casts</p>
                             <div className="flex flex-row gap-4">
-                                {listCast?.cast?.slice(0, 5).map((cast) => (
+                                {cast?.slice(0, 5).map((cast) => (
                                     <div key={cast.id} className="text-white">
                                         <Image
                                             src={`${ImagePath}/w500/${cast.profile_path}`}

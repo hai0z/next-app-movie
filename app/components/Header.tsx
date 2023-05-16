@@ -26,7 +26,7 @@ function Header() {
                 isScroll
                     ? "bg-[#0f0f0f] backdrop-blur-sm bg-opacity-95 h-20"
                     : "h-32"
-            } flex flex-row justify-between p-6 items-center fixed z-10 transition-all duration-200`}
+            } flex flex-row justify-between px-8 items-center fixed z-10 transition-all duration-300`}
         >
             <div className="flex flex-row items-center">
                 <Image
@@ -41,28 +41,28 @@ function Header() {
                     href={"/"}
                     className="font-semibold pl-4 text-[1.5rem] font-mono hover:text-red-600 transition-colors duration-200"
                 >
-                    <span className="text-[2rem]">The Movies</span>
+                    <span className="text-[2.2rem]">The Movies</span>
                 </Link>
             </div>
             <div>
-                <ul className="flex flex-row gap-6">
+                <ul className="flex flex-row gap-8">
                     <Link
                         href={"/movie"}
-                        className="text-[1.5rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200 "
+                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200 "
                     >
                         <span>Home</span>
                         <div className="w-full bg-red-600 h-0.5"></div>
                     </Link>
                     <Link
                         href={"/movie"}
-                        className="text-[1.5rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
+                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
                     >
                         <span>Movies</span>
                         <div className="w-full bg-red-600 h-0.5"></div>
                     </Link>
                     <Link
                         href={"/movie"}
-                        className="text-[1.5rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
+                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
                     >
                         <span>TV Seris</span>
                         <div className="w-full bg-red-600 h-0.5"></div>
