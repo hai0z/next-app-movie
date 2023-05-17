@@ -10,7 +10,7 @@ function WatchTrailerButton({ videoId }: { videoId: string }) {
             onClick={() => setVideoId(videoId)}
             className="btn btn-sm btn-outline btn-secondary md:btn-md lg:btn-lg"
         >
-            <span className="text-[20px]">Watch trailer</span>
+            <span className="text-[20px]">Xem Trailer</span>
         </label>
     );
 }

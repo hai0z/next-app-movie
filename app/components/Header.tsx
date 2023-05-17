@@ -57,7 +57,7 @@ function Header() {
                             isScroll && "text-base-content"
                         }`}
                     >
-                        <span>Home</span>
+                        <span>Trang chủ</span>
                     </Link>
                     <Link
                         href={"/"}
@@ -65,7 +65,7 @@ function Header() {
                             isScroll && "text-base-content"
                         }`}
                     >
-                        <span>Movies</span>
+                        <span>Phim Lẻ</span>
                     </Link>
                     <Link
                         href={"/"}
@@ -73,7 +73,7 @@ function Header() {
                             isScroll && "text-base-content"
                         }`}
                     >
-                        <span>TV Seris</span>
+                        <span>Phim Bộ</span>
                     </Link>
                 </ul>
             </div>

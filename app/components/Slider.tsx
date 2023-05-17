@@ -74,7 +74,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             className="btn btn-sm btn-primary md:btn-md lg:btn-lg"
                                         >
                                             <span className="md:text-[20px]">
-                                                Watch now
+                                                Xem Ngay
                                             </span>
                                         </Link>
                                         <WatchTrailerButton

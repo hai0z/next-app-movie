@@ -88,7 +88,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
                                 {movie.overview}
                             </p>
                             <p className="text-3xl py-2 text-base-content">
-                                Casts
+                                Danh sách diễn viên
                             </p>
                             <div className="flex flex-row gap-4">
                                 {cast?.slice(0, 5).map((cast) => (
