@@ -29,7 +29,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
         );
         const data = await respone.json();
 
-        return new Promise((res) => setTimeout(() => res(data), 1500));
+        return data;
     };
     const getCast = async () => {
         const respone = await fetch(
@@ -39,7 +39,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
         const data = await respone.json();
         return data;
     };
-    const movie: any = await getData();
+    const movie: Movie = await getData();
     const { cast }: Cast = await getCast();
     return (
         <div className="w-full flex flex-col min-h-screen bg-base-100">
