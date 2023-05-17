@@ -2,12 +2,14 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/effect-creative";
 import Image from "next/image";
 import { MovieList } from "../page";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
 import WatchTrailerButton from "./WatchTrailerButton";
+import { EffectCreative } from "swiper";
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,13 +17,13 @@ function Slider({ movie }: { movie: MovieList }) {
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
-            // autoplay={{
-            //     delay: 10000,
-            //     disableOnInteraction: false,
-            // }}
+            autoplay={{
+                delay: 10000,
+                disableOnInteraction: false,
+            }}
             slidesPerView={1}
             grabCursor={true}
-            // modules={[Autoplay]}
+            modules={[Autoplay, EffectCreative]}
         >
             <AnimatePresence initial={false}>
                 {movie.results.map((m, index) => (
@@ -34,7 +36,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             height={1080}
                             priority
                         />
-                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-center lg:left-16 md:flex-row">
+                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-center lg:left-16 md:flex-row w-full">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -58,7 +60,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <p className="lg:text-[5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full px-8">
+                                    <p className="lg:text-[4.5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full px-8">
                                         {m.title}
                                     </p>
                                     <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left px-8">

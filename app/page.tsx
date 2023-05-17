@@ -29,7 +29,7 @@ export interface Movie {
 export default async function Home() {
     const getTrending = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}`
+            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         console.log(data.result);
@@ -37,7 +37,7 @@ export default async function Home() {
     };
     const getPopular = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}`
+            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         console.log(data.result);
@@ -45,7 +45,7 @@ export default async function Home() {
     };
     const getTopRate = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}`
+            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         console.log(data.result);
