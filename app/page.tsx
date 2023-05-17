@@ -24,6 +24,21 @@ export interface Movie {
     genres: { id: string | number; name: string }[];
     name?: string;
     tagline: string;
+    release_date: string;
+    status: string;
+    production_countries: {
+        name: string;
+    }[];
+    production_companies: {
+        name: string;
+    }[];
+    original_title: string;
+    budget: number;
+    revenue: number;
+    runtime: number;
+    spoken_languages: {
+        name: string;
+    }[];
 }
 
 export default async function Home() {

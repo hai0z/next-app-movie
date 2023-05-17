@@ -5,17 +5,18 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import Image from "next/image";
 import { MovieList } from "../page";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
 import WatchTrailerButton from "./WatchTrailerButton";
 import { EffectCreative } from "swiper";
 import "swiper/css/pagination";
+import { useRouter } from "next/navigation";
 import { Pagination } from "swiper";
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [currentIndex, setCurrentIndex] = useState(0);
     console.log(currentIndex);
+    const router = useRouter();
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -66,23 +67,24 @@ function Slider({ movie }: { movie: MovieList }) {
                                     <p className="lg:text-[4.5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full px-8">
                                         {m.title}
                                     </p>
-                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left px-8">
+                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left px-8 text-white">
                                         {m.overview}
                                     </p>
                                     <motion.div
-                                        className={`flex flex-row py-8 gap-6 px-8`}
+                                        className={`flex flex-row py-8 px-8`}
                                     >
-                                        <Link
-                                            href={"/movie/" + m.id}
+                                        <button
+                                            onClick={() =>
+                                                router.push(
+                                                    `${"/movie/" + m.id}#top`
+                                                )
+                                            }
                                             className="btn btn-sm btn-primary md:btn-md lg:btn-lg"
                                         >
                                             <span className="md:text-[20px]">
-                                                Xem Ngay
+                                                Xem chi tiết
                                             </span>
-                                        </Link>
-                                        <WatchTrailerButton
-                                            videoId={String(m.id)}
-                                        />
+                                        </button>
                                     </motion.div>
                                 </motion.div>
                             </div>

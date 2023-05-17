@@ -39,8 +39,8 @@ function Header() {
                 />
                 <Link
                     href={"/"}
-                    className={`font-semibold pl-4 text-[1rem] font-mono hover:text-primary-focus transition-colors duration-200 ${
-                        isScroll && "text-base-content"
+                    className={`font-semibold pl-4 text-[1rem] font-mono hover:text-primary-focus transition-colors duration-200  ${
+                        isScroll ? "text-base-content" : "text-white"
                     }`}
                 >
                     <span className="text-[1.5rem] md:text-[2.2rem]">
@@ -52,24 +52,24 @@ function Header() {
                 <ul className="flex flex-row gap-8">
                     <Link
                         href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
-                            isScroll && "text-base-content"
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
+                            isScroll ? "text-base-content" : "text-white"
                         }`}
                     >
                         <span>Trang chủ</span>
                     </Link>
                     <Link
                         href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
-                            isScroll && "text-base-content"
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
+                            isScroll ? "text-base-content" : "text-white"
                         }`}
                     >
                         <span>Phim Lẻ</span>
                     </Link>
                     <Link
                         href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
-                            isScroll && "text-base-content"
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
+                            isScroll ? "text-base-content" : "text-white"
                         }`}
                     >
                         <span>Phim Bộ</span>
