@@ -92,7 +92,10 @@ async function MovieDetail({ params }: MovieDetailProp) {
                             </p>
                             <div className="flex flex-row gap-4">
                                 {cast?.slice(0, 5).map((cast) => (
-                                    <div key={cast.id} className="text-white">
+                                    <div
+                                        key={cast.id}
+                                        className="text-white cursor-pointer"
+                                    >
                                         <Image
                                             src={`${ImagePath}/w500/${cast.profile_path}`}
                                             width={500}

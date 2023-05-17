@@ -52,7 +52,7 @@ function Header() {
             <div className="hidden md:block">
                 <ul className="flex flex-row gap-8">
                     <Link
-                        href={"/movie"}
+                        href={"/"}
                         className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
                             isScroll && "text-base-content"
                         }`}
@@ -60,7 +60,7 @@ function Header() {
                         <span>Home</span>
                     </Link>
                     <Link
-                        href={"/movie"}
+                        href={"/"}
                         className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
                             isScroll && "text-base-content"
                         }`}
@@ -68,7 +68,7 @@ function Header() {
                         <span>Movies</span>
                     </Link>
                     <Link
-                        href={"/movie"}
+                        href={"/"}
                         className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
                             isScroll && "text-base-content"
                         }`}
