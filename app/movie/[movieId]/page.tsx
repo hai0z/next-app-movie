@@ -1,6 +1,7 @@
 import { Movie } from "@/app/page";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -28,7 +29,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
         );
         const data = await respone.json();
 
-        return data;
+        return new Promise((res) => setTimeout(() => res(data), 1500));
     };
     const getCast = async () => {
         const respone = await fetch(
@@ -38,16 +39,16 @@ async function MovieDetail({ params }: MovieDetailProp) {
         const data = await respone.json();
         return data;
     };
-    const movie: Movie = await getData();
+    const movie: any = await getData();
     const { cast }: Cast = await getCast();
     return (
-        <div className="w-full flex flex-col min-h-screen">
+        <div className="w-full flex flex-col min-h-screen bg-base-100">
             <Image
                 src={`${ImagePath}/original/${movie.backdrop_path}`}
                 width={1920}
                 height={500}
                 priority
-                className="h-[50vh] object-cover brightness-50"
+                className="h-[50vh] object-cover filter blur-sm backdrop-filter backdrop-blur-sm"
                 alt={movie.title}
             />
             <div className="w-full -top-52 relative">
@@ -64,25 +65,31 @@ async function MovieDetail({ params }: MovieDetailProp) {
                     </div>
                     <div className="w-8/12 ml-8">
                         <div className="flex flex-col">
-                            <p className="text-[4rem] text-white font-semibold">
+                            <p className="text-[4rem] font-semibold text-base-content">
                                 {movie.title}
                             </p>
-                            <div className="flex flex-row gap-4">
+                            <p className="text-base-content mt-4">
+                                {movie?.tagline}
+                            </p>
+                            <div className="flex flex-row gap-4 mt-4">
                                 {movie.genres.map((genres) => {
                                     return (
                                         <div
                                             key={genres.id}
-                                            className="rounded-full border-[2px] border-white px-6 py-2 border-solid cursor-pointer bg-black"
+                                            className="btn btn-secondary"
                                         >
                                             <span>{genres.name}</span>
                                         </div>
                                     );
                                 })}
                             </div>
-                            <p className="text-[1.2rem] py-4 font-mono">
+
+                            <p className="text-[1.2rem] py-4 font-mono text-base-content">
                                 {movie.overview}
                             </p>
-                            <p>Casts</p>
+                            <p className="text-3xl py-2 text-base-content">
+                                Casts
+                            </p>
                             <div className="flex flex-row gap-4">
                                 {cast?.slice(0, 5).map((cast) => (
                                     <div key={cast.id} className="text-white">
@@ -93,7 +100,7 @@ async function MovieDetail({ params }: MovieDetailProp) {
                                             alt="cast"
                                             className="object-cover w-32"
                                         />
-                                        <span className="font-thin">
+                                        <span className="font-thin text-base-content">
                                             {cast.name}
                                         </span>
                                     </div>

@@ -19,7 +19,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" data-theme="cupcake" className="font-poppins">
+        <html lang="en" data-theme="night" className="font-poppins">
             <head>
                 <link
                     rel="stylesheet"

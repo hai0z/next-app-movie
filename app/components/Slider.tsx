@@ -15,13 +15,13 @@ function Slider({ movie }: { movie: MovieList }) {
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
-            autoplay={{
-                delay: 10000,
-                disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //     delay: 10000,
+            //     disableOnInteraction: false,
+            // }}
             slidesPerView={1}
             grabCursor={true}
-            modules={[Autoplay]}
+            // modules={[Autoplay]}
         >
             <AnimatePresence initial={false}>
                 {movie.results.map((m, index) => (
@@ -29,18 +29,18 @@ function Slider({ movie }: { movie: MovieList }) {
                         <Image
                             src={`${ImagePath}/original/${m.backdrop_path}`}
                             alt="film"
-                            className="w-full brightness-50"
+                            className="w-full brightness-50 object-cover h-[50vh] lg:h-screen filter blur-sm"
                             width={1920}
                             height={1080}
                             priority
                         />
-                        <div className="absolute top-32 flex flex-row left-16 ">
+                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-center lg:left-16 md:flex-row">
                             <div
                                 className={`${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
-                                } w-6/12 flex flex-col justify-center`}
+                                } w-full lg:w-6/12 flex flex-col`}
                             >
                                 <motion.div
                                     initial={{
@@ -58,18 +58,20 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <motion.p className="text-[5rem] text-white font-semibold">
+                                    <p className="lg:text-[5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full px-8">
                                         {m.title}
-                                    </motion.p>
-                                    <motion.p>{m.overview}</motion.p>
+                                    </p>
+                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left px-8">
+                                        {m.overview}
+                                    </p>
                                     <motion.div
-                                        className={`flex flex-row py-8 gap-6`}
+                                        className={`flex flex-row py-8 gap-6 px-8`}
                                     >
                                         <Link
                                             href={"/movie/" + m.id}
-                                            className="px-16 py-4 rounded-full bg-red-600 shadow-3xl hover:shadow-hover transition-shadow duration-300"
+                                            className="btn btn-sm btn-primary md:btn-md lg:btn-lg"
                                         >
-                                            <span className="text-[20px]">
+                                            <span className="md:text-[20px]">
                                                 Watch now
                                             </span>
                                         </Link>
@@ -79,13 +81,12 @@ function Slider({ movie }: { movie: MovieList }) {
                                     </motion.div>
                                 </motion.div>
                             </div>
-
                             <div
                                 className={`w-6/12 pl-16 ${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
-                                } `}
+                                } hidden lg:block`}
                             >
                                 <motion.img
                                     key={currentIndex}

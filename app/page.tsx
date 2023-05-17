@@ -23,6 +23,7 @@ export interface Movie {
     adult: boolean;
     genres: { id: string | number; name: string }[];
     name?: string;
+    tagline: string;
 }
 
 export default async function Home() {
@@ -59,27 +60,31 @@ export default async function Home() {
                 <Slider movie={popularList} />
             </div>
 
-            <div className="w-full bg-[#0f0f0f] bg-opacity-95 pl-6 flex flex-col">
-                <span className="text-[1.5rem] font-semibold mt-12">
+            <div className="w-full bg-base-100 bg-opacity-95 pl-6 flex flex-col">
+                <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Trending Movies
                 </span>
                 <Link
                     href={"/"}
-                    className="w-40 rounded-full border-solid border-white border-[3px] hover:bg-white hover:text-red-600 transition-all duration-200 flex justify-center"
+                    className="btn btn-primary btn-outline w-40 btn-sm"
                 >
-                    <span className="text-[20px]">View more</span>
+                    <span className="text-[20px] text-base-content">
+                        View more
+                    </span>
                 </Link>
                 <div className="">
                     <MovieCard movie={trendingList} />
                 </div>
-                <span className="text-[1.5rem] font-semibold mt-12">
+                <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Top Rate
                 </span>
                 <Link
                     href={"/"}
-                    className="w-40 rounded-full border-solid border-white border-[3px] hover:bg-white hover:text-red-600 transition-all duration-200 flex justify-center"
+                    className="btn btn-primary btn-outline w-40 btn-sm"
                 >
-                    <span className="text-[20px]">View more</span>
+                    <span className="text-[20px] text-base-content">
+                        View more
+                    </span>
                 </Link>
                 <div className="">
                     <MovieCard movie={topRateList} />

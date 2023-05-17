@@ -19,14 +19,14 @@ function Header() {
         window.addEventListener("scroll", onScrollTop);
         return () => window.removeEventListener("scroll", onScrollTop);
     }, []);
-    console.log(isScroll);
+
     return (
         <div
             className={`w-full ${
                 isScroll
-                    ? "bg-[#0f0f0f] backdrop-blur-sm bg-opacity-95 h-20"
-                    : "h-32"
-            } flex flex-row justify-between px-8 items-center fixed z-10 transition-all duration-300`}
+                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h20"
+                    : "h-24 md:h32"
+            } flex flex-row justify-center px-8 items-center fixed z-10 transition-all duration-300 md:justify-between`}
         >
             <div className="flex flex-row items-center">
                 <Image
@@ -36,36 +36,44 @@ function Header() {
                     alt="logo"
                     width={64}
                     height={64}
+                    className="w-12 h-12 md:w-16 md:h-16"
                 />
                 <Link
                     href={"/"}
-                    className="font-semibold pl-4 text-[1.5rem] font-mono hover:text-red-600 transition-colors duration-200"
+                    className={`font-semibold pl-4 text-[1rem] font-mono hover:text-primary-focus transition-colors duration-200 ${
+                        isScroll && "text-base-content"
+                    }`}
                 >
-                    <span className="text-[2.2rem]">The Movies</span>
+                    <span className="text-[1.5rem] md:text-[2.2rem]">
+                        The Movies
+                    </span>
                 </Link>
             </div>
-            <div>
+            <div className="hidden md:block">
                 <ul className="flex flex-row gap-8">
                     <Link
                         href={"/movie"}
-                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200 "
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
+                            isScroll && "text-base-content"
+                        }`}
                     >
                         <span>Home</span>
-                        <div className="w-full bg-red-600 h-0.5"></div>
                     </Link>
                     <Link
                         href={"/movie"}
-                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
+                            isScroll && "text-base-content"
+                        }`}
                     >
                         <span>Movies</span>
-                        <div className="w-full bg-red-600 h-0.5"></div>
                     </Link>
                     <Link
                         href={"/movie"}
-                        className="text-[1.8rem] font-semibold font-mono hover:text-red-600 transition-colors duration-200"
+                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200 ${
+                            isScroll && "text-base-content"
+                        }`}
                     >
                         <span>TV Seris</span>
-                        <div className="w-full bg-red-600 h-0.5"></div>
                     </Link>
                 </ul>
             </div>
