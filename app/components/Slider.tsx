@@ -10,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
 import WatchTrailerButton from "./WatchTrailerButton";
 import { EffectCreative } from "swiper";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,8 +24,9 @@ function Slider({ movie }: { movie: MovieList }) {
                 disableOnInteraction: false,
             }}
             slidesPerView={1}
+            pagination={true}
             grabCursor={true}
-            modules={[Autoplay, EffectCreative]}
+            modules={[Autoplay, EffectCreative, Pagination]}
         >
             <AnimatePresence initial={false}>
                 {movie.results.map((m, index) => (

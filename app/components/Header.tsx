@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 function Header() {
     const pathname = usePathname();
-    console.log(pathname);
 
     const [isScroll, setIsScroll] = useState(false);
     useEffect(() => {
@@ -24,8 +23,8 @@ function Header() {
         <div
             className={`w-full ${
                 isScroll
-                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h20"
-                    : "h-24 md:h32"
+                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h-20"
+                    : "h-24 md:h-32"
             } flex flex-row justify-center px-8 items-center fixed z-10 transition-all duration-300 md:justify-between`}
         >
             <div className="flex flex-row items-center">

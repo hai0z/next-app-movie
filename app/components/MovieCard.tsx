@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 function MovieCard({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     return (
-        <Swiper slidesPerView={6}>
+        <Swiper slidesPerView={7}>
             {movie.results.map((m, index) => (
                 <SwiperSlide key={m.id}>
                     <div className="mt-4 flex flex-col relative group mx-1">
