@@ -35,14 +35,14 @@ async function Layout({ params, children }: MovieDetailProp) {
         return formattedTime;
     }
     return (
-        <div className="w-full flex flex-col bg-base-100 h-screen">
+        <div className="w-full flex flex-col bg-base-100 h-screen rounded-tl-[20px]">
             <div className="fixed img-shadow">
                 <Image
                     src={`${ImagePath}/original/${movie.backdrop_path}`}
                     width={1920}
                     height={1080}
                     priority
-                    className="object-cover"
+                    className="object-cover rounded-tl-[20px]"
                     alt={movie.title}
                 />
             </div>

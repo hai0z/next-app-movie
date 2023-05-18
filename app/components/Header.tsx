@@ -35,7 +35,7 @@ function Header() {
         <div
             className={`w-full px-8 ${
                 isScroll
-                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h-16"
+                    ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
                     : "h-20 md:h-28"
             } flex flex-row justify-center  items-center fixed z-10 transition-all duration-300 md:justify-between`}
         >
@@ -49,10 +49,17 @@ function Header() {
                             height={500}
                             className="w-8 rounded-md"
                         />
-                        <p className="text-2xl font-bold">{data?.title}</p>
+                        <div>
+                            <p className="text-2xl font-bold">{data?.title}</p>
+                            <p>
+                                {pathname.split("/").at(-1) === params.movieId
+                                    ? "overview"
+                                    : pathname.split("/").at(-1)}
+                            </p>
+                        </div>
                     </div>
                 )}
-                {isScroll && pathname == "" && (
+                {isScroll && pathname == "/" && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl">Trang chủ</p>
                     </div>

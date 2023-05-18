@@ -5,16 +5,17 @@ import useStore from "../(store)/store";
 function Modal() {
     const videoId = useStore((state) => state.videoId);
     const [video, setVideo] = useState<any>();
-    const getTrailer = async () => {
-        const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${videoId}/videos?api_key=${process.env.TMDB}&language=en-US`
-        );
-        const data = await respone.json();
-        setVideo(data);
-    };
+
     useEffect(() => {
+        const getTrailer = async () => {
+            const respone = await fetch(
+                `https://api.themoviedb.org/3/movie/${videoId}/videos?api_key=${process.env.TMDB}&language=en-US`
+            );
+            const data = await respone.json();
+            setVideo(data);
+        };
         getTrailer();
-    }, []);
+    }, [videoId]);
     console.log(videoId);
     return (
         <div>

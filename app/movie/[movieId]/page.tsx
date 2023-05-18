@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Movie, MovieList } from "@/app/page";
 import Link from "next/link";
+import MovieCard from "@/app/components/MovieCard";
 export interface Cast {
     cast: {
         id: number;
@@ -54,7 +55,7 @@ async function Page({
     return (
         <div className="mx-24 bg-base-200 flex flex-row h-full">
             <div className="w-3/12 flex ">
-                <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 max-w-[75%] max-h-[500px]">
+                <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 max-w-[75%] h-fit">
                     <div>
                         <p className="font-bold">Original Title</p>
                         <p className="font-mono font-extralight">
@@ -157,22 +158,8 @@ async function Page({
                         Xem Thêm
                     </Link>
                     <div className="flex flex-row gap-4">
-                        {recommenList?.slice(0, 5).map((r) => (
-                            <div
-                                key={r.id}
-                                className="text-white cursor-pointer w-48"
-                            >
-                                <Image
-                                    src={`${ImagePath}/w500/${r.poster_path}`}
-                                    width={500}
-                                    height={500}
-                                    alt="r"
-                                    className="object-cover w-48"
-                                />
-                                <span className="font-semibold text-base-content">
-                                    {r.title}
-                                </span>
-                            </div>
+                        {recommenList?.slice(0, 5).map((r: any) => (
+                            <MovieCard m={r} key={r.id} />
                         ))}
                     </div>
                 </div>

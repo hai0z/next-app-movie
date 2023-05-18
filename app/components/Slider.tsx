@@ -35,7 +35,7 @@ function Slider({ movie }: { movie: MovieList }) {
                         <Image
                             src={`${ImagePath}/original/${m.backdrop_path}`}
                             alt="film"
-                            className="w-full brightness-50 object-cover h-[50vh] lg:h-screen rounded-tl-[20px]"
+                            className="w-full brightness-50 blur-sm object-cover h-[50vh] lg:h-screen rounded-tl-[20px]"
                             width={1920}
                             height={1080}
                             priority

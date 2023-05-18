@@ -74,7 +74,7 @@ export default async function Home() {
     const popularList: MovieList = await getPopular();
     const topRateList: MovieList = await getTopRate();
     return (
-        <div className="flex flex-col h-screen rounded-tl-xl">
+        <div className="flex flex-col h-screen rounded-tl-[20px]">
             <div className="h-screen w-full rounded-tl-[20px]">
                 <Slider movie={popularList} />
             </div>
@@ -84,11 +84,9 @@ export default async function Home() {
                 </span>
                 <Link
                     href={"/"}
-                    className="btn btn-primary btn-outline w-40 btn-sm"
+                    className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2"
                 >
-                    <span className="text-[20px] text-base-content">
-                        View more
-                    </span>
+                    <span className="text-base-content">View more</span>
                 </Link>
 
                 <div>
@@ -100,11 +98,9 @@ export default async function Home() {
                 </span>
                 <Link
                     href={"/"}
-                    className="btn btn-primary btn-outline w-40 btn-sm"
+                    className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2"
                 >
-                    <span className="text-[20px] text-base-content">
-                        View more
-                    </span>
+                    <span className="text-base-content">View more</span>
                 </Link>
                 <div className="">
                     <ListMovie movie={topRateList} />

@@ -24,10 +24,7 @@ function Sidebar() {
                         <HomeIcon className="h-6 w-6 text-white" />
                     </Link>
                 </div>
-                <div
-                    className="dropdown dropdown-right tooltip  tooltip-right"
-                    data-tip="theme"
-                >
+                <div className="dropdown dropdown-right">
                     <label
                         tabIndex={0}
                         className="hover:btn-primary btn btn-ghost"
@@ -47,7 +44,7 @@ function Sidebar() {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ml-4"
                     >
                         <li
                             onClick={() => {
@@ -84,6 +81,15 @@ function Sidebar() {
                             }}
                         >
                             <a>Forest</a>
+                        </li>
+                        <li
+                            onClick={() => {
+                                document
+                                    .getElementById("html")
+                                    ?.setAttribute("data-theme", "retro");
+                            }}
+                        >
+                            <a>retro</a>
                         </li>
                     </ul>
                 </div>
