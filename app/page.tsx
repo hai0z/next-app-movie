@@ -1,7 +1,8 @@
 import Link from "next/link";
-import MovieCard from "./components/MovieCard";
+import MovieCard from "./components/ListMovie";
 import Slider from "./components/Slider";
 import Modal from "./components/Modal";
+import ListMovie from "./components/ListMovie";
 export interface MovieList {
     results: {
         id?: number;
@@ -70,12 +71,11 @@ export default async function Home() {
     const popularList: MovieList = await getPopular();
     const topRateList: MovieList = await getTopRate();
     return (
-        <div className="w-full flex flex-col min-h-screen ">
-            <div className="h-full">
+        <div className="flex flex-col h-screen rounded-tl-xl">
+            <div className="h-screen w-full rounded--xl">
                 <Slider movie={popularList} />
             </div>
-
-            <div className="w-full bg-base-100 bg-opacity-95 pl-6 flex flex-col">
+            <div className="bg-base-100 bg-opacity-95 pl-6 flex flex-col">
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Trending Movies
                 </span>
@@ -87,9 +87,11 @@ export default async function Home() {
                         View more
                     </span>
                 </Link>
-                <div className="">
-                    <MovieCard movie={trendingList} />
+
+                <div>
+                    <ListMovie movie={trendingList} />
                 </div>
+
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Top Rate
                 </span>
@@ -102,7 +104,7 @@ export default async function Home() {
                     </span>
                 </Link>
                 <div className="">
-                    <MovieCard movie={topRateList} />
+                    <ListMovie movie={topRateList} />
                 </div>
             </div>
             {/* The button to open modal */}
