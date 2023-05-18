@@ -45,7 +45,8 @@ export interface Movie {
 export default async function Home() {
     const getTrending = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}&language=vi-VN`
+            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}&language=vi-VN`,
+            { cache: "force-cache" }
         );
         const data = await respone.json();
         console.log(data.result);
@@ -53,7 +54,8 @@ export default async function Home() {
     };
     const getPopular = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`
+            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`,
+            { cache: "force-cache" }
         );
         const data = await respone.json();
         console.log(data.result);
@@ -61,7 +63,8 @@ export default async function Home() {
     };
     const getTopRate = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}&language=vi-VN`
+            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}&language=vi-VN`,
+            { cache: "force-cache" }
         );
         const data = await respone.json();
         console.log(data.result);
@@ -72,7 +75,7 @@ export default async function Home() {
     const topRateList: MovieList = await getTopRate();
     return (
         <div className="flex flex-col h-screen rounded-tl-xl">
-            <div className="h-screen w-full rounded--xl">
+            <div className="h-screen w-full rounded-tl-[20px]">
                 <Slider movie={popularList} />
             </div>
             <div className="bg-base-100 bg-opacity-95 pl-6 flex flex-col">
@@ -107,10 +110,6 @@ export default async function Home() {
                     <ListMovie movie={topRateList} />
                 </div>
             </div>
-            {/* The button to open modal */}
-
-            {/* Put this part before </body> tag */}
-            <Modal />
         </div>
     );
 }

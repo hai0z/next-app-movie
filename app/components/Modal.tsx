@@ -20,15 +20,17 @@ function Modal() {
         <div>
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box">
+                <div className="modal-box relative h-96">
+                    <label
+                        htmlFor="my-modal"
+                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                    >
+                        ✕
+                    </label>
                     <iframe
+                        className="w-full h-full"
                         src={`https://www.youtube.com/embed/${video?.results?.[0].key}`}
                     ></iframe>
-                    <div className="modal-action">
-                        <label htmlFor="my-modal" className="btn">
-                            Yay!
-                        </label>
-                    </div>
                 </div>
             </div>
         </div>

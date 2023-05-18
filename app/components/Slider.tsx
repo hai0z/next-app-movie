@@ -17,7 +17,6 @@ function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [currentIndex, setCurrentIndex] = useState(0);
     console.log(currentIndex);
-    const router = useRouter();
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -36,7 +35,7 @@ function Slider({ movie }: { movie: MovieList }) {
                         <Image
                             src={`${ImagePath}/original/${m.backdrop_path}`}
                             alt="film"
-                            className="w-full brightness-50 object-cover h-[50vh] lg:h-screen filter blur-sm"
+                            className="w-full brightness-50 object-cover h-[50vh] lg:h-screen rounded-tl-[20px]"
                             width={1920}
                             height={1080}
                             priority

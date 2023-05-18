@@ -2,6 +2,8 @@ import { Movie } from "@/app/page";
 import React from "react";
 import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
+import WatchTrailerButton from "@/app/components/WatchTrailerButton";
+import Modal from "@/app/components/Modal";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -80,6 +82,9 @@ async function Layout({ params, children }: MovieDetailProp) {
                                     );
                                 })}
                             </div>
+                            <div className="mt-16">
+                                <WatchTrailerButton videoId={params.movieId} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,6 +94,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                     {children}
                 </div>
             </div>
+            <Modal />
         </div>
     );
 }

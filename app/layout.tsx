@@ -33,7 +33,7 @@ export default function RootLayout({
                         <Sibar />
                     </div>
                     <div className="flex flex-col w-[calc(100%-80px)]">
-                        <NextTopLoader />
+                        <NextTopLoader showSpinner={false} />
                         <Header />
                         {children}
                     </div>

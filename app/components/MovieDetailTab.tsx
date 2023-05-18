@@ -22,7 +22,7 @@ function MovieDetailTab() {
         <div
             className={`tabs tabs-boxed px-24 mt-16 py-4 rounded-none bg-opacity-95 backdrop-blur-sm bg-base-100 ${
                 isScroll &&
-                "fixed z-30 top-4 w-full transition-all duration-200"
+                "fixed z-30 top-0 w-full transition-all duration-200"
             }`}
         >
             <Link

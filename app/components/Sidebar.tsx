@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/24/solid";
+import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 function Sidebar() {
     return (
@@ -15,17 +15,28 @@ function Sidebar() {
                 height={64}
                 className="w-12 h-12 md:w-16 md:h-16"
             />
-            <div className="icon space-y-4">
-                <Link href={"/"} className="btn btn-primary">
-                    <HomeIcon className="h-6 w-6 text-primary-focus" />
-                </Link>
-                <div className="dropdown dropdown-right">
-                    <label tabIndex={0} className="btn btn-primary">
+            <div className="icon space-y-4 " data-tip="Trang chủ">
+                <div className="tooltip tooltip-right " data-tip="Trang chủ">
+                    <Link
+                        href={"/"}
+                        className="hover:btn-primary btn btn-ghost"
+                    >
+                        <HomeIcon className="h-6 w-6 text-white" />
+                    </Link>
+                </div>
+                <div
+                    className="dropdown dropdown-right tooltip  tooltip-right"
+                    data-tip="theme"
+                >
+                    <label
+                        tabIndex={0}
+                        className="hover:btn-primary btn btn-ghost"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="w-6 h-6"
+                            className="w-6 h-6 text-white"
                         >
                             <path
                                 fillRule="evenodd"

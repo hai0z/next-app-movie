@@ -1,15 +1,16 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 function Header() {
+    const [data, setData] = useState<any>([]);
     const pathname = usePathname();
-
+    const params = useParams();
+    const ImagePath = "https://image.tmdb.org/t/p/";
     const [isScroll, setIsScroll] = useState(false);
     useEffect(() => {
         const onScrollTop = () => {
-            if (window.scrollY > 60) {
+            if (window.scrollY > 120) {
                 setIsScroll(true);
             } else {
                 setIsScroll(false);
@@ -18,16 +19,45 @@ function Header() {
         window.addEventListener("scroll", onScrollTop);
         return () => window.removeEventListener("scroll", onScrollTop);
     }, []);
+    useEffect(() => {
+        const getData = async () => {
+            const respone = await fetch(
+                `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
+            );
+            const data = await respone.json();
+            setData(data);
+        };
 
+        getData();
+    }, [params.movieId]);
+    console.log("header loaded");
     return (
         <div
             className={`w-full px-8 ${
                 isScroll
-                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h-20"
-                    : "h-24 md:h-32"
+                    ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h-16"
+                    : "h-20 md:h-28"
             } flex flex-row justify-center  items-center fixed z-10 transition-all duration-300 md:justify-between`}
         >
-            <div className="flex flex-row items-center"></div>
+            <div className="flex flex-row items-center">
+                {isScroll && pathname.includes("movie") && (
+                    <div className="flex flex-row gap-2">
+                        <Image
+                            src={`${ImagePath}/w500/${data?.poster_path}`}
+                            alt="film"
+                            width={500}
+                            height={500}
+                            className="w-8 rounded-md"
+                        />
+                        <p className="text-2xl font-bold">{data?.title}</p>
+                    </div>
+                )}
+                {isScroll && pathname == "" && (
+                    <div className="flex flex-row gap-2">
+                        <p className="font-bold text-2xl">Trang chủ</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
