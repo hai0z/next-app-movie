@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.img-shadow::after {
+    position: fixed;
+    content: "";
+    background-image: linear-gradient(
+        180deg,
+        rgba(24, 133, 69, 0) 40.77%,
+        #f2f2f290 100%
+    );
+    top: 0;
+    left: 80px;
+    bottom: 0;
+    right: 0;
+}

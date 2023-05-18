@@ -21,61 +21,13 @@ function Header() {
 
     return (
         <div
-            className={`w-full ${
+            className={`w-full px-8 ${
                 isScroll
                     ? "bg-base-100 shadow-lg backdrop-blur-sm bg-opacity-95 h-16 md:h-20"
                     : "h-24 md:h-32"
-            } flex flex-row justify-center px-8 items-center fixed z-10 transition-all duration-300 md:justify-between`}
+            } flex flex-row justify-center  items-center fixed z-10 transition-all duration-300 md:justify-between`}
         >
-            <div className="flex flex-row items-center">
-                <Image
-                    src={
-                        "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-                    }
-                    alt="logo"
-                    width={64}
-                    height={64}
-                    className="w-12 h-12 md:w-16 md:h-16"
-                />
-                <Link
-                    href={"/"}
-                    className={`font-semibold pl-4 text-[1rem] font-mono hover:text-primary-focus transition-colors duration-200  ${
-                        isScroll ? "text-base-content" : "text-white"
-                    }`}
-                >
-                    <span className="text-[1.5rem] md:text-[2.2rem]">
-                        The Movies
-                    </span>
-                </Link>
-            </div>
-            <div className="hidden md:block">
-                <ul className="flex flex-row gap-8">
-                    <Link
-                        href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
-                            isScroll ? "text-base-content" : "text-white"
-                        }`}
-                    >
-                        <span>Trang chủ</span>
-                    </Link>
-                    <Link
-                        href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
-                            isScroll ? "text-base-content" : "text-white"
-                        }`}
-                    >
-                        <span>Phim Lẻ</span>
-                    </Link>
-                    <Link
-                        href={"/"}
-                        className={`text-[1.8rem] font-semibold font-mono hover:text-primary-focus transition-colors duration-200  ${
-                            isScroll ? "text-base-content" : "text-white"
-                        }`}
-                    >
-                        <span>Phim Bộ</span>
-                    </Link>
-                </ul>
-            </div>
+            <div className="flex flex-row items-center"></div>
         </div>
     );
 }

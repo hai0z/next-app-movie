@@ -7,11 +7,12 @@ import Image from "next/image";
 import { MovieList } from "../page";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
-import WatchTrailerButton from "./WatchTrailerButton";
 import { EffectCreative } from "swiper";
 import "swiper/css/pagination";
 import { useRouter } from "next/navigation";
 import { Pagination } from "swiper";
+import Link from "next/link";
+
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -73,18 +74,14 @@ function Slider({ movie }: { movie: MovieList }) {
                                     <motion.div
                                         className={`flex flex-row py-8 px-8`}
                                     >
-                                        <button
-                                            onClick={() =>
-                                                router.push(
-                                                    `${"/movie/" + m.id}#top`
-                                                )
-                                            }
+                                        <Link
+                                            href={`${"/movie/" + m.id}#top`}
                                             className="btn btn-sm btn-primary md:btn-md lg:btn-lg"
                                         >
                                             <span className="md:text-[20px]">
                                                 Xem chi tiết
                                             </span>
-                                        </button>
+                                        </Link>
                                     </motion.div>
                                 </motion.div>
                             </div>

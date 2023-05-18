@@ -1,7 +1,6 @@
 import { Movie } from "@/app/page";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 interface MovieDetailProp {
     params: {
@@ -34,18 +33,18 @@ async function Layout({ params, children }: MovieDetailProp) {
         return formattedTime;
     }
     return (
-        <div className="w-full flex flex-col bg-base-100">
-            <div className="fixed">
+        <div className="w-full flex flex-col bg-base-100 h-screen">
+            <div className="fixed img-shadow">
                 <Image
                     src={`${ImagePath}/original/${movie.backdrop_path}`}
                     width={1920}
-                    height={500}
+                    height={1080}
                     priority
-                    className="h-screen object-cover "
+                    className="object-cover"
                     alt={movie.title}
                 />
             </div>
-            <div className="w-full pt-96 relative backdrop-blur-sm">
+            <div className="w-full relative mt-96">
                 <div className="flex flex-row mx-28 justify-between">
                     <div className="flex w-4/12 justify-center">
                         <Image
@@ -65,16 +64,16 @@ async function Layout({ params, children }: MovieDetailProp) {
                             <p className="text-base-content mt-4 text-[16px] lg:text-lg italic">
                                 {movie?.tagline}
                             </p>
-                            <button className="btn btn-secondary w-fit md:btn-md lg:btn-lg rounded-full  ring-4 ring-primary mt-4">
+                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4">
                                 {movie.release_date} •{" "}
                                 {convertToHourMinute(movie.runtime)}
                             </button>
-                            <div className="flex flex-row gap-4 mt-4">
+                            <div className="flex flex-row gap-4 mt-4 flex-wrap">
                                 {movie.genres.map((genres) => {
                                     return (
                                         <div
                                             key={genres.id}
-                                            className="btn btn-secondary md:btn-md lg:btn-lg"
+                                            className="btn btn-secondary md:btn-md "
                                         >
                                             <span>{genres.name}</span>
                                         </div>

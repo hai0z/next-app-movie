@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+import Sibar from "./components/Sidebar";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
@@ -6,7 +6,8 @@ const poppins = Poppins({
     weight: ["200", "500", "700"],
     variable: "--font-poppins",
 });
-
+import Header from "./components/Header";
+import NextTopLoader from "nextjs-toploader";
 export const metadata = {
     title: "The Movies",
     description: "The Movies DB",
@@ -18,7 +19,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" data-theme="night" className="font-poppins">
+        <html lang="en" data-theme="night" className="font-poppins" id="html">
             <head>
                 <link
                     rel="stylesheet"
@@ -27,8 +28,16 @@ export default function RootLayout({
                 />
             </head>
             <body className={poppins.className}>
-                <Header />
-                {children}
+                <div className="flex flex-row">
+                    <div className="w-[80px]">
+                        <Sibar />
+                    </div>
+                    <div className="flex flex-col w-[calc(100%-80px)]">
+                        <NextTopLoader />
+                        <Header />
+                        {children}
+                    </div>
+                </div>
             </body>
         </html>
     );
