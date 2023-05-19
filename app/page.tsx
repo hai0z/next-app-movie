@@ -87,7 +87,7 @@ export default async function Home() {
                     <span className="text-base-content">View more</span>
                 </Link>
 
-                <div className="py-2">
+                <div>
                     <ListMovie movie={trendingList} />
                 </div>
 

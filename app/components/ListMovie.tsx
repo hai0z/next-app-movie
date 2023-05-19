@@ -10,7 +10,7 @@ function ListMovie({ movie }: { movie: MovieList }) {
     return (
         <Swiper slidesPerView={5}>
             {movie.results.map((m: any) => (
-                <SwiperSlide key={m.id}>
+                <SwiperSlide key={m.id} className="p-1">
                     <MovieCard m={m} />
                 </SwiperSlide>
             ))}
