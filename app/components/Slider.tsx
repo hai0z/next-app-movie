@@ -23,7 +23,6 @@ function Slider({ movie }: { movie: MovieList }) {
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
             autoplay={{
                 delay: 10000,
-                disableOnInteraction: false,
             }}
             slidesPerView={1}
             grabCursor={true}

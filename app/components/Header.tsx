@@ -47,7 +47,7 @@ function Header() {
                             alt="film"
                             width={500}
                             height={500}
-                            className="w-8 rounded-md"
+                            className="w-8 rounded-md cursor-pointer"
                         />
                         <div>
                             <p className="text-2xl font-bold">{data?.title}</p>

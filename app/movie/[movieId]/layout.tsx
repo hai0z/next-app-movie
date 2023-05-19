@@ -48,13 +48,13 @@ async function Layout({ params, children }: MovieDetailProp) {
             </div>
             <div className="w-full relative mt-96">
                 <div className="flex flex-row mx-28 justify-between">
-                    <div className="flex w-4/12 justify-center">
+                    <div className="flex w-4/12 justify-center drop-shadow-md">
                         <Image
                             src={`${ImagePath}/w500/${movie.poster_path}`}
                             width={500}
                             height={500}
                             priority
-                            className="w-[350px] rounded-[32px]"
+                            className="w-[350px] rounded-[32px] "
                             alt={movie.title}
                         />
                     </div>

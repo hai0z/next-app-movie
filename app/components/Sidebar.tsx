@@ -25,15 +25,17 @@ function Sidebar() {
     }
     return (
         <div className="w-[80px] h-screen bg-base-200 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30">
-            <Image
-                src={
-                    "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-                }
-                alt="logo"
-                width={64}
-                height={64}
-                className="w-12 h-12 md:w-16 md:h-16"
-            />
+            <Link href={"/"}>
+                <Image
+                    src={
+                        "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                    }
+                    alt="logo"
+                    width={64}
+                    height={64}
+                    className="w-12 h-12 md:w-16 md:h-16"
+                />
+            </Link>
             <div className="icon space-y-4 " data-tip="Trang chủ">
                 <div className="tooltip tooltip-right " data-tip="Trang chủ">
                     <Link
@@ -88,10 +90,10 @@ function Sidebar() {
                         </li>
                         <li
                             onClick={() => {
-                                handleChangeTheme("forest");
+                                handleChangeTheme("valentine");
                             }}
                         >
-                            <a>forest</a>
+                            <a>valentine</a>
                         </li>
                         <li
                             onClick={() => {
