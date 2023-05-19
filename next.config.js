@@ -6,10 +6,6 @@ const nextConfig = {
     env: {
         TMDB: "1425c50ed9fac25f4106f9ebe277b64c",
     },
-    experimental: {
-        serverActions: true,
-        scrollRestoration: false,
-    },
 };
 
 module.exports = nextConfig;

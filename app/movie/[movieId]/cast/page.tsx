@@ -6,8 +6,7 @@ async function page({ params }: { params: any }) {
 
     const getCast = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=vi-VN`,
-            { cache: "default" }
+            `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         return data;

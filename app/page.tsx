@@ -3,6 +3,7 @@ import MovieCard from "./components/ListMovie";
 import Slider from "./components/Slider";
 import Modal from "./components/Modal";
 import ListMovie from "./components/ListMovie";
+import MiniSlider from "./components/MiniSlider";
 export interface MovieList {
     results: {
         id?: number;
@@ -45,8 +46,7 @@ export interface Movie {
 export default async function Home() {
     const getTrending = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB}&language=vi-VN`,
-            { cache: "force-cache" }
+            `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         console.log(data.result);
@@ -54,20 +54,16 @@ export default async function Home() {
     };
     const getPopular = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`,
-            { cache: "force-cache" }
+            `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
-        console.log(data.result);
         return data;
     };
     const getTopRate = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}&language=vi-VN`,
-            { cache: "force-cache" }
+            `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
-        console.log(data.result);
         return data;
     };
     const trendingList: MovieList = await getTrending();
@@ -75,9 +71,13 @@ export default async function Home() {
     const topRateList: MovieList = await getTopRate();
     return (
         <div className="flex flex-col h-screen rounded-tl-[20px]">
-            <div className="h-screen w-full rounded-tl-[20px]">
+            <div className="h-screen w-full rounded-tl-[20px] relative">
                 <Slider movie={popularList} />
+                <div className="h-44 w-full bottom-0 absolute z-10 flex justify-center items-center gap-4 pl-4">
+                    <MiniSlider movie={popularList} />
+                </div>
             </div>
+
             <div className="bg-base-100 bg-opacity-95 pl-6 flex flex-col">
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Trending Movies

@@ -7,10 +7,7 @@ async function page({ params }: { params: any }) {
 
     const getRecomendations = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}/recommendations?api_key=${process.env.TMDB}&language=vi-VN`,
-            {
-                cache: "default",
-            }
+            `https://api.themoviedb.org/3/movie/${params.movieId}/recommendations?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
 
@@ -24,7 +21,7 @@ async function page({ params }: { params: any }) {
             {listRecommendations.map((l) => (
                 <div
                     key={l.id}
-                    className="cursor-pointer  w-64 bg-base-100 rounded-lg"
+                    className="cursor-pointer  w-64 bg-base-100 rounded-lg hover:ring-2 ring-primary"
                 >
                     <div className="overflow-hidden rounded-lg flex-1">
                         <Link href={"/movie/" + l.id + "#top"}>
@@ -33,11 +30,11 @@ async function page({ params }: { params: any }) {
                                 width={500}
                                 height={500}
                                 alt="cast"
-                                className="object-cover w-64 rounded-md hover:scale-110 hover:rounded-lg transition-all duration-150 group"
+                                className="object-cover w-64 rounded-md hover:scale-110 hover:rounded-lg transition-all duration-150 group "
                             />
                         </Link>
                     </div>
-                    <div className="font-semibold text-base-content py-4 flex-1">
+                    <div className="font-semibold text-base-content py-4 flex-1 px-2">
                         {l.title}
                     </div>
                 </div>

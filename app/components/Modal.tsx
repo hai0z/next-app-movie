@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useStore from "../(store)/store";
 
 function Modal() {
     const videoId = useStore((state) => state.videoId);
     const [video, setVideo] = useState<any>();
+    const videoRef = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
         const getTrailer = async () => {
@@ -15,6 +16,9 @@ function Modal() {
             setVideo(data);
         };
         getTrailer();
+        return () => {
+            console.log("modal unmount");
+        };
     }, [videoId]);
     console.log(videoId);
     return (
@@ -29,6 +33,7 @@ function Modal() {
                         ✕
                     </label>
                     <iframe
+                        ref={videoRef}
                         className="w-full h-full"
                         src={`https://www.youtube.com/embed/${video?.results?.[0].key}`}
                     ></iframe>

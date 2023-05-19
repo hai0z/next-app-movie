@@ -12,11 +12,12 @@ import "swiper/css/pagination";
 import { useRouter } from "next/navigation";
 import { Pagination } from "swiper";
 import Link from "next/link";
+import useStore from "../(store)/store";
 
 function Slider({ movie }: { movie: MovieList }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
-    const [currentIndex, setCurrentIndex] = useState(0);
-    console.log(currentIndex);
+    const currentIndex = useStore((state) => state.currentSlideIndex);
+    const setCurrentIndex = useStore((state) => state.setCurrentSlideIndex);
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -25,9 +26,8 @@ function Slider({ movie }: { movie: MovieList }) {
                 disableOnInteraction: false,
             }}
             slidesPerView={1}
-            pagination={true}
             grabCursor={true}
-            modules={[Autoplay, EffectCreative, Pagination]}
+            modules={[Autoplay, EffectCreative]}
         >
             <AnimatePresence initial={false}>
                 {movie.results.map((m, index) => (
@@ -40,13 +40,14 @@ function Slider({ movie }: { movie: MovieList }) {
                             height={1080}
                             priority
                         />
-                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-center lg:left-16 md:flex-row w-full">
+
+                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-around lg:px-8 md:flex-row w-full">
                             <div
                                 className={`${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
-                                } w-full lg:w-6/12 flex flex-col`}
+                                } w-full lg:w-8/12 flex flex-col`}
                             >
                                 <motion.div
                                     initial={{
@@ -64,18 +65,18 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <p className="lg:text-[4.5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full px-8">
+                                    <p className="lg:text-[4.5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
                                     </p>
-                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left px-8 text-white">
+                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left  text-white">
                                         {m.overview}
                                     </p>
                                     <motion.div
-                                        className={`flex flex-row py-8 px-8`}
+                                        className={`flex flex-row py-8`}
                                     >
                                         <Link
                                             href={`${"/movie/" + m.id}#top`}
-                                            className="btn btn-sm btn-primary md:btn-md lg:btn-lg"
+                                            className="btn btn-sm btn-primary md:btn-md lg:btn-md"
                                         >
                                             <span className="md:text-[20px]">
                                                 Xem chi tiết
@@ -85,7 +86,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                 </motion.div>
                             </div>
                             <div
-                                className={`w-6/12 pl-16 ${
+                                className={`${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
@@ -95,7 +96,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={`${ImagePath}/original//${m.poster_path}`}
                                     alt="film"
-                                    className="w-[400px] rounded-3xl"
+                                    className="w-[350px] rounded-3xl"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}

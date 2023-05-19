@@ -1,9 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import useStore from "../(store)/store";
 function Sidebar() {
+    const theme = useStore((state) => state.theme);
+    const setTheme = useStore((state) => state.setTheme);
+    useEffect(() => {
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme) {
+            document
+                .getElementById("html")
+                ?.setAttribute("data-theme", currentTheme);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+    function handleChangeTheme(themeName: string) {
+        document.getElementById("html")?.setAttribute("data-theme", themeName);
+        setTheme(themeName);
+    }
     return (
         <div className="w-[80px] h-screen bg-base-300 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30">
             <Image
@@ -21,7 +40,7 @@ function Sidebar() {
                         href={"/"}
                         className="hover:btn-primary btn btn-ghost"
                     >
-                        <HomeIcon className="h-6 w-6 text-white" />
+                        <HomeIcon className="h-6 w-6 text-base-content" />
                     </Link>
                 </div>
                 <div className="dropdown dropdown-right">
@@ -33,7 +52,7 @@ function Sidebar() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="w-6 h-6 text-white"
+                            className="w-6 h-6 text-base-content"
                         >
                             <path
                                 fillRule="evenodd"
@@ -48,48 +67,45 @@ function Sidebar() {
                     >
                         <li
                             onClick={() => {
-                                document
-                                    .getElementById("html")
-                                    ?.setAttribute("data-theme", "luxury");
+                                handleChangeTheme("luxury");
                             }}
                         >
-                            <a>Luxury</a>
+                            <a>luxury</a>
                         </li>
                         <li
                             onClick={() => {
-                                document
-                                    .getElementById("html")
-                                    ?.setAttribute("data-theme", "dracula");
+                                handleChangeTheme("dracula");
                             }}
                         >
-                            <a>Dracula</a>
+                            <a>dracula</a>
                         </li>
                         <li
                             onClick={() => {
-                                document
-                                    .getElementById("html")
-                                    ?.setAttribute("data-theme", "night");
+                                handleChangeTheme("night");
                             }}
                         >
-                            <a>Night</a>
+                            <a>night</a>
                         </li>
                         <li
                             onClick={() => {
-                                document
-                                    .getElementById("html")
-                                    ?.setAttribute("data-theme", "forest");
+                                handleChangeTheme("forest");
                             }}
                         >
-                            <a>Forest</a>
+                            <a>forest</a>
                         </li>
                         <li
                             onClick={() => {
-                                document
-                                    .getElementById("html")
-                                    ?.setAttribute("data-theme", "retro");
+                                handleChangeTheme("coffee");
                             }}
                         >
-                            <a>retro</a>
+                            <a>coffee</a>
+                        </li>
+                        <li
+                            onClick={() => {
+                                handleChangeTheme("synthwave");
+                            }}
+                        >
+                            <a>synthwave</a>
                         </li>
                     </ul>
                 </div>
