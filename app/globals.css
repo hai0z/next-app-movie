@@ -7,8 +7,8 @@
     content: "";
     background-image: linear-gradient(
         180deg,
-        rgba(24, 133, 69, 0) 10.77%,
-        hsl(var(--b1) / var(--tw-bg-opacity)) 100%
+        rgba(24, 133, 69, 0) 20.77%,
+        hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity)) 100%
     );
     top: 0;
     left: 80px;
