@@ -37,7 +37,7 @@ function Header() {
                 isScroll
                     ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
                     : "h-20 md:h-28"
-            } flex flex-row justify-center  items-center fixed z-10 transition-all duration-300 md:justify-between`}
+            } flex flex-row justify-center  items-center fixed z-50 transition-all duration-300 md:justify-between`}
         >
             <div className="flex flex-row items-center">
                 {isScroll && pathname.includes("movie") && (
