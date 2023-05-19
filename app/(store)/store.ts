@@ -10,7 +10,7 @@ interface Store {
 }
 const useStore = create<Store>((set) => ({
     videoId: "",
-    theme: localStorage?.getItem("theme") ?? "night",
+    theme: "night",
     currentSlideIndex: 0,
 
     setVideoId: (param) => set(() => ({ videoId: param })),
