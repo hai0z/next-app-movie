@@ -9,7 +9,7 @@ function MovieDetailTab() {
     const [isScroll, setIsScroll] = useState(false);
     useEffect(() => {
         const onScrollTop = () => {
-            if (window.scrollY > window.innerHeight) {
+            if (window.scrollY > window.innerHeight * 0.8) {
                 setIsScroll(true);
             } else {
                 setIsScroll(false);
@@ -22,7 +22,7 @@ function MovieDetailTab() {
         <div
             className={`tabs tabs-boxed px-24 mt-16 py-4 rounded-none bg-opacity-95 backdrop-blur-sm bg-base-100 ${
                 isScroll &&
-                "fixed z-30 top-0 w-full transition-all duration-200"
+                "fixed z-30 top-24 w-full transition-all duration-300 -translate-y-24 "
             }`}
         >
             <Link

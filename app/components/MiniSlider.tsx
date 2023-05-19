@@ -25,10 +25,10 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                     slidesPerView: 2,
                 },
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                 },
                 1024: {
-                    slidesPerView: 7,
+                    slidesPerView: 5,
                 },
             }}
             slidesPerView={7}

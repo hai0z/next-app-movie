@@ -29,7 +29,7 @@ function Slider({ movie }: { movie: MovieList }) {
             grabCursor={true}
             modules={[Autoplay, EffectCreative]}
         >
-            <AnimatePresence initial={false}>
+            <AnimatePresence>
                 {movie.results.map((m, index) => (
                     <SwiperSlide key={m.id}>
                         <Image
@@ -41,7 +41,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             priority
                         />
 
-                        <div className="absolute top-20 md:top-32 flex flex-col items-center justify-around lg:px-8 md:flex-row w-full">
+                        <div className="absolute top-20 md:top-32 flex flex-col justify-around lg:px-8 md:flex-row w-full">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -65,10 +65,10 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <p className="lg:text-[4.5rem] md:text-[3rem] text-[2rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
+                                    <p className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
                                     </p>
-                                    <p className="drop-shadow-2xl shadow-black text-[0.5rem] md:text-[1rem] w-full text-left  text-white">
+                                    <p className="drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white">
                                         {m.overview}
                                     </p>
                                     <motion.div
@@ -76,9 +76,9 @@ function Slider({ movie }: { movie: MovieList }) {
                                     >
                                         <Link
                                             href={`${"/movie/" + m.id}#top`}
-                                            className="btn btn-sm btn-primary md:btn-md lg:btn-md"
+                                            className="btn btn-sm btn-primary "
                                         >
-                                            <span className="md:text-[20px]">
+                                            <span className="md:text-lg">
                                                 Xem chi tiết
                                             </span>
                                         </Link>
@@ -96,7 +96,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={`${ImagePath}/original//${m.poster_path}`}
                                     alt="film"
-                                    className="w-[350px] rounded-3xl"
+                                    className="lg:w-[250px] rounded-3xl w-[300px]"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}

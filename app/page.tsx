@@ -1,7 +1,5 @@
 import Link from "next/link";
-import MovieCard from "./components/ListMovie";
 import Slider from "./components/Slider";
-import Modal from "./components/Modal";
 import ListMovie from "./components/ListMovie";
 import MiniSlider from "./components/MiniSlider";
 export interface MovieList {
@@ -78,7 +76,7 @@ export default async function Home() {
                 </div>
             </div>
 
-            <div className="bg-opacity-95 pl-6 flex flex-col ">
+            <div className="pl-6 flex flex-col ">
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Trending Movies
                 </span>

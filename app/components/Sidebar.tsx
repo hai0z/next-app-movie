@@ -24,7 +24,7 @@ function Sidebar() {
         setTheme(themeName);
     }
     return (
-        <div className="w-[80px] h-screen bg-base-300 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30">
+        <div className="w-[80px] h-screen bg-base-200 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30">
             <Image
                 src={
                     "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
@@ -95,10 +95,10 @@ function Sidebar() {
                         </li>
                         <li
                             onClick={() => {
-                                handleChangeTheme("coffee");
+                                handleChangeTheme("retro");
                             }}
                         >
-                            <a>coffee</a>
+                            <a>retro</a>
                         </li>
                         <li
                             onClick={() => {
