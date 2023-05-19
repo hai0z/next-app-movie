@@ -6,31 +6,24 @@ function MovieCard({ m }: { m: Movie }) {
     const ImagePath = "https://image.tmdb.org/t/p/";
 
     return (
-        <div className="mt-4 flex flex-col relative group mx-1 w-64">
-            <div className="flex justify-center items-center">
-                <Link href={"/movie/" + m.id}>
+        <div
+            key={m.id}
+            className="cursor-pointer w-64 bg-base-100 rounded-lg hover:ring-1 ring-primary"
+        >
+            <div className="overflow-hidden rounded-lg flex-1">
+                <Link href={"/movie/" + m.id + "#top"}>
                     <Image
-                        src={`${ImagePath}/original//${m.poster_path}`}
-                        alt="film"
-                        className="w-64 rounded-3xl group-hover:brightness-50 relative"
+                        src={`${ImagePath}/w500/${m.poster_path}`}
                         width={500}
-                        priority
-                        height={200}
+                        height={500}
+                        alt="cast"
+                        className="object-cover w-64 rounded-md hover:scale-110 hover:rounded-lg transition-all duration-150 group "
                     />
                 </Link>
-                <Link
-                    href={"/movie/" + m.id}
-                    className="w-24 py-4 rounded-full bg-red-600 shadow-3xl hover:shadow-hover transition-all duration-500 absolute justify-center items-center opacity-0 group-hover:opacity-100 flex scale-0 group-hover:scale-100"
-                >
-                    <i className="fa-solid fa-play"></i>
-                </Link>
             </div>
-            <Link
-                href={"/movie/" + m.id}
-                className="font-bold  pt-4 w-fit text-ellipsis group-hover:text-primary-focus text-base-content"
-            >
-                {m.title ?? m.name}
-            </Link>
+            <div className="font-semibold text-base-content py-4 px-2">
+                {m.title}
+            </div>
         </div>
     );
 }

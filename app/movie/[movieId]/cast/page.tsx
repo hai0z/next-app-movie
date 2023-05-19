@@ -14,7 +14,7 @@ async function page({ params }: { params: any }) {
     const { cast }: Cast = await getCast();
 
     return (
-        <div className="min-h-screen w-full px-24 grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="min-h-screen w-full px-24 grid grid-cols-1 md:grid-cols-4 gap-4 pb-96">
             {cast.map((c) => (
                 <div key={c.id} className="">
                     <Image

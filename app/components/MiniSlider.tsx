@@ -20,34 +20,44 @@ function MiniSlider({ movie }: { movie: MovieList }) {
 
     return (
         <Swiper
-            width={1920}
-            autoplay={{
-                delay: 10000,
-                disableOnInteraction: false,
+            breakpoints={{
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 7,
+                },
             }}
             slidesPerView={7}
-            watchSlidesProgress={true}
-            grabCursor={true}
             modules={[Autoplay, EffectCreative]}
         >
             <AnimatePresence initial={false}>
                 {movie.results.map((m, index) => {
                     return (
-                        <SwiperSlide key={m.id} className="p-2">
+                        <SwiperSlide key={m.id} className="p-2 group">
                             <div
-                                className={`w-60 rounded-md flex justify-center items-center  ${
+                                className={`w-60 rounded-md relative flex justify-center items-center  ${
                                     index === currentIndex &&
                                     "ring-4 ring-primary"
-                                }`}
+                                } overflow-hidden cursor-pointer hover:ring-4 hover:ring-primary`}
                             >
                                 <Image
                                     src={`${ImagePath}/w500/${m.backdrop_path}`}
                                     alt="film"
-                                    className={`w-60 rounded-md `}
+                                    className={`w-60 rounded-md group-hover:scale-110 group-hover:w-64 transition-all duration-150 hover:brightness-50`}
                                     width={500}
                                     height={500}
                                     priority
                                 />
+                                <p
+                                    className="absolute top-6 left-2 opacity-0 group-hover:opacity-95 transition-all duration-200 w-32
+                            font-bold "
+                                >
+                                    {m.title}
+                                </p>
                             </div>
                         </SwiperSlide>
                     );

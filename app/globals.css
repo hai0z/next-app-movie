@@ -8,10 +8,24 @@
     background-image: linear-gradient(
         180deg,
         rgba(24, 133, 69, 0) 40.77%,
-        #f2f2f2 100%
+        hsl(var(--b1) / var(--tw-bg-opacity)) 100%
     );
     top: 0;
     left: 80px;
+    bottom: 0;
+    right: 0;
+}
+.img-shadow2::after {
+    --tw-bg-opacity: 1;
+    position: absolute;
+    content: "";
+    background-image: linear-gradient(
+        180deg,
+        rgba(24, 133, 69, 0) 40.77%,
+        hsl(var(--b1) / var(--tw-bg-opacity)) 100%
+    );
+    top: 0;
+    left: 0;
     bottom: 0;
     right: 0;
 }
