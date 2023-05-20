@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 function Header() {
     const [data, setData] = useState<any>([]);
     const pathname = usePathname();
@@ -10,7 +12,7 @@ function Header() {
     const [isScroll, setIsScroll] = useState(false);
     useEffect(() => {
         const onScrollTop = () => {
-            if (window.scrollY > 120) {
+            if (window.scrollY > 90) {
                 setIsScroll(true);
             } else {
                 setIsScroll(false);
@@ -30,14 +32,31 @@ function Header() {
 
         getData();
     }, [params.movieId]);
+    const router = useRouter();
     return (
         <div
             className={`md:left-[80px] w-full px-8 ${
                 isScroll
                     ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
                     : "h-20 md:h-28"
-            } flex flex-row  items-center fixed z-50 transition-all duration-300 md:justify-between`}
+            } flex flex-row  items-center fixed z-50 transition-all duration-300`}
         >
+            <div className="flex gap-4 mr-2">
+                <div className="btn btn-primary btn-circle btn-sm">
+                    {" "}
+                    <ChevronLeftIcon
+                        className="h-6 w-6 text-base-content"
+                        onClick={() => router.back()}
+                    />
+                </div>
+                <div className="btn btn-primary btn-circle btn-sm">
+                    {" "}
+                    <ChevronRightIcon
+                        className="h-6 w-6 text-base-content"
+                        onClick={() => router.forward()}
+                    />
+                </div>
+            </div>
             <div className="flex flex-row items-center">
                 {isScroll && pathname.includes("movie") && (
                     <div className="flex flex-row gap-2 items-center bottom-0">

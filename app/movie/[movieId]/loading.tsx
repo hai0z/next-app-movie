@@ -12,7 +12,7 @@ function Loading() {
                 height={64}
                 className="w-16 h-16 md:w-24 md:h-24"
             />
-            <progress className="progress w-56 progress-info"></progress>
+            <progress className="progress w-56 progress-primary"></progress>
         </div>
     );
 }

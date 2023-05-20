@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import useStore from "../(store)/store";
 function Page() {
     const theme = useStore((state) => state.theme);
@@ -22,12 +22,12 @@ function Page() {
     }
 
     return (
-        <div className="h-screen p-10 bg-base-100">
+        <div className="p-10 mt-16">
             <p className="text-2xl font-bold">Cài đặt</p>
-            <div className="py-4 flex flex-row gap-16">
-                <ul className="menu  w-56 rounded-box">
-                    <li>
-                        <a className="active">Giao diện</a>
+            <div className="py-4 flex md:flex-row flex-col md:gap-16 gap-4">
+                <ul className="menu-horizontal menu md:menu-vertical  md:w-56 rounded-box">
+                    <li className="bordered">
+                        <a>Giao diện</a>
                     </li>
                     <li>
                         <a>Item 2</a>
@@ -36,10 +36,20 @@ function Page() {
                         <a>Item 3</a>
                     </li>
                 </ul>
-                <div className="w-full bg-base-300 rounded-lg flex flex-col p-8">
+                <div className="w-full bg-base-300 rounded-lg flex flex-col p-8 shadow-lg">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
                     <div className="flex gap-4 mt-4 ">
+                        <div data-theme="dark" className="bg-transparent">
+                            <input
+                                onClick={() => handleChangeTheme("dark")}
+                                type="radio"
+                                name="radio-1"
+                                className="radio radio-primary tooltip hover:bg-primary"
+                                data-tip="dark"
+                                checked={theme === "dark"}
+                            />
+                        </div>
                         <div data-theme="luxury" className="bg-transparent">
                             <input
                                 onClick={() => handleChangeTheme("luxury")}
