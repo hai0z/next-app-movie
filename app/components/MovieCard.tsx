@@ -8,7 +8,7 @@ function MovieCard({ m }: { m: Movie }) {
     return (
         <div
             key={m.id}
-            className="cursor-pointer w-64 bg-base-100 rounded-lg hover:ring-1 hover:ring-primary"
+            className="cursor-pointer md:w-48 xl:w-56 bg-base-100 rounded-lg hover:ring-1 hover:ring-primary w-40"
         >
             <div className="overflow-hidden rounded-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -17,7 +17,7 @@ function MovieCard({ m }: { m: Movie }) {
                         width={500}
                         height={500}
                         alt="cast"
-                        className="object-cover w-64 hover:scale-110 transition-all duration-150"
+                        className="object-cover md:w-48 xl:w-56 hover:scale-110 transition-all duration-150 w-40"
                     />
                 </Link>
             </div>

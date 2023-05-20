@@ -41,9 +41,6 @@ async function Page({
     const getRecomendations = async () => {
         const respone = await fetch(
             `https://api.themoviedb.org/3/movie/${params.movieId}/recommendations?api_key=${process.env.TMDB}&language=vi-VN`,
-            {
-                cache: "default",
-            }
         );
         const data = await respone.json();
 

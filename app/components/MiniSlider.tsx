@@ -31,7 +31,6 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                     slidesPerView: 5,
                 },
             }}
-            slidesPerView={7}
             modules={[Autoplay, EffectCreative]}
         >
             <AnimatePresence initial={false}>

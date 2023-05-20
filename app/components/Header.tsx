@@ -37,9 +37,9 @@ function Header() {
         <div
             className={`md:left-[80px] w-full px-4 ${
                 isScroll
-                    ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
+                    ? "bg-base-100 shadow-lg backdrop-blur-lg bg-opacity-80 h-16 md:h-16"
                     : "h-20 md:h-28"
-            } flex flex-row items-center fixed z-50 transition-all duration-300`}
+            } flex flex-row items-center fixed z-50 transition-all duration-300 `}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">

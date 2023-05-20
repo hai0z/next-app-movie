@@ -56,7 +56,7 @@ export default async function Home() {
             `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
-        await wait();
+
         return data;
     };
     const getTopRate = async () => {
