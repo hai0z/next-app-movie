@@ -8,6 +8,7 @@ const poppins = Poppins({
 });
 import Header from "./components/Header";
 import NextTopLoader from "nextjs-toploader";
+import MobileTab from "./components/mobile/MobileTab";
 export const metadata = {
     title: "The Movies",
     description: "The Movies DB",
@@ -30,7 +31,9 @@ export default function RootLayout({
             <body className={poppins.className}>
                 <div className="flex flex-row">
                     <Sidebar />
-
+                    <div className="md:hidden">
+                        <MobileTab />
+                    </div>
                     <div className="flex flex-col w-full md:pl-[80px]">
                         <NextTopLoader showSpinner={false} />
                         <Header />

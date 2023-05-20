@@ -39,87 +39,119 @@ function Page() {
                 <div className="w-full bg-base-300 rounded-lg flex flex-col p-8 shadow-lg">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
-                    <div className="flex gap-4 mt-4 ">
-                        <div data-theme="dark" className="bg-transparent">
+                    <div className="flex gap-4 mt-4 flex-col md:flex-row flex-wrap ">
+                        <div
+                            data-theme="dark"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("dark")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="dark"
                                 checked={theme === "dark"}
                             />
+                            <p className={"block md:hidden"}>dark</p>
                         </div>
-                        <div data-theme="light" className="bg-transparent">
+                        <div
+                            data-theme="light"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("light")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="light"
                                 checked={theme === "light"}
                             />
+                            <p className={"block md:hidden"}>light</p>
                         </div>
-                        <div data-theme="luxury" className="bg-transparent">
+                        <div
+                            data-theme="luxury"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("luxury")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="luxury"
                                 checked={theme === "luxury"}
                             />
+                            <p className={"block md:hidden"}>luxury</p>
                         </div>
-                        <div data-theme="dracula" className="bg-transparent">
+                        <div
+                            data-theme="dracula"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("dracula")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="dracula"
                                 checked={theme === "dracula"}
                             />
+                            <p className={"block md:hidden"}>dracula</p>
                         </div>
-                        <div data-theme="night" className="bg-transparent">
+                        <div
+                            data-theme="night"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("night")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="night"
                                 checked={theme === "night"}
                             />
+                            <p className={"block md:hidden"}>night</p>
                         </div>
-                        <div data-theme="retro" className="bg-transparent">
+                        <div
+                            data-theme="retro"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("retro")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="retro"
                                 checked={theme === "retro"}
                             />
+                            <p className={"block md:hidden"}>retro</p>
                         </div>
 
-                        <div data-theme="synthwave" className="bg-transparent">
+                        <div
+                            data-theme="synthwave"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("synthwave")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="synthwave"
                                 checked={theme === "synthwave"}
                             />
+                            <p className={"block md:hidden"}>sythwave</p>
                         </div>
-                        <div data-theme="forest" className="bg-transparent">
+                        <div
+                            data-theme="forest"
+                            className="bg-transparent flex gap-2"
+                        >
                             <input
                                 onClick={() => handleChangeTheme("forest")}
                                 type="radio"
                                 name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="forest"
                                 checked={theme === "forest"}
                             />
+                            <p className={"block md:hidden"}>forest</p>
                         </div>
                     </div>
                 </div>

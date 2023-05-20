@@ -120,7 +120,7 @@ async function Page({
                     </div>
                 </div>
                 <div>
-                    <p className="text-3xl  text-base-content pt-4">
+                    <p className="md:text-3xl  text-base-content pt-4">
                         Top Diễn Viên
                     </p>
                     <Link
@@ -150,7 +150,7 @@ async function Page({
                     </div>
                 </div>
                 <div>
-                    <p className="text-3xl  text-base-content pt-4">
+                    <p className="md:text-3xl  text-base-content pt-4">
                         Phim Đề Xuất
                     </p>
                     <Link

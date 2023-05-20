@@ -34,13 +34,13 @@ function Slider({ movie }: { movie: MovieList }) {
                         <Image
                             src={`${ImagePath}/original/${m.backdrop_path}`}
                             alt="film"
-                            className="w-full brightness-50 blur-sm object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
+                            className="w-full brightness-50 md:blur-sm object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
                             width={1920}
                             height={1080}
                             priority
                         />
 
-                        <div className="absolute top-20 md:top-32 flex flex-col justify-around lg:px-8 md:flex-row w-full px-8">
+                        <div className="absolute bottom-0 md:top-32 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -67,7 +67,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     <p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
                                     </p>
-                                    <p className="drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white">
+                                    <p className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white md:block">
                                         {m.overview}
                                     </p>
                                     <motion.div
