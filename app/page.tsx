@@ -41,7 +41,7 @@ export interface Movie {
         name: string;
     }[];
 }
-
+const wait = () => new Promise((res) => setTimeout((cb) => res(cb), 1500));
 export default async function Home() {
     const getTrending = async () => {
         const respone = await fetch(
@@ -56,6 +56,7 @@ export default async function Home() {
             `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
+        await wait();
         return data;
     };
     const getTopRate = async () => {

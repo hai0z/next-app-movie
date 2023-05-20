@@ -24,7 +24,7 @@ function Page() {
     return (
         <div className="p-10 mt-16">
             <p className="text-2xl font-bold">Cài đặt</p>
-            <div className="py-4 flex md:flex-row flex-col md:gap-16 gap-4">
+            <div className="py-4 flex md:flex-row flex-col md:gap-8 gap-4">
                 <ul className="menu-horizontal menu md:menu-vertical  md:w-56 rounded-box">
                     <li className="bordered">
                         <a>Giao diện</a>
@@ -48,6 +48,16 @@ function Page() {
                                 className="radio radio-primary tooltip hover:bg-primary"
                                 data-tip="dark"
                                 checked={theme === "dark"}
+                            />
+                        </div>
+                        <div data-theme="light" className="bg-transparent">
+                            <input
+                                onClick={() => handleChangeTheme("light")}
+                                type="radio"
+                                name="radio-1"
+                                className="radio radio-primary tooltip hover:bg-primary"
+                                data-tip="light"
+                                checked={theme === "light"}
                             />
                         </div>
                         <div data-theme="luxury" className="bg-transparent">
@@ -90,16 +100,7 @@ function Page() {
                                 checked={theme === "retro"}
                             />
                         </div>
-                        <div data-theme="valentine" className="bg-transparent">
-                            <input
-                                onClick={() => handleChangeTheme("valentine")}
-                                type="radio"
-                                name="radio-1"
-                                className="radio radio-primary tooltip hover:bg-primary"
-                                data-tip="valentine"
-                                checked={theme === "valentine"}
-                            />
-                        </div>
+
                         <div data-theme="synthwave" className="bg-transparent">
                             <input
                                 onClick={() => handleChangeTheme("synthwave")}
@@ -108,6 +109,16 @@ function Page() {
                                 className="radio radio-primary tooltip hover:bg-primary"
                                 data-tip="synthwave"
                                 checked={theme === "synthwave"}
+                            />
+                        </div>
+                        <div data-theme="forest" className="bg-transparent">
+                            <input
+                                onClick={() => handleChangeTheme("forest")}
+                                type="radio"
+                                name="radio-1"
+                                className="radio radio-primary tooltip hover:bg-primary"
+                                data-tip="forest"
+                                checked={theme === "forest"}
                             />
                         </div>
                     </div>

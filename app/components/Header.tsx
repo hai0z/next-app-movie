@@ -35,24 +35,24 @@ function Header() {
     const router = useRouter();
     return (
         <div
-            className={`md:left-[80px] w-full px-8 ${
+            className={`md:left-[80px] w-full px-4 ${
                 isScroll
                     ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
                     : "h-20 md:h-28"
-            } flex flex-row  items-center fixed z-50 transition-all duration-300`}
+            } flex flex-row items-center fixed z-50 transition-all duration-300`}
         >
-            <div className="flex gap-4 mr-2">
+            <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
                     {" "}
                     <ChevronLeftIcon
-                        className="h-6 w-6 text-base-content"
+                        className="h-6 w-6 text-primary-content"
                         onClick={() => router.back()}
                     />
                 </div>
                 <div className="btn btn-primary btn-circle btn-sm">
                     {" "}
                     <ChevronRightIcon
-                        className="h-6 w-6 text-base-content"
+                        className="h-6 w-6 text-primary-content"
                         onClick={() => router.forward()}
                     />
                 </div>
@@ -68,10 +68,10 @@ function Header() {
                             className="w-8 rounded-md cursor-pointer"
                         />
                         <div>
-                            <p className="md:text-xl font-bold">
+                            <p className="md:text-xl text-sm font-bold">
                                 {data?.title}
                             </p>
-                            <p className="md:text-xl">
+                            <p className="md:text-xl text-sm">
                                 {pathname.split("/").at(-1) === params.movieId
                                     ? "overview"
                                     : pathname.split("/").at(-1)}
