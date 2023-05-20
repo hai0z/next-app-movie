@@ -4,7 +4,6 @@ import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 import WatchTrailerButton from "@/app/components/WatchTrailerButton";
 import Modal from "@/app/components/Modal";
-import useStore from "@/app/(store)/store";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -49,14 +48,14 @@ async function Layout({ params, children }: MovieDetailProp) {
             </div>
 
             <div className="w-full relative pt-[35%]">
-                <div className="flex flex-row  justify-between  relative bottom-0 pb-14">
+                <div className="flex flex-row  justify-between  relative bottom-0 md:pb-16">
                     <div className="flex w-4/12 justify-center drop-shadow-md ">
                         <Image
                             src={`${ImagePath}/w500/${movie.poster_path}`}
                             width={500}
                             height={100}
                             priority
-                            className="md:w-[350px] rounded-[32px] w-24"
+                            className="md:w-[350px] md:rounded-[32px] rounded-md w-28"
                             alt={movie.title}
                         />
                     </div>
@@ -68,11 +67,11 @@ async function Layout({ params, children }: MovieDetailProp) {
                             <p className="text-base-content mt-4 text-[16px] lg:text-lg italic">
                                 {movie?.tagline}
                             </p>
-                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4">
+                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4 hidden">
                                 {movie.release_date} •{" "}
                                 {convertToHourMinute(movie.runtime)}
                             </button>
-                            <div className="flex flex-row gap-4 mt-4 flex-wrap">
+                            <div className="md:flex flex-row gap-4 mt-4 flex-wrap hidden">
                                 {movie.genres.map((genres) => {
                                     return (
                                         <div
@@ -84,10 +83,31 @@ async function Layout({ params, children }: MovieDetailProp) {
                                     );
                                 })}
                             </div>
-                            <div className="mt-16">
+                            <div className="mt-16 hidden md:block">
                                 <WatchTrailerButton videoId={params.movieId} />
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="md:hidden p-4 md:p-0">
+                    <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm">
+                        {movie.release_date} •{" "}
+                        {convertToHourMinute(movie.runtime)}
+                    </button>
+                    <div className="flex flex-row gap-2 flex-wrap">
+                        {movie.genres.map((genres) => {
+                            return (
+                                <div
+                                    key={genres.id}
+                                    className="btn btn-secondary md:btn-md w-fit btn-xs"
+                                >
+                                    <span>{genres.name}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className="mt-2">
+                        <WatchTrailerButton videoId={params.movieId} />
                     </div>
                 </div>
                 <div className=" w-full bg-base-200">

@@ -53,7 +53,7 @@ async function Page({
     const { cast }: Cast = await getCast();
     const { results: recommenList }: MovieList = await getRecomendations();
     return (
-        <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 mt-20">
+        <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 md:mt-20 mt-8">
             <div className="md:w-5/12 lg:w-3/12 flex w-full gap-4">
                 <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 md:max-w-[75%] h-fit w-full flex flex-col">
                     <div className="grid grid-cols-2 md:flex-col  md:flex">
