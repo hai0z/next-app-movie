@@ -21,8 +21,8 @@ function MovieCard({ m }: { m: Movie }) {
                     />
                 </Link>
             </div>
-            <div className="font-semibold text-base-content py-4 px-2 ">
-                {m.title}
+            <div className="font-semibold text-base-content py-4 px-2">
+                <p className="w-fit">{m.title}</p>
             </div>
         </div>
     );

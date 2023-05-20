@@ -30,18 +30,17 @@ function Header() {
 
         getData();
     }, [params.movieId]);
-    console.log("header loaded");
     return (
         <div
-            className={`w-full px-8 ${
+            className={`md:left-[80px] w-full px-8 ${
                 isScroll
                     ? "bg-base-100 shadow-lg backdrop-blur-md bg-opacity-90  h-16 md:h-16"
                     : "h-20 md:h-28"
-            } flex flex-row justify-center  items-center fixed z-50 transition-all duration-300 md:justify-between`}
+            } flex flex-row  items-center fixed z-50 transition-all duration-300 md:justify-between`}
         >
             <div className="flex flex-row items-center">
                 {isScroll && pathname.includes("movie") && (
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row gap-2 items-center bottom-0">
                         <Image
                             src={`${ImagePath}/w500/${data?.poster_path}`}
                             alt="film"
@@ -50,8 +49,10 @@ function Header() {
                             className="w-8 rounded-md cursor-pointer"
                         />
                         <div>
-                            <p className="text-2xl font-bold">{data?.title}</p>
-                            <p>
+                            <p className="md:text-xl font-bold">
+                                {data?.title}
+                            </p>
+                            <p className="md:text-xl">
                                 {pathname.split("/").at(-1) === params.movieId
                                     ? "overview"
                                     : pathname.split("/").at(-1)}

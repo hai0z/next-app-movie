@@ -4,6 +4,7 @@ import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 import WatchTrailerButton from "@/app/components/WatchTrailerButton";
 import Modal from "@/app/components/Modal";
+import useStore from "@/app/(store)/store";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -35,32 +36,33 @@ async function Layout({ params, children }: MovieDetailProp) {
         return formattedTime;
     }
     return (
-        <div className="w-full flex flex-col bg-base-100 h-screen rounded-tl-[20px]">
-            <div className="fixed img-shadow">
+        <div className="w-full flex flex-col md:rounded-tl-[20px]">
+            <div className="fixed img-shadow2">
                 <Image
                     src={`${ImagePath}/original/${movie.backdrop_path}`}
                     width={1920}
                     height={1080}
                     priority
-                    className="object-cover rounded-tl-[20px]"
+                    className="object-cover md:rounded-tl-[20px] md:h-[95vh]"
                     alt={movie.title}
                 />
             </div>
-            <div className="w-full relative mt-96">
-                <div className="flex flex-row mx-28 justify-between">
-                    <div className="flex w-4/12 justify-center drop-shadow-md">
+
+            <div className="w-full relative pt-[35%]">
+                <div className="flex flex-row  justify-between  relative bottom-0 pb-14">
+                    <div className="flex w-4/12 justify-center drop-shadow-md ">
                         <Image
                             src={`${ImagePath}/w500/${movie.poster_path}`}
                             width={500}
-                            height={500}
+                            height={100}
                             priority
-                            className="w-[350px] rounded-[32px] "
+                            className="md:w-[350px] rounded-[32px] w-24"
                             alt={movie.title}
                         />
                     </div>
                     <div className="w-8/12">
                         <div className="flex flex-col ml-8">
-                            <p className="text-[4rem] font-semibold text-base-content drop-shadow-2xl">
+                            <p className="md:text-[4rem] font-semibold text-base-content drop-shadow-2xl">
                                 {movie.title}
                             </p>
                             <p className="text-base-content mt-4 text-[16px] lg:text-lg italic">
@@ -88,12 +90,12 @@ async function Layout({ params, children }: MovieDetailProp) {
                         </div>
                     </div>
                 </div>
-                <div className="bg-base-200">
+                <div className=" w-full bg-base-200">
                     <MovieDetailTab />
-                    <div className="w-full divider px-24"></div>
                     {children}
                 </div>
             </div>
+
             <Modal />
         </div>
     );

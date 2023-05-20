@@ -5,26 +5,8 @@ import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import useStore from "../(store)/store";
 function Sidebar() {
-    const theme = useStore((state) => state.theme);
-    const setTheme = useStore((state) => state.setTheme);
-    useEffect(() => {
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme) {
-            document
-                .getElementById("html")
-                ?.setAttribute("data-theme", currentTheme);
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("theme", theme);
-    }, [theme]);
-    function handleChangeTheme(themeName: string) {
-        document.getElementById("html")?.setAttribute("data-theme", themeName);
-        setTheme(themeName);
-    }
     return (
-        <div className="w-[80px] h-screen bg-base-200 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30">
+        <div className="md:w-[80px] h-screen bg-base-200 fixed top-0 left-0 md:flex flex-col items-center p-4 space-y-4 z-30 hidden">
             <Link href={"/"}>
                 <Image
                     src={
@@ -45,8 +27,12 @@ function Sidebar() {
                         <HomeIcon className="h-6 w-6 text-base-content" />
                     </Link>
                 </div>
-                <div className="dropdown dropdown-right">
-                    <label
+                <div
+                    className="icon space-y-4 tooltip tooltip-right"
+                    data-tip="Cài đặt"
+                >
+                    <Link
+                        href={"/setting"}
                         tabIndex={0}
                         className="hover:btn-primary btn btn-ghost"
                     >
@@ -62,54 +48,7 @@ function Sidebar() {
                                 clipRule="evenodd"
                             />
                         </svg>
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ml-4"
-                    >
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("luxury");
-                            }}
-                        >
-                            <a>luxury</a>
-                        </li>
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("dracula");
-                            }}
-                        >
-                            <a>dracula</a>
-                        </li>
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("night");
-                            }}
-                        >
-                            <a>night</a>
-                        </li>
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("valentine");
-                            }}
-                        >
-                            <a>valentine</a>
-                        </li>
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("retro");
-                            }}
-                        >
-                            <a>retro</a>
-                        </li>
-                        <li
-                            onClick={() => {
-                                handleChangeTheme("synthwave");
-                            }}
-                        >
-                            <a>synthwave</a>
-                        </li>
-                    </ul>
+                    </Link>
                 </div>
             </div>
         </div>

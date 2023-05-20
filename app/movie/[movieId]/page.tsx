@@ -53,33 +53,35 @@ async function Page({
     const { cast }: Cast = await getCast();
     const { results: recommenList }: MovieList = await getRecomendations();
     return (
-        <div className="mx-24 bg-base-200 flex flex-row h-full">
-            <div className="w-3/12 flex ">
-                <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 max-w-[75%] h-fit">
-                    <div>
+        <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2">
+            <div className="md:w-5/12 lg:w-3/12 flex w-full gap-4">
+                <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 md:max-w-[75%] h-fit w-full flex flex-col">
+                    <div className="grid grid-cols-2 md:flex-col  md:flex">
                         <p className="font-bold">Original Title</p>
                         <p className="font-mono font-extralight">
                             {movie.original_title}
                         </p>
                     </div>
-                    <div>
+                    <div className="grid grid-cols-2 md:flex-col md:flex">
                         <p className="font-bold">Status</p>
                         <p className="font-mono font-extralight">
                             {movie.status}
                         </p>
                     </div>
-                    <div>
+                    <div className="grid grid-cols-2 md:flex-col md:flex">
                         <p className="font-bold">Production Companies</p>
-                        {movie.production_companies.map((company) => (
-                            <p
-                                className="font-mono font-extralight"
-                                key={company.name}
-                            >
-                                {company.name}
-                            </p>
-                        ))}
+                        <div>
+                            {movie.production_companies.map((company) => (
+                                <p
+                                    className="font-mono font-extralight"
+                                    key={company.name}
+                                >
+                                    {company.name}
+                                </p>
+                            ))}
+                        </div>
                     </div>
-                    <div>
+                    <div className="grid grid-cols-2 md:flex-col md:flex">
                         <p className="font-bold">Budget</p>
                         <p className="font-mono font-extralight">
                             {movie.budget.toLocaleString("en-US", {
@@ -88,7 +90,7 @@ async function Page({
                             })}
                         </p>
                     </div>
-                    <div>
+                    <div className="grid grid-cols-2 md:flex-col md:flex">
                         <p className="font-bold">Revenue</p>
                         <p className="font-mono font-extralight">
                             {movie.revenue.toLocaleString("en-US", {
@@ -99,7 +101,7 @@ async function Page({
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-9/12 ">
+            <div className="flex flex-col md:w-7/12 lg:w-9/12 w-full">
                 <div className="bg-base-100 contrast-75 p-6 rounded-md space-y-3">
                     <p> {movie.overview}</p>
                     <div className="flex flex-row gap-4">
@@ -158,7 +160,7 @@ async function Page({
                         Xem Thêm
                     </Link>
                     <div className="flex flex-row gap-4">
-                        {recommenList?.slice(0, 5).map((r: any) => (
+                        {recommenList?.slice(0, 3).map((r: any) => (
                             <MovieCard m={r} key={r.id} />
                         ))}
                     </div>

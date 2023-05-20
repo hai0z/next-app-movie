@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Movie } from "../page";
 
 interface Store {
     videoId: string;
@@ -7,12 +8,16 @@ interface Store {
     setTheme: (theme: string) => void;
     currentSlideIndex: number;
     setCurrentSlideIndex: (index: number) => void;
+    movie: Movie;
+    setMovie: (movie: Movie) => void;
 }
 const useStore = create<Store>((set) => ({
     videoId: "",
     theme: "night",
     currentSlideIndex: 0,
+    movie: {} as Movie,
 
+    setMovie: (param) => set(() => ({ movie: param })),
     setVideoId: (param) => set(() => ({ videoId: param })),
     setTheme: (param) => set(() => ({ theme: param })),
     setCurrentSlideIndex: (param) => set(() => ({ currentSlideIndex: param })),

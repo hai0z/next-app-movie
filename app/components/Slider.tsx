@@ -40,7 +40,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             priority
                         />
 
-                        <div className="absolute top-20 md:top-32 flex flex-col justify-around lg:px-8 md:flex-row w-full">
+                        <div className="absolute top-20 md:top-32 flex flex-col justify-around lg:px-8 md:flex-row w-full px-8">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -64,7 +64,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <p className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
+                                    <p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
                                     </p>
                                     <p className="drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white">

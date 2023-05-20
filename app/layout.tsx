@@ -1,4 +1,4 @@
-import Sibar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
@@ -29,10 +29,9 @@ export default function RootLayout({
             </head>
             <body className={poppins.className}>
                 <div className="flex flex-row">
-                    <div className="w-[80px]">
-                        <Sibar />
-                    </div>
-                    <div className="flex flex-col w-[calc(100%-80px)]">
+                    <Sidebar />
+
+                    <div className="flex flex-col w-full md:pl-[80px]">
                         <NextTopLoader showSpinner={false} />
                         <Header />
                         {children}
