@@ -25,7 +25,7 @@ async function Page({
     return (
         <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 md:mt-20 mt-8">
             <div className="md:w-5/12 lg:w-3/12 flex w-full gap-4">
-                <div className="bg-base-100 contrast-75 p-4 rounded-lg space-y-4 md:max-w-[75%] h-fit w-full flex flex-col">
+                <div className=" bg-base-300 shadow-lg p-4 rounded-lg space-y-4 md:max-w-[75%] h-fit w-full flex flex-col">
                     <div className="grid grid-cols-2 md:flex-col  md:flex">
                         <p className="font-bold">Original Title</p>
                         <p className="font-mono font-extralight">
@@ -72,7 +72,7 @@ async function Page({
                 </div>
             </div>
             <div className="flex flex-col md:w-7/12 lg:w-9/12 w-full">
-                <div className="bg-base-100 contrast-75 p-6 rounded-md space-y-3">
+                <div className="bg-base-300 shadow-lg p-6 rounded-md space-y-3">
                     <p> {movie.overview}</p>
                     <div className="flex flex-row gap-4">
                         <div>

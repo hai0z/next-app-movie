@@ -36,7 +36,7 @@ function Page() {
                         <a>Item 3</a>
                     </li>
                 </ul>
-                <div className="w-full bg-base-300 rounded-lg flex flex-col p-8 shadow-lg">
+                <div className="w-full bg-base-300 shadow-lg rounded-lg flex flex-col p-8 shadow-lg">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
                     <div className="flex gap-4 mt-4 flex-col md:flex-row flex-wrap ">

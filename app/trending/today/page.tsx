@@ -11,8 +11,8 @@ async function page({ searchParams }: any) {
         searchParams.page ?? 1
     );
     return (
-        <div>
-            <div className="flex flex-row justify-between items-center flex-wrap gap-4 pb-32 md:pb-8">
+        <div className="pb-16">
+            <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
                 {movie.results.map((m: any) => (
                     <MovieCard m={m} key={m.id} />
                 ))}

@@ -10,14 +10,12 @@ function Pagination({ totalPages }: { totalPages: number }) {
 
     const handlePageClick = (pageNumber: number) => {
         setCurrentPage(pageNumber);
-        // Thực hiện các tác động phụ khi chuyển trang, ví dụ: tải dữ liệu mới từ API
     };
 
     const renderPageNumbers = () => {
         const pageNumbers = [];
-        const maxDisplayedPages = 3; // Số trang tối đa hiển thị
+        const maxDisplayedPages = 3;
 
-        // Tạo danh sách các số trang từ trang hiện tại và số trang tối đa hiển thị
         let startPage = Math.max(
             1,
             currentPage - Math.floor(maxDisplayedPages / 2)
@@ -30,7 +28,11 @@ function Pagination({ totalPages }: { totalPages: number }) {
                 <Link
                     href={`${pathName}?page=${i}`}
                     key={i}
-                    className={i === currentPage ? "btn-active btn" : "btn"}
+                    className={
+                        i === currentPage
+                            ? "btn-active btn btn-sm"
+                            : "btn btn-sm"
+                    }
                     onClick={() => handlePageClick(i)}
                 >
                     <p>{i}</p>
@@ -39,7 +41,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
         }
 
         pageNumbers.push(
-            <div key={"..."} className={"btn"}>
+            <div key={"..."} className={"btn btn-sm"}>
                 <p>{"..."}</p>
             </div>
         );
@@ -47,7 +49,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
             pageNumbers.push(
                 <Link
                     key={"last"}
-                    className={"btn"}
+                    className={"btn btn-sm"}
                     href={`${pathName}?page=${totalPages}`}
                     onClick={() => handlePageClick(totalPages)}
                 >
@@ -58,7 +60,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
 
         if (currentPage >= maxDisplayedPages) {
             pageNumbers.unshift(
-                <p key={"dot"} className={"btn"}>
+                <p key={"dot"} className={"btn btn-sm"}>
                     <button>...</button>
                 </p>
             );
@@ -68,7 +70,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
                 <Link
                     href={`${pathName}?page=1`}
                     key={"frist"}
-                    className={"btn"}
+                    className={"btn btn-sm"}
                     onClick={() => handlePageClick(1)}
                 >
                     <button>1</button>
@@ -83,7 +85,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
         <div className="btn-group">
             <Link
                 href={`${pathName}?page=${currentPage - 1}`}
-                className={`btn ${currentPage === 1 && "disabled"}`}
+                className={`btn btn-sm ${currentPage === 1 && "disabled"}`}
                 onClick={() => setCurrentPage(currentPage - 1)}
             >
                 {"<"}
@@ -91,7 +93,9 @@ function Pagination({ totalPages }: { totalPages: number }) {
             {renderPageNumbers()}
             <Link
                 href={`${pathName}?page=${currentPage + 1}`}
-                className={`btn ${currentPage === totalPages && "disabled"}`}
+                className={`btn btn-sm ${
+                    currentPage === totalPages && "disabled"
+                }`}
                 onClick={() => setCurrentPage(currentPage + 1)}
             >
                 {">"}

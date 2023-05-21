@@ -18,7 +18,7 @@ export default async function Home() {
                 </div>
             </div>
 
-            <div className="pl-6 flex flex-col ">
+            <div className="pl-6 flex flex-col bg-base-100">
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
                     Trending Movies
                 </span>
