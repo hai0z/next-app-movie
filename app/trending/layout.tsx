@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
+
 function Page({ children }: { children: React.ReactNode }) {
     const pathName = usePathname();
     return (

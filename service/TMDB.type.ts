@@ -9,6 +9,7 @@ export interface MovieList {
         genres: number[];
         name?: string;
     }[];
+    total_pages: number;
 }
 export interface Movie {
     id?: number;

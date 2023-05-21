@@ -17,12 +17,24 @@ class TMDB {
 
         return data;
     }
-    async getTrending(type: "movie" | "tv", timeWindow: "day" | "week") {
-        const respone = await fetch(
-            `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&language=vi-VN`
-        );
-        const data = await respone.json();
-        return data;
+    async getTrending(
+        type: "movie" | "tv",
+        timeWindow: "day" | "week",
+        page?: number
+    ) {
+        if (page) {
+            const respone = await fetch(
+                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&page=${page}&language=vi-VN`
+            );
+            const data = await respone.json();
+            return data;
+        } else {
+            const respone = await fetch(
+                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&language=vi-VN`
+            );
+            const data = await respone.json();
+            return data;
+        }
     }
 
     async getTopRate(type: "movie" | "tv" | "person") {

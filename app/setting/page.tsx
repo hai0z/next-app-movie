@@ -45,12 +45,12 @@ function Page() {
                             className="bg-transparent flex gap-2"
                         >
                             <input
-                                onClick={() => handleChangeTheme("dark")}
+                                onClick={() => handleChangeTheme("black")}
                                 type="radio"
                                 name="radio-1"
                                 className="radio radio-primary md:tooltip hover:bg-primary"
                                 data-tip="dark"
-                                checked={theme === "dark"}
+                                checked={theme === "black"}
                             />
                             <p className={"block md:hidden"}>dark</p>
                         </div>
