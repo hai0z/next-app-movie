@@ -26,7 +26,12 @@ export default async function Home() {
                     href={"/"}
                     className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2"
                 >
-                    <span className="text-base-content">View more</span>
+                    <Link
+                        href={"/trending/today"}
+                        className="text-base-content"
+                    >
+                        View more
+                    </Link>
                 </Link>
 
                 <div>
