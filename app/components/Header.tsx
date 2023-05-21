@@ -36,10 +36,8 @@ function Header() {
     return (
         <div
             className={`md:left-[80px] w-full px-4 ${
-                isScroll
-                    ? "bg-base-100 shadow-lg backdrop-blur-lg bg-opacity-80 h-16 md:h-16"
-                    : "h-20 md:h-28"
-            } flex flex-row items-center fixed z-50 transition-all duration-300 `}
+                isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80 "
+            } flex flex-row items-center fixed z-50 transition-all duration-100 h-16 md:h-16`}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
@@ -82,6 +80,11 @@ function Header() {
                 {isScroll && pathname == "/" && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl">Trang chủ</p>
+                    </div>
+                )}
+                {isScroll && pathname.includes("trending") && (
+                    <div className="flex flex-row gap-2">
+                        <p className="font-bold text-2xl">Trending</p>
                     </div>
                 )}
             </div>

@@ -21,23 +21,42 @@ function MobileTab() {
                 isScroll && "-bottom-20 transition-all duration-300"
             }`}
         >
-            <div className="flex justify-center items-center flex-col">
-                <Link href={"/"} className="">
+            <div>
+                <Link
+                    href={"/"}
+                    className="flex justify-center items-center flex-col"
+                >
                     <HomeIcon className="h-6 w-6 text-base-content" />
+                    <p>Trang chủ</p>
                 </Link>
-                <p>Trang chủ</p>
             </div>
-            <div className="flex justify-center items-center flex-col">
-                <Link href={"/"} className="">
-                    <HomeIcon className="h-6 w-6 text-base-content" />
+            <div>
+                <Link
+                    href={"/trending/today"}
+                    className="flex justify-center items-center flex-col"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 text-base-content"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+                        />
+                    </svg>
+                    <p>Trending</p>
                 </Link>
-                <p>Something</p>
             </div>
-            <div
-                className="flex flex-col justify-center items-center"
-                data-tip="Cài đặt"
-            >
-                <Link href={"/setting"}>
+            <div data-tip="Cài đặt">
+                <Link
+                    href={"/setting"}
+                    className="flex flex-col justify-center items-center"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -50,8 +69,8 @@ function MobileTab() {
                             clipRule="evenodd"
                         />
                     </svg>
+                    <p>Cài đặt</p>
                 </Link>
-                <p>Cài đặt</p>
             </div>
         </div>
     );

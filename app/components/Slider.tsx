@@ -1,21 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
 import Image from "next/image";
-import { MovieList } from "../page";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
 import { EffectCreative } from "swiper";
 import "swiper/css/pagination";
-import { useRouter } from "next/navigation";
-import { Pagination } from "swiper";
 import Link from "next/link";
 import useStore from "../(store)/store";
+import { MovieList } from "@/service/TMDB.type";
+import tmdb from "@/service/TMDB";
 
 function Slider({ movie }: { movie: MovieList }) {
-    const ImagePath = "https://image.tmdb.org/t/p/";
     const currentIndex = useStore((state) => state.currentSlideIndex);
     const setCurrentIndex = useStore((state) => state.setCurrentSlideIndex);
     return (
@@ -32,7 +30,7 @@ function Slider({ movie }: { movie: MovieList }) {
                 {movie.results.map((m, index) => (
                     <SwiperSlide key={m.id}>
                         <Image
-                            src={`${ImagePath}/original/${m.backdrop_path}`}
+                            src={tmdb.getImage(m.backdrop_path)}
                             alt="film"
                             className="w-full md:brightness-50 md:blur-sm object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
                             width={1920}
@@ -93,7 +91,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             >
                                 <motion.img
                                     key={currentIndex}
-                                    src={`${ImagePath}/original//${m.poster_path}`}
+                                    src={tmdb.getImage(m.poster_path)}
                                     alt="film"
                                     className="lg:w-[250px] rounded-3xl w-[300px]"
                                     initial={{ opacity: 0, scale: 0 }}

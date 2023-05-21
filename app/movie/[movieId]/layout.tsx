@@ -1,9 +1,10 @@
-import { Movie } from "@/app/page";
+import { Movie } from "@/service/TMDB.type";
 import React from "react";
 import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 import WatchTrailerButton from "@/app/components/WatchTrailerButton";
 import Modal from "@/app/components/Modal";
+import TMDB from "@/service/TMDB";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -12,16 +13,14 @@ interface MovieDetailProp {
 }
 
 export const metadata = {
-    title: "Movie",
+    title: "Hai0z Movie",
 };
+
 async function Layout({ params, children }: MovieDetailProp) {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const getData = async () => {
         const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`,
-            {
-                cache: "default",
-            }
+            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
 
@@ -67,7 +66,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                             <p className="text-base-content mt-4 text-[16px] lg:text-lg italic">
                                 {movie?.tagline}
                             </p>
-                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4 hidden">
+                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4 hidden md:block">
                                 {movie.release_date} •{" "}
                                 {convertToHourMinute(movie.runtime)}
                             </button>

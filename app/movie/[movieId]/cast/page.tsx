@@ -1,9 +1,8 @@
 import React from "react";
 import { Cast } from "../page";
 import Image from "next/image";
+import tmdb from "@/service/TMDB";
 async function page({ params }: { params: any }) {
-    const ImagePath = "https://image.tmdb.org/t/p/";
-
     const getCast = async () => {
         const respone = await fetch(
             `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=vi-VN`
@@ -18,7 +17,7 @@ async function page({ params }: { params: any }) {
             {cast.map((c) => (
                 <div key={c.id} className="">
                     <Image
-                        src={`${ImagePath}/w500/${c.profile_path}`}
+                        src={tmdb.getImage(c.profile_path, "w500")}
                         width={500}
                         height={500}
                         alt="cast"

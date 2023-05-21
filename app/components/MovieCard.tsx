@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Movie, MovieList } from "../page";
+import { Movie } from "@/service/TMDB.type";
+import tmdb from "@/service/TMDB";
 function MovieCard({ m }: { m: Movie }) {
-    const ImagePath = "https://image.tmdb.org/t/p/";
-
     return (
         <div
             key={m.id}
@@ -13,7 +12,7 @@ function MovieCard({ m }: { m: Movie }) {
             <div className="overflow-hidden rounded-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
-                        src={`${ImagePath}/w500/${m.poster_path}`}
+                        src={tmdb.getImage(m.poster_path, "w500")}
                         width={500}
                         height={500}
                         alt="cast"

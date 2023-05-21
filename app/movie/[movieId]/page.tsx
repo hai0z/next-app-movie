@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Movie, MovieList } from "@/app/page";
+import { Movie, MovieList } from "@/service/TMDB.type";
 import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
+import tmdb from "@/service/TMDB";
 export interface Cast {
     cast: {
         id: number;
@@ -14,41 +15,13 @@ async function Page({
     params,
 }: {
     params: {
-        movieId: string;
+        movieId: number;
     };
 }) {
-    const ImagePath = "https://image.tmdb.org/t/p/";
-
-    const getCast = async () => {
-        const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}/credits?api_key=${process.env.TMDB}&language=vi-VN`,
-            { cache: "default" }
-        );
-        const data = await respone.json();
-        return data;
-    };
-    const getData = async () => {
-        const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`,
-            {
-                cache: "default",
-            }
-        );
-        const data = await respone.json();
-
-        return data;
-    };
-    const getRecomendations = async () => {
-        const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}/recommendations?api_key=${process.env.TMDB}&language=vi-VN`,
-        );
-        const data = await respone.json();
-
-        return data;
-    };
-    const movie: Movie = await getData();
-    const { cast }: Cast = await getCast();
-    const { results: recommenList }: MovieList = await getRecomendations();
+    const movie: Movie = await tmdb.getMovieOrTV(params.movieId, "movie");
+    const { cast }: Cast = await tmdb.getCast(params.movieId, "movie");
+    const { results: listRecommendations }: MovieList =
+        await tmdb.getRecomendations(params.movieId, "movie");
     return (
         <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 md:mt-20 mt-8">
             <div className="md:w-5/12 lg:w-3/12 flex w-full gap-4">
@@ -133,7 +106,10 @@ async function Page({
                                 className="text-white cursor-pointer"
                             >
                                 <Image
-                                    src={`${ImagePath}/w500/${cast.profile_path}`}
+                                    src={tmdb.getImage(
+                                        cast.profile_path,
+                                        "w500"
+                                    )}
                                     width={500}
                                     height={500}
                                     alt="cast"
@@ -157,7 +133,7 @@ async function Page({
                         Xem Thêm
                     </Link>
                     <div className="flex flex-row gap-4">
-                        {recommenList?.slice(0, 3).map((r: any) => (
+                        {listRecommendations?.slice(0, 3).map((r: any) => (
                             <MovieCard m={r} key={r.id} />
                         ))}
                     </div>
