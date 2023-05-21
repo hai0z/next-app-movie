@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Movie, MovieList } from "../page";
+import { Movie, MovieList } from "@/service/TMDB.type";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCard from "./MovieCard";
 
