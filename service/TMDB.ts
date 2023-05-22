@@ -66,6 +66,14 @@ class TMDB {
 
         return data;
     }
+    async search(query: string, type: "movie" | "tv") {
+        const respone = await fetch(
+            `${this.BASE_URL}/search/${type}?api_key=${process.env.TMDB}&query=${query}&language=vi-VN`
+        );
+        const data = await respone.json();
+
+        return data;
+    }
     async getPhotos() {}
     async getVideos() {}
 }

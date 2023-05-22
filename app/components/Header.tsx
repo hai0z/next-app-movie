@@ -5,8 +5,9 @@ import { usePathname, useParams } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import useStore from "../(store)/store";
+import { Movie } from "@/service/TMDB.type";
 function Header() {
-    const [data, setData] = useState<any>([]);
+    const [data, setData] = useState<Movie>({} as Movie);
     const pathname = usePathname();
     const params = useParams();
     const ImagePath = "https://image.tmdb.org/t/p/";
@@ -31,9 +32,9 @@ function Header() {
             const data = await respone.json();
             setData(data);
         };
-
         getData();
     }, [params.movieId]);
+
     useEffect(() => {
         const currentTheme = localStorage.getItem("theme");
         setTheme(currentTheme as string);
@@ -52,14 +53,12 @@ function Header() {
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
-                    {" "}
                     <ChevronLeftIcon
                         className="h-6 w-6 text-primary-content"
                         onClick={() => router.back()}
                     />
                 </div>
                 <div className="btn btn-primary btn-circle btn-sm">
-                    {" "}
                     <ChevronRightIcon
                         className="h-6 w-6 text-primary-content"
                         onClick={() => router.forward()}

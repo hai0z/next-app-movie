@@ -14,7 +14,7 @@ function Search({}) {
                 onChange={(e) => setSearchValue(e.target.value)}
             />
             <Link
-                href={`${pathName}/${searchValue}`}
+                href={`${pathName}?q=${encodeURIComponent(searchValue)}`}
                 className="btn btn-primary"
             >
                 Tìm kiếm
