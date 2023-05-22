@@ -23,15 +23,10 @@ export default async function Home() {
                     Trending Movies
                 </span>
                 <Link
-                    href={"/"}
+                    href={"/trending/today"}
                     className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2"
                 >
-                    <Link
-                        href={"/trending/today"}
-                        className="text-base-content"
-                    >
-                        View more
-                    </Link>
+                    View more
                 </Link>
 
                 <div>

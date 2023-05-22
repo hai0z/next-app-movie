@@ -32,6 +32,7 @@ function MovieDetailTab() {
             ref={tabbarRef}
         >
             <Link
+                scroll={false}
                 href={`/movie/${params.movieId}`}
                 className={`tab ${
                     path === `/movie/${params.movieId}` && "tab-active"
@@ -40,6 +41,7 @@ function MovieDetailTab() {
                 Overview
             </Link>
             <Link
+                scroll={false}
                 href={`/movie/${params.movieId}/cast`}
                 className={`tab ${
                     path === `/movie/${params.movieId}/cast` && "tab-active"
@@ -50,6 +52,7 @@ function MovieDetailTab() {
             <a className="tab">Photos</a>
             <a className="tab">Video</a>
             <Link
+                scroll={false}
                 href={`/movie/${params.movieId}/recommendations`}
                 className={`tab ${
                     path === `/movie/${params.movieId}/recommendations` &&

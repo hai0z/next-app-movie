@@ -12,6 +12,7 @@ import Link from "next/link";
 import useStore from "../(store)/store";
 import { MovieList } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
+import ShadowImg from "./ShadowImg";
 
 function Slider({ movie }: { movie: MovieList }) {
     const currentIndex = useStore((state) => state.currentSlideIndex);
@@ -32,12 +33,12 @@ function Slider({ movie }: { movie: MovieList }) {
                         <Image
                             src={tmdb.getImage(m.backdrop_path)}
                             alt="film"
-                            className="w-full md:brightness-50 md:blur-sm object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
+                            className="w-full md:brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
                             width={1920}
                             height={1080}
                             priority
                         />
-
+                        <ShadowImg />
                         <div className="absolute bottom-0 md:top-32 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center">
                             <div
                                 className={`${

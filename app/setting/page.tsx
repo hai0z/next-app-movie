@@ -4,25 +4,15 @@ import useStore from "../(store)/store";
 function Page() {
     const theme = useStore((state) => state.theme);
     const setTheme = useStore((state) => state.setTheme);
-    useEffect(() => {
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme) {
-            document
-                .getElementById("html")
-                ?.setAttribute("data-theme", currentTheme);
-        }
-    }, []);
 
-    useEffect(() => {
-        localStorage.setItem("theme", theme);
-    }, [theme]);
     function handleChangeTheme(themeName: string) {
-        document.getElementById("html")?.setAttribute("data-theme", themeName);
         setTheme(themeName);
+        localStorage.setItem("theme", themeName);
+        document.getElementById("html")?.setAttribute("data-theme", themeName);
     }
 
     return (
-        <div className="p-10 mt-16">
+        <div className="px-10 pt-16 pb-10">
             <p className="text-2xl font-bold">Cài đặt</p>
             <div className="py-4 flex md:flex-row flex-col md:gap-8 gap-4">
                 <ul className="menu-horizontal menu md:menu-vertical  md:w-56 rounded-box">
@@ -36,7 +26,7 @@ function Page() {
                         <a>Item 3</a>
                     </li>
                 </ul>
-                <div className="w-full bg-base-300 shadow-lg rounded-lg flex flex-col p-8 shadow-lg">
+                <div className="w-full bg-base-300 shadow-lg rounded-lg flex flex-col p-8">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
                     <div className="flex gap-4 mt-4 flex-col md:flex-row flex-wrap ">
@@ -152,6 +142,20 @@ function Page() {
                                 checked={theme === "forest"}
                             />
                             <p className={"block md:hidden"}>forest</p>
+                        </div>
+                        <div
+                            data-theme="halloween"
+                            className="bg-transparent flex gap-2"
+                        >
+                            <input
+                                onClick={() => handleChangeTheme("halloween")}
+                                type="radio"
+                                name="radio-1"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
+                                data-tip="halloween"
+                                checked={theme === "halloween"}
+                            />
+                            <p className={"block md:hidden"}>halloween</p>
                         </div>
                     </div>
                 </div>

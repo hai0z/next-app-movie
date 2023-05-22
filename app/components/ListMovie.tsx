@@ -25,7 +25,7 @@ function ListMovie({ movie }: { movie: MovieList }) {
             }}
         >
             {movie.results.map((m: any) => (
-                <SwiperSlide key={m.id} className="p-1 w-auto">
+                <SwiperSlide key={m.id} className="md:py-8 py-3 px-2 w-auto">
                     <MovieCard m={m} />
                 </SwiperSlide>
             ))}

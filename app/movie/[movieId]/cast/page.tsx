@@ -22,6 +22,7 @@ async function page({ params }: { params: any }) {
                         height={500}
                         alt="cast"
                         className="object-cover w-40 rounded-md"
+                        priority
                     />
                     <span className="font-thin text-base-content">
                         {c.name}

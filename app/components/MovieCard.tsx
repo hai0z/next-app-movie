@@ -7,7 +7,7 @@ function MovieCard({ m }: { m: Movie }) {
     return (
         <div
             key={m.id}
-            className="cursor-pointer md:w-48 xl:w-56 bg-base-300 shadow-lg rounded-lg hover:ring-1 hover:ring-primary w-40 hover:scale-105 transition-all duration-150"
+            className="cursor-pointer md:w-48 xl:w-56 bg-base-300 rounded-lg hover:ring-1 hover:ring-primary w-40 hover:scale-105 transition-all duration-150  hover:shadow-primary shadow-md"
         >
             <div className="overflow-hidden rounded-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -16,12 +16,15 @@ function MovieCard({ m }: { m: Movie }) {
                         width={500}
                         height={500}
                         alt="cast"
-                        className="object-cover md:w-48 xl:w-56 hover:scale-110 transition-all duration-150 w-40"
+                        priority={true}
+                        className="object-cover md:w-48 xl:w-56 hover:scale-105 transition-all duration-150 w-40"
                     />
                 </Link>
             </div>
             <div className="font-semibold text-base-content py-4 px-2">
-                <p className="w-fit">{m.title}</p>
+                <Link href={"/movie/" + m.id} className="w-fit">
+                    {m.title}
+                </Link>
             </div>
         </div>
     );

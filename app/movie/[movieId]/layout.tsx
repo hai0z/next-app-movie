@@ -4,7 +4,8 @@ import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 import WatchTrailerButton from "@/app/components/WatchTrailerButton";
 import Modal from "@/app/components/Modal";
-import TMDB from "@/service/TMDB";
+import tmdb from "@/service/TMDB";
+import ShadowImg from "@/app/components/ShadowImg";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -17,16 +18,7 @@ export const metadata = {
 };
 
 async function Layout({ params, children }: MovieDetailProp) {
-    const ImagePath = "https://image.tmdb.org/t/p/";
-    const getData = async () => {
-        const respone = await fetch(
-            `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
-        );
-        const data = await respone.json();
-
-        return data;
-    };
-    const movie: Movie = await getData();
+    const movie: Movie = await tmdb.getMovieOrTV(+params.movieId, "movie");
     function convertToHourMinute(minutes: number) {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
@@ -35,22 +27,22 @@ async function Layout({ params, children }: MovieDetailProp) {
     }
     return (
         <div className="w-full flex flex-col md:rounded-tl-[20px]">
-            <div className="fixed img-shadow2">
+            <div className="fixed">
                 <Image
-                    src={`${ImagePath}/original/${movie.backdrop_path}`}
+                    src={tmdb.getImage(movie.backdrop_path)}
                     width={1920}
                     height={1080}
                     priority
                     className="object-cover md:rounded-tl-[20px] md:h-[95vh]"
                     alt={movie.title}
                 />
+                <ShadowImg />
             </div>
-
             <div className="w-full relative pt-[35%]">
                 <div className="flex flex-row  justify-between  relative bottom-0 md:pb-16">
                     <div className="flex w-4/12 justify-center drop-shadow-md ">
                         <Image
-                            src={`${ImagePath}/w500/${movie.poster_path}`}
+                            src={tmdb.getImage(movie.poster_path, "w500")}
                             width={500}
                             height={100}
                             priority
@@ -58,7 +50,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                             alt={movie.title}
                         />
                     </div>
-                    <div className="w-8/12">
+                    <div className="w-8/12 z-10">
                         <div className="flex flex-col ml-8">
                             <p className="md:text-[4rem] font-semibold text-base-content drop-shadow-2xl">
                                 {movie.title}
@@ -109,8 +101,10 @@ async function Layout({ params, children }: MovieDetailProp) {
                         <WatchTrailerButton videoId={params.movieId} />
                     </div>
                 </div>
+
                 <div className=" w-full bg-base-200">
                     <MovieDetailTab />
+
                     {children}
                 </div>
             </div>

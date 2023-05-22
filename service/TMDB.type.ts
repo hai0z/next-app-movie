@@ -12,7 +12,7 @@ export interface MovieList {
     total_pages: number;
 }
 export interface Movie {
-    id?: number;
+    id: number;
     title: string;
     overview: string;
     backdrop_path: string;
