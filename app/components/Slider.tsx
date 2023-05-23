@@ -23,6 +23,7 @@ function Slider({ movie }: { movie: MovieList }) {
             autoplay={{
                 delay: 10000,
             }}
+            initialSlide={currentIndex}
             slidesPerView={1}
             grabCursor={true}
             modules={[Autoplay, EffectCreative]}

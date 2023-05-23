@@ -1,65 +1,107 @@
 "use client";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
 import { MovieList } from "@/service/TMDB.type";
 import { AnimatePresence } from "framer-motion";
-import { Autoplay } from "swiper";
-import { EffectCreative } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import useStore from "../(store)/store";
 import tmdb from "@/service/TMDB";
 import "swiper/css/pagination";
+import "swiper/css/free-mode";
 import "swiper/css";
-import "swiper/css/effect-creative";
+import "swiper/css/navigation";
 function MiniSlider({ movie }: { movie: MovieList }) {
     const currentIndex = useStore((state) => state.currentSlideIndex);
-
+    const swiper = useSwiper();
+    const { width } = useWindowDimensions();
+    const setSlideIndex = useStore((state) => state.setCurrentSlideIndex);
     return (
-        <Swiper
-            breakpoints={{
-                640: {
-                    slidesPerView: 2,
-                },
-                768: {
-                    slidesPerView: 3,
-                },
-                1024: {
-                    slidesPerView: 5,
-                },
-            }}
-            modules={[Autoplay, EffectCreative]}
-        >
-            <AnimatePresence>
-                {movie.results.map((m, index) => {
-                    return (
-                        <SwiperSlide key={m.id} className="p-2 group">
-                            <div
-                                className={`w-60 rounded-md relative flex justify-center items-center  ${
-                                    index === currentIndex &&
-                                    "ring-4 ring-primary"
-                                } overflow-hidden cursor-pointer hover:ring-4 hover:ring-primary`}
+        <div className="flex w-full items-center justify-start">
+            <Swiper
+                modules={[Navigation]}
+                grabCursor
+                spaceBetween={20}
+                freeMode={true}
+                slidesPerGroup={1}
+                slidesPerGroupAuto
+                navigation={true}
+                onSlideChange={(i) => setSlideIndex(i.activeIndex)}
+                slidesPerView={
+                    width > 1700 ? 1700 / 240 : Math.floor(width / 240)
+                }
+                className="w-full"
+            >
+                <AnimatePresence>
+                    {movie.results.map((m, index) => {
+                        return (
+                            <SwiperSlide
+                                key={m.id}
+                                className="p-2 group"
+                                virtualIndex={index}
                             >
-                                <Image
-                                    src={tmdb.getImage(m.backdrop_path, "w500")}
-                                    alt="film"
-                                    className={`w-60 rounded-md group-hover:scale-110 group-hover:w-64 transition-all duration-150 hover:brightness-50`}
-                                    width={500}
-                                    height={500}
-                                    priority
-                                />
-                                <p
-                                    className="absolute top-6 left-2 opacity-0 group-hover:opacity-95 transition-all duration-200 w-32
-                            font-bold "
+                                <div
+                                    className={`md:w-56 rounded-md relative flex justify-center items-center  ${
+                                        index === currentIndex &&
+                                        "ring-4 ring-primary"
+                                    } overflow-hidden cursor-pointer hover:ring-4 hover:ring-primary`}
                                 >
-                                    {m.title}
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                    );
-                })}
-            </AnimatePresence>
-        </Swiper>
+                                    <Image
+                                        src={tmdb.getImage(
+                                            m.backdrop_path,
+                                            "w500"
+                                        )}
+                                        alt="film"
+                                        className={`md:w-56 rounded-md group-hover:scale-110 group-hover:w-56 transition-all duration-150 hover:brightness-50`}
+                                        width={500}
+                                        height={500}
+                                        priority
+                                    />
+                                    <p
+                                        className="absolute top-6 left-2 opacity-0 group-hover:opacity-95 transition-all duration-200 w-32
+                            font-bold "
+                                    >
+                                        {m.title}
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                        );
+                    })}
+                </AnimatePresence>
+            </Swiper>
+        </div>
     );
 }
+function getWindowDimensions() {
+    if (typeof window !== "undefined") {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height,
+        };
+    }
+    return {
+        width: 0,
+        height: 0,
+    };
+}
 
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(
+        getWindowDimensions()
+    );
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
+    }, []);
+
+    return windowDimensions;
+}
 export default MiniSlider;
