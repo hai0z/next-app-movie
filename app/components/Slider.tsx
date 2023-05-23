@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
@@ -17,6 +17,7 @@ import ShadowImg from "./ShadowImg";
 function Slider({ movie }: { movie: MovieList }) {
     const currentIndex = useStore((state) => state.currentSlideIndex);
     const setCurrentIndex = useStore((state) => state.setCurrentSlideIndex);
+    const { width } = useWindowDimensions();
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -27,6 +28,7 @@ function Slider({ movie }: { movie: MovieList }) {
             slidesPerView={1}
             grabCursor={true}
             modules={[Autoplay, EffectCreative]}
+            className="mb-6"
         >
             <AnimatePresence>
                 {movie.results.map((m, index) => (
@@ -95,7 +97,8 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={tmdb.getImage(m.poster_path)}
                                     alt="film"
-                                    className="lg:w-[250px] rounded-3xl w-[300px]"
+                                    style={{ width: width * 0.18 }}
+                                    className="rounded-3xl"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}
@@ -109,5 +112,36 @@ function Slider({ movie }: { movie: MovieList }) {
         </Swiper>
     );
 }
+function getWindowDimensions() {
+    if (typeof window !== "undefined") {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height,
+        };
+    }
+    return {
+        width: 0,
+        height: 0,
+    };
+}
 
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(
+        getWindowDimensions()
+    );
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
+    }, []);
+
+    return windowDimensions;
+}
 export default Slider;

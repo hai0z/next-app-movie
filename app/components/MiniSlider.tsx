@@ -21,14 +21,14 @@ function MiniSlider({ movie }: { movie: MovieList }) {
             <Swiper
                 modules={[Navigation]}
                 grabCursor
-                spaceBetween={20}
+                spaceBetween={15}
                 freeMode={true}
                 slidesPerGroup={1}
                 slidesPerGroupAuto
                 navigation={true}
                 onSlideChange={(i) => setSlideIndex(i.activeIndex)}
                 slidesPerView={
-                    width > 1700 ? 1700 / 240 : Math.floor(width / 240)
+                    width > 1700 ? 1700 / 235 : Math.floor(width / 235)
                 }
                 className="w-full"
             >
