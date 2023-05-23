@@ -114,6 +114,20 @@ function Page() {
                             />
                             <p className={"block md:hidden"}>retro</p>
                         </div>
+                        <div
+                            data-theme="valentine"
+                            className="bg-transparent flex gap-2"
+                        >
+                            <input
+                                onClick={() => handleChangeTheme("valentine")}
+                                type="radio"
+                                name="radio-1"
+                                className="radio radio-primary md:tooltip hover:bg-primary"
+                                data-tip="valentine"
+                                checked={theme === "valentine"}
+                            />
+                            <p className={"block md:hidden"}>valentine</p>
+                        </div>
 
                         <div
                             data-theme="synthwave"

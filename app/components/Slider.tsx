@@ -15,9 +15,8 @@ import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 
 function Slider({ movie }: { movie: MovieList }) {
-    const currentIndex = useStore((state) => state.currentSlideIndex);
-    const setCurrentIndex = useStore((state) => state.setCurrentSlideIndex);
-    const { width } = useWindowDimensions();
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -31,7 +30,7 @@ function Slider({ movie }: { movie: MovieList }) {
             className="mb-6"
         >
             <AnimatePresence>
-                {movie.results.map((m, index) => (
+                {movie.results.slice(0, 10).map((m, index) => (
                     <SwiperSlide key={m.id}>
                         <Image
                             src={tmdb.getImage(m.backdrop_path)}
@@ -97,7 +96,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={tmdb.getImage(m.poster_path)}
                                     alt="film"
-                                    style={{ width: width * 0.18 }}
+                                    style={{ width: 300 }}
                                     className="rounded-3xl"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
@@ -126,22 +125,4 @@ function getWindowDimensions() {
     };
 }
 
-function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-        getWindowDimensions()
-    );
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []);
-
-    return windowDimensions;
-}
 export default Slider;

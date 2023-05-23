@@ -33,7 +33,7 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                 className="w-full"
             >
                 <AnimatePresence>
-                    {movie.results.map((m, index) => {
+                    {movie.results.slice(0, 10).map((m, index) => {
                         return (
                             <SwiperSlide
                                 key={m.id}

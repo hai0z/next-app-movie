@@ -42,9 +42,81 @@ export default async function Home() {
                 >
                     <span className="text-base-content">View more</span>
                 </Link>
-                <div className="">
+                <div className="mb-20">
                     <ListMovie movie={topRateList} />
                 </div>
+                {/* <div>
+                    <div className="flex flex-row gap-16">
+                        <div className="relative w-80 h-64  mb-20">
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 flex justify-between items-end">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 bottom-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 bottom-2"></div>
+                            </div>
+                            <div className="font-bold absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                <p className="text-[12rem] text-red-500">12</p>
+                            </div>
+                            <div className="relative w-full top-[calc(50%-4px)] z-10 h-2 bg-slate-700">
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -left-4 -top-2"></div>
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -right-4 -top-2"></div>
+                            </div>
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 bottom-0">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 top-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 top-2"></div>
+                            </div>
+                        </div>
+                        <div className="relative w-80 h-64  mb-20">
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 flex justify-between items-end">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 bottom-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 bottom-2"></div>
+                            </div>
+                            <div className="font-bold absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                <p className="text-[12rem] text-red-500">12</p>
+                            </div>
+                            <div className="relative w-full top-[calc(50%-4px)] z-10 h-2 bg-slate-700">
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -left-4 -top-2"></div>
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -right-4 -top-2"></div>
+                            </div>
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 bottom-0">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 top-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 top-2"></div>
+                            </div>
+                        </div>
+                        <div className="relative w-80 h-64  mb-20">
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 flex justify-between items-end">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 bottom-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 bottom-2"></div>
+                            </div>
+                            <div className="font-bold absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                <p className="text-[12rem] text-red-500">12</p>
+                            </div>
+                            <div className="relative w-full top-[calc(50%-4px)] z-10 h-2 bg-slate-700">
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -left-4 -top-2"></div>
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -right-4 -top-2"></div>
+                            </div>
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 bottom-0">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 top-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 top-2"></div>
+                            </div>
+                        </div>
+                        <div className="relative w-80 h-64  mb-20">
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 flex justify-between items-end">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 bottom-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 bottom-2"></div>
+                            </div>
+                            <div className="font-bold absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                <p className="text-[12rem] text-red-500">12</p>
+                            </div>
+                            <div className="relative w-full top-[calc(50%-4px)] z-10 h-2 bg-slate-700">
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -left-4 -top-2"></div>
+                                <div className="absolute w-6 h-6 bg-slate-700 rounded-full -right-4 -top-2"></div>
+                            </div>
+                            <div className="absolute w-full bg-white rounded-3xl h-1/2 bottom-0">
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute left-4 top-2"></div>
+                                <div className="w-2 h-2 rounded-full bg-slate-700 absolute right-4 top-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     );
