@@ -25,6 +25,7 @@ function Slider({ movie }: { movie: MovieList }) {
             }}
             initialSlide={currentIndex}
             slidesPerView={1}
+            centeredSlides
             grabCursor={true}
             modules={[Autoplay, EffectCreative]}
             className="mb-6"
@@ -36,13 +37,13 @@ function Slider({ movie }: { movie: MovieList }) {
                         <motion.div
                             initial={{
                                 scale: 1.1,
-                                translateX: 100,
+                                translateX: 75,
                             }}
                             animate={{
                                 scale: 1,
                                 translateX: 0,
                             }}
-                            exit={{ scale: 1.1, translateX: 100 }}
+                            exit={{ scale: 1.1, translateX: 75 }}
                             transition={{
                                 duration: 0.85,
                             }}
@@ -99,7 +100,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             duration: 0.5,
                                             delay: 0.7,
                                         }}
-                                        key={currentIndex + index}
+                                        key={currentIndex}
                                         className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-base-content md:block"
                                     >
                                         {m.overview}
@@ -118,7 +119,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             duration: 0.6,
                                             delay: 0.9,
                                         }}
-                                        key={currentIndex + index}
+                                        key={currentIndex + m.title}
                                         className={`flex flex-row py-8`}
                                     >
                                         <Link

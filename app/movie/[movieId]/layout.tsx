@@ -40,7 +40,7 @@ async function Layout({ params, children }: MovieDetailProp) {
             </div>
             <div className="w-full relative pt-[35%]">
                 <div className="flex flex-row  justify-between  relative bottom-0 md:pb-16">
-                    <div className="flex w-4/12 justify-center drop-shadow-md z-10">
+                    <div className="flex w-4/12 justify-center drop-shadow-md z-10 mb-3">
                         <Image
                             src={tmdb.getImage(movie.poster_path, "w500")}
                             width={500}
@@ -80,7 +80,10 @@ async function Layout({ params, children }: MovieDetailProp) {
                         </div>
                     </div>
                 </div>
-                <div className="md:hidden p-4 md:p-0">
+                <ShadowImg />
+            </div>
+            <div className=" w-full bg-base-200 z-10">
+                <div className="md:hidden p-4 md:p-0 z-10">
                     <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm">
                         {movie.release_date} •{" "}
                         {convertToHourMinute(movie.runtime)}
@@ -101,13 +104,9 @@ async function Layout({ params, children }: MovieDetailProp) {
                         <WatchTrailerButton videoId={params.movieId} />
                     </div>
                 </div>
-                <div className=" w-full bg-base-200 z-10">
-                    <MovieDetailTab />
-
-                    {children}
-                </div>
+                <MovieDetailTab />
+                {children}
             </div>
-
             <Modal />
         </div>
     );
