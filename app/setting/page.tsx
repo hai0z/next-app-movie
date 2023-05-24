@@ -158,18 +158,18 @@ function Page() {
                             <p className={"block md:hidden"}>forest</p>
                         </div>
                         <div
-                            data-theme="halloween"
+                            data-theme="autumn"
                             className="bg-transparent flex gap-2"
                         >
                             <input
-                                onClick={() => handleChangeTheme("halloween")}
+                                onClick={() => handleChangeTheme("autumn")}
                                 type="radio"
                                 name="radio-1"
                                 className="radio radio-primary md:tooltip hover:bg-primary"
-                                data-tip="halloween"
-                                checked={theme === "halloween"}
+                                data-tip="autumn"
+                                checked={theme === "autumn"}
                             />
-                            <p className={"block md:hidden"}>halloween</p>
+                            <p className={"block md:hidden"}>autumn</p>
                         </div>
                     </div>
                 </div>

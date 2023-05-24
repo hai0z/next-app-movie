@@ -40,7 +40,7 @@ async function Layout({ params, children }: MovieDetailProp) {
             </div>
             <div className="w-full relative pt-[35%]">
                 <div className="flex flex-row  justify-between  relative bottom-0 md:pb-16">
-                    <div className="flex w-4/12 justify-center drop-shadow-md ">
+                    <div className="flex w-4/12 justify-center drop-shadow-md z-10">
                         <Image
                             src={tmdb.getImage(movie.poster_path, "w500")}
                             width={500}
@@ -50,6 +50,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                             alt={movie.title}
                         />
                     </div>
+                    <ShadowImg />
                     <div className="w-8/12 z-10">
                         <div className="flex flex-col ml-8">
                             <p className="md:text-[4rem] font-semibold text-base-content drop-shadow-2xl">

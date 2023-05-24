@@ -32,6 +32,7 @@ function Slider({ movie }: { movie: MovieList }) {
             <AnimatePresence>
                 {movie.results.slice(0, 10).map((m, index) => (
                     <SwiperSlide key={m.id}>
+                        <ShadowImg />
                         <motion.div
                             initial={{
                                 scale: 1.1,
@@ -81,7 +82,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <motion.p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
+                                    <motion.p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
                                     </motion.p>
                                     <motion.p
@@ -99,7 +100,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             delay: 0.7,
                                         }}
                                         key={currentIndex + index}
-                                        className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white md:block"
+                                        className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-base-content md:block"
                                     >
                                         {m.overview}
                                     </motion.p>
