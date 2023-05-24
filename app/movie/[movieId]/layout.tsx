@@ -50,7 +50,6 @@ async function Layout({ params, children }: MovieDetailProp) {
                             alt={movie.title}
                         />
                     </div>
-                    <ShadowImg />
                     <div className="w-8/12 z-10">
                         <div className="flex flex-col ml-8">
                             <p className="md:text-[4rem] font-semibold text-base-content drop-shadow-2xl">
@@ -102,8 +101,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                         <WatchTrailerButton videoId={params.movieId} />
                     </div>
                 </div>
-
-                <div className=" w-full bg-base-200">
+                <div className=" w-full bg-base-200 z-10">
                     <MovieDetailTab />
 
                     {children}
