@@ -26,7 +26,7 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                 slidesPerGroup={1}
                 navigation={true}
                 onSlideChange={(i) => setSlideIndex(i.activeIndex)}
-                slidesPerView={width > 1700 ? 1700 / 235 : width / 235}
+                slidesPerView={width > 1700 ? 1700 / 250 : width / 250}
                 className="w-full"
             >
                 <AnimatePresence>
@@ -52,11 +52,11 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                                         className={`md:w-56 rounded-md group-hover:scale-110 group-hover:w-56 transition-all duration-150 hover:brightness-50`}
                                         width={500}
                                         height={500}
-                                        loading="lazy"
+                                        priority
                                     />
                                     <p
                                         className="absolute top-6 left-2 opacity-0 group-hover:opacity-95 transition-all duration-200 w-32
-                            font-bold "
+                            font-bold pointer-events-none"
                                     >
                                         {m.title}
                                     </p>

@@ -7,17 +7,17 @@ function MovieCard({ m }: { m: Movie }) {
     return (
         <div
             key={m.id}
-            className="cursor-pointer  md:w-56 bg-base-300 rounded-lg hover:ring-1 hover:ring-primary hover:scale-105 transition-all duration-150  hover:shadow-primary shadow-md w-48"
+            className="cursor-pointer  md:w-56 lg:w-60 bg-base-300 rounded-lg hover:ring-1 hover:ring-primary hover:scale-105 transition-all duration-150  hover:shadow-primary shadow-md "
         >
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
                         src={tmdb.getImage(m.poster_path, "w500")}
                         width={500}
                         height={500}
                         alt="cast"
-                        priority={true}
-                        className="object-cover md:w-56 hover:scale-105 transition-all duration-150 w-48"
+                        priority
+                        className="object-cover md:w-56 hover:scale-105 transition-all duration-150 lg:w-60 "
                     />
                 </Link>
             </div>

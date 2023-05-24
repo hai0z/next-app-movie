@@ -35,7 +35,10 @@ export default function RootLayout({
                         <MobileTab />
                     </div>
                     <div className="flex flex-col w-full md:pl-[80px]">
-                        <NextTopLoader showSpinner={false} />
+                        <NextTopLoader
+                            showSpinner={false}
+                            color="hsl(var(--p))"
+                        />
                         <Header />
                         {children}
                     </div>

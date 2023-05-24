@@ -17,12 +17,11 @@ function ListMovie({ movie }: { movie: MovieList }) {
         <Swiper
             modules={[Navigation]}
             grabCursor
-            spaceBetween={15}
             freeMode={true}
             slidesPerGroup={1}
             slidesPerGroupAuto
             navigation={true}
-            slidesPerView={width > 1700 ? 1700 / 235 : width / 235}
+            slidesPerView={width > 1700 ? 1700 / 275 : width / 275}
             className="w-full"
         >
             {movie.results.slice(0, 10).map((m: any) => (

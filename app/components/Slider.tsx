@@ -32,16 +32,32 @@ function Slider({ movie }: { movie: MovieList }) {
             <AnimatePresence>
                 {movie.results.slice(0, 10).map((m, index) => (
                     <SwiperSlide key={m.id}>
-                        <Image
-                            src={tmdb.getImage(m.backdrop_path)}
-                            alt="film"
-                            className="w-full md:brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
-                            width={1920}
-                            height={1080}
-                            loading="lazy"
-                        />
+                        <motion.div
+                            initial={{
+                                scale: 1.1,
+                                translateX: 100,
+                            }}
+                            animate={{
+                                scale: 1,
+                                translateX: 0,
+                            }}
+                            exit={{ scale: 1.1, translateX: 100 }}
+                            transition={{
+                                duration: 0.85,
+                            }}
+                            key={currentIndex}
+                        >
+                            <Image
+                                src={tmdb.getImage(m.backdrop_path)}
+                                alt="film"
+                                className="w-full md:brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
+                                width={1920}
+                                height={1080}
+                                priority
+                            />
+                        </motion.div>
                         <ShadowImg />
-                        <div className="absolute bottom-0 md:top-32 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center">
+                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -52,31 +68,61 @@ function Slider({ movie }: { movie: MovieList }) {
                                 <motion.div
                                     initial={{
                                         opacity: 0,
-                                        y: -100,
+                                        x: 100,
                                     }}
                                     animate={{
                                         opacity: 1,
-                                        y: 0,
+                                        x: 0,
                                     }}
-                                    exit={{ opacity: 0, y: -100 }}
+                                    exit={{ opacity: 0, x: 100 }}
                                     transition={{
                                         duration: 0.5,
                                         delay: 0.5,
                                     }}
                                     key={currentIndex}
                                 >
-                                    <p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
+                                    <motion.p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-white font-semibold drop-shadow-2xl shadow-black w-full">
                                         {m.title}
-                                    </p>
-                                    <p className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white md:block">
+                                    </motion.p>
+                                    <motion.p
+                                        initial={{
+                                            opacity: 0,
+                                            x: 50,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            x: 0,
+                                        }}
+                                        exit={{ opacity: 0, x: 50 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: 0.7,
+                                        }}
+                                        key={currentIndex + index}
+                                        className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-white md:block"
+                                    >
                                         {m.overview}
-                                    </p>
+                                    </motion.p>
                                     <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                            x: 50,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            x: 0,
+                                        }}
+                                        exit={{ opacity: 0, x: 50 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: 0.9,
+                                        }}
+                                        key={currentIndex + index}
                                         className={`flex flex-row py-8`}
                                     >
                                         <Link
                                             href={`${"/movie/" + m.id}#top`}
-                                            className="btn btn-sm btn-primary "
+                                            className="btn btn-primary"
                                         >
                                             <span className="md:text-lg">
                                                 Xem chi tiết
@@ -101,7 +147,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}
-                                    transition={{ duration: 0.75 }}
+                                    transition={{ duration: 1 }}
                                 />
                             </div>
                         </div>
