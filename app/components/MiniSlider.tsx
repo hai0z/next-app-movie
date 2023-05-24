@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
 import { MovieList } from "@/service/TMDB.type";
 import { AnimatePresence } from "framer-motion";
-import { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation, FreeMode } from "swiper";
 import useStore from "../(store)/store";
 import tmdb from "@/service/TMDB";
 import "swiper/css/pagination";
@@ -19,17 +19,14 @@ function MiniSlider({ movie }: { movie: MovieList }) {
     return (
         <div className="flex w-full items-center justify-start">
             <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, FreeMode]}
                 grabCursor
                 spaceBetween={15}
-                freeMode={true}
+                freeMode
                 slidesPerGroup={1}
-                slidesPerGroupAuto
                 navigation={true}
                 onSlideChange={(i) => setSlideIndex(i.activeIndex)}
-                slidesPerView={
-                    width > 1700 ? 1700 / 235 : Math.floor(width / 235)
-                }
+                slidesPerView={width > 1700 ? 1700 / 235 : width / 235}
                 className="w-full"
             >
                 <AnimatePresence>
@@ -55,7 +52,7 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                                         className={`md:w-56 rounded-md group-hover:scale-110 group-hover:w-56 transition-all duration-150 hover:brightness-50`}
                                         width={500}
                                         height={500}
-                                        priority
+                                        loading="lazy"
                                     />
                                     <p
                                         className="absolute top-6 left-2 opacity-0 group-hover:opacity-95 transition-all duration-200 w-32

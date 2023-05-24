@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 function ListMovie({ movie }: { movie: MovieList }) {
     const { width } = useWindowDimensions();
+    console.log(width);
     return (
         <Swiper
             modules={[Navigation]}
@@ -21,7 +22,7 @@ function ListMovie({ movie }: { movie: MovieList }) {
             slidesPerGroup={1}
             slidesPerGroupAuto
             navigation={true}
-            slidesPerView={width > 1700 ? 1700 / 235 : Math.floor(width / 235)}
+            slidesPerView={width > 1700 ? 1700 / 235 : width / 235}
             className="w-full"
         >
             {movie.results.slice(0, 10).map((m: any) => (

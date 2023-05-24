@@ -7,7 +7,7 @@ function MovieCard({ m }: { m: Movie }) {
     return (
         <div
             key={m.id}
-            className="cursor-pointer md:w-48 xl:w-56 bg-base-300 rounded-lg hover:ring-1 hover:ring-primary w-40 hover:scale-105 transition-all duration-150  hover:shadow-primary shadow-md"
+            className="cursor-pointer  md:w-56 bg-base-300 rounded-lg hover:ring-1 hover:ring-primary hover:scale-105 transition-all duration-150  hover:shadow-primary shadow-md w-48"
         >
             <div className="overflow-hidden rounded-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -17,7 +17,7 @@ function MovieCard({ m }: { m: Movie }) {
                         height={500}
                         alt="cast"
                         priority={true}
-                        className="object-cover md:w-48 xl:w-56 hover:scale-105 transition-all duration-150 w-40"
+                        className="object-cover md:w-56 hover:scale-105 transition-all duration-150 w-48"
                     />
                 </Link>
             </div>

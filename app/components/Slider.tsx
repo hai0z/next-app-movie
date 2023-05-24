@@ -38,7 +38,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             className="w-full md:brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
                             width={1920}
                             height={1080}
-                            priority
+                            loading="lazy"
                         />
                         <ShadowImg />
                         <div className="absolute bottom-0 md:top-32 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center">
