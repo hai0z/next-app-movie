@@ -107,7 +107,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                 <MovieDetailTab />
                 {children}
             </div>
-            <Modal />
+            {/* <Modal /> */}
         </div>
     );
 }

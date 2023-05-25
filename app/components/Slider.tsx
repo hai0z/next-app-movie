@@ -6,7 +6,7 @@ import "swiper/css/effect-creative";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
-import { EffectCreative } from "swiper";
+import { Virtual } from "swiper";
 import "swiper/css/pagination";
 import Link from "next/link";
 import useStore from "../(store)/store";
@@ -27,7 +27,7 @@ function Slider({ movie }: { movie: MovieList }) {
             slidesPerView={1}
             centeredSlides
             grabCursor={true}
-            modules={[Autoplay, EffectCreative]}
+            modules={[Autoplay]}
             className="mb-6"
         >
             <AnimatePresence>
@@ -37,13 +37,13 @@ function Slider({ movie }: { movie: MovieList }) {
                         <motion.div
                             initial={{
                                 scale: 1.1,
-                                translateX: 75,
+                                translateX: 300,
                             }}
                             animate={{
                                 scale: 1,
                                 translateX: 0,
                             }}
-                            exit={{ scale: 1.1, translateX: 75 }}
+                            exit={{ scale: 1.1, translateX: 300 }}
                             transition={{
                                 duration: 0.85,
                             }}

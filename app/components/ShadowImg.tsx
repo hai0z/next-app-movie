@@ -11,27 +11,46 @@ function ShadowImg() {
 export default ShadowImg;
 // "use client";
 // import React from "react";
-// import { useColor } from "color-thief-react";
-// function ShadowImg({ imgSrc }: { imgSrc: string }) {
-//     const { data } = useColor(
-//         `https://corsproxy.io/?${encodeURIComponent(
-//             "https://gamek.mediacdn.vn/133514250583805952/2023/4/29/base64-168248213986223902709-1682739310913-1682739310994845185640-1682769136989-168276913770467484367.png" ||
-//                 ""
-//         )}`,
-//         "hex",
-//         {
-//             crossOrigin: "anonymous",
-//         }
-//     );
-//     console.log(data);
+// import Color, { Palette } from "color-thief-react";
+// function ShadowImg() {
+//     const imgSrc = `https://corsproxy.io/?${encodeURIComponent(
+//         "https://image.tmdb.org/t/p/original/nLBRD7UPR6GjmWQp6ASAfCTaWKX.jpg"
+//     )}`;
+
 //     return (
-//         <div className="absolute top-0 left-0 bottom-0 right-0">
-//             <div
-//                 className="h-full"
-//                 style={{
-//                     backgroundImage: `linear-gradient(to bottom, transparent,${data} `,
+//         <div>
+//             <img src={imgSrc} alt="" className="h-20 w-20" />
+
+//             <Color src={imgSrc} crossOrigin="anonymous" format="hex">
+//                 {({ data, loading }) => {
+//                     return (
+//                         <div>
+//                             Predominant color: <strong>{data}</strong>
+//                         </div>
+//                     );
 //                 }}
-//             ></div>
+//             </Color>
+//             <Palette
+//                 src={imgSrc}
+//                 crossOrigin="anonymous"
+//                 format="hex"
+//                 colorCount={4}
+//             >
+//                 {({ data, loading }) => {
+//                     return (
+//                         <div>
+//                             Palette:
+//                             <ul>
+//                                 {data?.map((color, index) => (
+//                                     <li key={index} style={{ color: color }}>
+//                                         <strong>{color}</strong>
+//                                     </li>
+//                                 ))}
+//                             </ul>
+//                         </div>
+//                     );
+//                 }}
+//             </Palette>
 //         </div>
 //     );
 // }

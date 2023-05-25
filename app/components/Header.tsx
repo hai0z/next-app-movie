@@ -26,11 +26,13 @@ function Header() {
     }, []);
     useEffect(() => {
         const getData = async () => {
-            const respone = await fetch(
-                `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
-            );
-            const data = await respone.json();
-            setData(data);
+            if (params.movieId !== undefined) {
+                const respone = await fetch(
+                    `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
+                );
+                const data = await respone.json();
+                setData(data);
+            }
         };
         getData();
     }, [params.movieId]);
