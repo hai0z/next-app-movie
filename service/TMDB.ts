@@ -51,14 +51,14 @@ class TMDB {
         const data = await respone.json();
         return data;
     }
-    async getCast(id: number, type: "movie" | " tv") {
+    async getCast(id: number, type: "movie" | "tv") {
         const respone = await fetch(
             `${this.BASE_URL}/${type}/${id}/credits?api_key=${process.env.TMDB}&language=vi-VN`
         );
         const data = await respone.json();
         return data;
     }
-    async getRecomendations(id: number, type: "movie" | " tv") {
+    async getRecomendations(id: number, type: "movie" | "tv") {
         const respone = await fetch(
             `${this.BASE_URL}/${type}/${id}/recommendations?api_key=${process.env.TMDB}&language=vi-VN`
         );
