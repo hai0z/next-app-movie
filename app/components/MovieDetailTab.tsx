@@ -18,16 +18,18 @@ function MovieDetailTab() {
         };
         const tabbarRect = tabbarRef?.current?.getBoundingClientRect();
         const tabbarTop = tabbarRect?.top as number;
-        console.log(tabbarTop);
-        window.addEventListener("scroll", () => onScrollTop(tabbarTop));
+        const height = tabbarRef?.current?.clientHeight as number;
+        window.addEventListener("scroll", () =>
+            onScrollTop(tabbarTop - height)
+        );
         return () =>
             window.removeEventListener("scroll", () => onScrollTop(tabbarTop));
     }, []);
     return (
         <div
-            className={`tabs tabs-boxed w-full py-4 rounded-none bg-opacity-90 backdrop-blur-sm bg-base-200 px-4 ${
+            className={`tabs tabs-boxed w-full py-4 rounded-none bg-opacity-80 bg-base-100 px-4 ${
                 isScroll &&
-                "fixed z-30 top-0 w-full translate-y-16 transition duration-300 "
+                "fixed z-30 top-0 w-full translate-y-16 transition duration-300 backdrop-blur-lg "
             }  border-b-[1px] border-b-base-content border-solid mb-4 transition duration-300`}
             ref={tabbarRef}
         >

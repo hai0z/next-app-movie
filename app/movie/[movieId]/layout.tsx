@@ -82,7 +82,7 @@ async function Layout({ params, children }: MovieDetailProp) {
                 </div>
                 <ShadowImg />
             </div>
-            <div className=" w-full bg-base-200 z-10">
+            <div className=" w-full bg-base-100 z-10">
                 <div className="md:hidden p-4 md:p-0 z-10">
                     <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm">
                         {movie.release_date} •{" "}

@@ -51,7 +51,7 @@ function Header() {
         <div
             className={`md:left-[80px] w-full px-4 ${
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80 "
-            } flex flex-row items-center fixed z-50 transition-all duration-100 h-16 md:h-16 drop-shadow-lg`}
+            } flex flex-row items-center fixed z-50 transition-all duration-300 h-16 md:h-16`}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">

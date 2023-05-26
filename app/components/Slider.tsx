@@ -52,7 +52,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             <Image
                                 src={tmdb.getImage(m.backdrop_path)}
                                 alt="film"
-                                className="w-full md:brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
+                                className="w-full brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
                                 width={1920}
                                 height={1080}
                                 priority

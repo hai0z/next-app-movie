@@ -26,7 +26,7 @@ function Page() {
                         <a>Item 3</a>
                     </li>
                 </ul>
-                <div className="w-full bg-base-300 shadow-lg rounded-lg flex flex-col p-8">
+                <div className="w-full bg-primary/5 shadow-lg rounded-lg flex flex-col p-8">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
                     <div className="flex gap-4 mt-4 flex-col md:flex-row flex-wrap ">
@@ -158,18 +158,18 @@ function Page() {
                             <p className={"block md:hidden"}>forest</p>
                         </div>
                         <div
-                            data-theme="autumn"
+                            data-theme="cyberpunk"
                             className="bg-transparent flex gap-2"
                         >
                             <input
-                                onClick={() => handleChangeTheme("autumn")}
+                                onClick={() => handleChangeTheme("cyberpunk")}
                                 type="radio"
                                 name="radio-1"
                                 className="radio radio-primary md:tooltip hover:bg-primary"
-                                data-tip="autumn"
-                                checked={theme === "autumn"}
+                                data-tip="cyberpunk"
+                                checked={theme === "cyberpunk"}
                             />
-                            <p className={"block md:hidden"}>autumn</p>
+                            <p className={"block md:hidden"}>cyberpunk</p>
                         </div>
                     </div>
                 </div>
