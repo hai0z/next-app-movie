@@ -37,3 +37,8 @@ export interface Movie {
         name: string;
     }[];
 }
+export interface TVShow {}
+export interface Genres {
+    id: number;
+    name: string;
+}

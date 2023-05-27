@@ -1,6 +1,6 @@
 class TMDB {
-    IMG_PATH = "https://image.tmdb.org/t/p/";
-    BASE_URL: string = "https://api.themoviedb.org/3";
+    private readonly IMG_PATH: string = "https://image.tmdb.org/t/p/" as const;
+    private readonly BASE_URL: string = "https://api.themoviedb.org/3" as const;
 
     getImage(path: string, size?: "w300" | "w500") {
         if (size) {
@@ -72,6 +72,13 @@ class TMDB {
         );
         const data = await respone.json();
 
+        return data;
+    }
+    async getListGenres(type: "moive" | "tv") {
+        const respone = await fetch(
+            `${this.BASE_URL}/genre/${type}/list?api_key=${process.env.TMDB}&language=vi-VN`
+        );
+        const data = await respone.json();
         return data;
     }
     async getPhotos() {}

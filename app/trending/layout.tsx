@@ -3,11 +3,14 @@ import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
 
-function Page({ children }: { children: React.ReactNode }) {
+interface PageProps {
+    children: React.ReactNode;
+}
+function Page({ children }: PageProps) {
     const pathName = usePathname();
     return (
         <div className="pt-16">
-            <div className="bg-base-100 fixed z-20 w-full backdrop-blur-lg bg-opacity-80 px-4">
+            <div className="fixed z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80">
                 <ul className="menu menu-horizontal bg-base-100 rounded-box">
                     <li>
                         <Link

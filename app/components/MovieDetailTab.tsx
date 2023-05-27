@@ -18,9 +18,9 @@ function MovieDetailTab() {
         };
         const tabbarRect = tabbarRef?.current?.getBoundingClientRect();
         const tabbarTop = tabbarRect?.top as number;
-        const height = tabbarRef?.current?.clientHeight as number;
+        const tabbarHeight = tabbarRef?.current?.clientHeight as number;
         window.addEventListener("scroll", () =>
-            onScrollTop(tabbarTop - height)
+            onScrollTop(tabbarTop - tabbarHeight)
         );
         return () =>
             window.removeEventListener("scroll", () => onScrollTop(tabbarTop));

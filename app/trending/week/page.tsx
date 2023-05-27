@@ -11,7 +11,7 @@ async function page({ searchParams }: { searchParams: { page: number } }) {
     );
     return (
         <div>
-            <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
+            <div className="flex flex-row flex-wrap items-center justify-around gap-8 pb-6 md:justify-between md:gap-4 md:pb-8">
                 {movie.results.map((m: any) => (
                     <MovieCard m={m} key={m.id} />
                 ))}

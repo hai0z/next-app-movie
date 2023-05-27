@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import useStore from "../(store)/store";
 function Page() {
     const theme = useStore((state) => state.theme);
@@ -14,8 +14,8 @@ function Page() {
     return (
         <div className="px-10 pt-16 pb-10">
             <p className="text-2xl font-bold">Cài đặt</p>
-            <div className="py-4 flex md:flex-row flex-col md:gap-8 gap-4">
-                <ul className="menu-horizontal menu md:menu-vertical  md:w-56 rounded-box">
+            <div className="flex flex-col gap-4 py-4 md:flex-row md:gap-8">
+                <ul className="menu-horizontal menu md:menu-vertical md:w-56 rounded-box">
                     <li className="bordered">
                         <a>Giao diện</a>
                     </li>
@@ -26,13 +26,13 @@ function Page() {
                         <a>Item 3</a>
                     </li>
                 </ul>
-                <div className="w-full bg-primary/5 shadow-lg rounded-lg flex flex-col p-8">
+                <div className="flex flex-col w-full p-8 rounded-lg shadow-lg bg-primary/5">
                     <p className="text-xl font-bold">Giao diện</p>
                     <p className="mt-2">Tuỳ chình giao diện cho ứng dụng</p>
-                    <div className="flex gap-4 mt-4 flex-col md:flex-row flex-wrap ">
+                    <div className="flex flex-col flex-wrap gap-4 mt-4 md:flex-row ">
                         <div
                             data-theme="dark"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("black")}
@@ -46,7 +46,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="light"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("light")}
@@ -60,7 +60,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="luxury"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("luxury")}
@@ -74,7 +74,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="dracula"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("dracula")}
@@ -88,7 +88,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="night"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("night")}
@@ -102,7 +102,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="retro"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("retro")}
@@ -116,7 +116,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="valentine"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("valentine")}
@@ -131,7 +131,7 @@ function Page() {
 
                         <div
                             data-theme="synthwave"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("synthwave")}
@@ -145,7 +145,7 @@ function Page() {
                         </div>
                         <div
                             data-theme="forest"
-                            className="bg-transparent flex gap-2"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
                                 onClick={() => handleChangeTheme("forest")}
@@ -158,18 +158,18 @@ function Page() {
                             <p className={"block md:hidden"}>forest</p>
                         </div>
                         <div
-                            data-theme="cyberpunk"
-                            className="bg-transparent flex gap-2"
+                            data-theme="garden"
+                            className="flex gap-2 bg-transparent"
                         >
                             <input
-                                onClick={() => handleChangeTheme("cyberpunk")}
+                                onClick={() => handleChangeTheme("garden")}
                                 type="radio"
                                 name="radio-1"
                                 className="radio radio-primary md:tooltip hover:bg-primary"
-                                data-tip="cyberpunk"
-                                checked={theme === "cyberpunk"}
+                                data-tip="garden"
+                                checked={theme === "garden"}
                             />
-                            <p className={"block md:hidden"}>cyberpunk</p>
+                            <p className={"block md:hidden"}>garden</p>
                         </div>
                     </div>
                 </div>
