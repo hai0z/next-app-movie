@@ -12,7 +12,7 @@ interface Store {
 }
 const useStore = create<Store>((set) => ({
     videoId: "",
-    theme: "night",
+    theme: "",
     currentSlideIndex: 0,
     movie: {} as Movie,
 

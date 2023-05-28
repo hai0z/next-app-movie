@@ -74,10 +74,22 @@ class TMDB {
 
         return data;
     }
-    async getListGenres(type: "moive" | "tv") {
+    async getListGenres(type: "movie" | "tv") {
         const respone = await fetch(
             `${this.BASE_URL}/genre/${type}/list?api_key=${process.env.TMDB}&language=vi-VN`
         );
+        const data = await respone.json();
+        return data;
+    }
+    async discover(type: "movie" | "tv", genres?: number, page?: number) {
+        let url = `${this.BASE_URL}/discover/${type}?api_key=${process.env.TMDB}&language=vi-VN`;
+        if (genres) {
+            url += `&with_genres=${genres}`;
+        }
+        if (page) {
+            url += `&page=${page}`;
+        }
+        const respone = await fetch(url);
         const data = await respone.json();
         return data;
     }

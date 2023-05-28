@@ -5,7 +5,7 @@ import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 function Sidebar() {
     return (
-        <div className="md:w-[80px] h-screen bg-primary/5 fixed top-0 left-0 md:flex flex-col items-center p-4 space-y-4 z-30 hidden">
+        <div className="w-[80px] h-screen bg-primary/5 fixed top-0 left-0 flex flex-col items-center p-4 space-y-4 z-30 -translate-x-96 md:translate-x-0 duration-300 transition-all">
             <Link href={"/"}>
                 <Image
                     src={

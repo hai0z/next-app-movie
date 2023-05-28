@@ -18,7 +18,10 @@ async function page({ searchParams }: any) {
                 ))}
             </div>
             <div className="flex flex-row items-center justify-center pb-10">
-                <Pagination totalPages={movie.total_pages} />
+                <Pagination
+                    totalPages={movie.total_pages}
+                    href="/trending/today?"
+                />
             </div>
         </div>
     );

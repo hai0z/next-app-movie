@@ -1,7 +1,7 @@
 import Sidebar from "./components/Sidebar";
 import "./globals.css";
-import { Poppins } from "next/font/google";
-const poppins = Poppins({
+import { Lexend } from "next/font/google";
+const poppins = Lexend({
     subsets: ["latin"],
     weight: ["200", "500", "700"],
     variable: "--font-poppins",

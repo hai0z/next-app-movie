@@ -2,10 +2,17 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
-function Pagination({ totalPages }: { totalPages: number }) {
+function Pagination({
+    totalPages,
+    href,
+}: {
+    totalPages: number;
+    href?: string;
+}) {
     const pathName = usePathname();
+    const searchParams = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
 
     const handlePageClick = (pageNumber: number) => {
@@ -26,7 +33,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
         for (let i = startPage; i <= endPage; i++) {
             pageNumbers.push(
                 <Link
-                    href={`${pathName}?page=${i}`}
+                    href={`${href}page=${i}`}
                     key={i}
                     className={
                         i === currentPage
@@ -50,7 +57,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
                 <Link
                     key={"last"}
                     className={"btn btn-sm"}
-                    href={`${pathName}?page=${totalPages}`}
+                    href={`${href}page=${totalPages}`}
                     onClick={() => handlePageClick(totalPages)}
                 >
                     <button>{totalPages}</button>
@@ -68,7 +75,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
         if (currentPage >= maxDisplayedPages) {
             pageNumbers.unshift(
                 <Link
-                    href={`${pathName}?page=1`}
+                    href={`${href}page=1`}
                     key={"frist"}
                     className={"btn btn-sm"}
                     onClick={() => handlePageClick(1)}
@@ -84,7 +91,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
     return (
         <div className="btn-group">
             <Link
-                href={`${pathName}?page=${currentPage - 1}`}
+                href={`${href}page=${currentPage - 1}`}
                 className={`btn btn-sm ${currentPage === 1 && "disabled"}`}
                 onClick={() => setCurrentPage(currentPage - 1)}
             >
@@ -92,7 +99,7 @@ function Pagination({ totalPages }: { totalPages: number }) {
             </Link>
             {renderPageNumbers()}
             <Link
-                href={`${pathName}?page=${currentPage + 1}`}
+                href={`${href}page=${currentPage + 1}`}
                 className={`btn btn-sm ${
                     currentPage === totalPages && "disabled"
                 }`}

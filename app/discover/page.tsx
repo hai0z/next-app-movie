@@ -26,8 +26,8 @@ function page() {
             </Link>
             <div className="py-2">
                 <h2 className="my-2 text-xl">Danh mục</h2>
-                <div className="flex flex-row gap-4">
-                    <button className="btn btn-primary">
+                <div className="flex flex-row flex-wrap gap-4">
+                    <button className=" btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -102,10 +102,10 @@ function page() {
             </div>
             <div className="py-2">
                 <h2 className="my-2 text-xl">Tổng quan</h2>
-                <div className="flex flex-row gap-4">
-                    <button className="btn btn-primary">
+                <div className="flex flex-row flex-wrap gap-4">
+                    <Link href={"/genres/movie"} className="btn btn-primary">
                         Thể loại phim lẻ
-                    </button>
+                    </Link>
                     <button className="btn btn-primary">
                         <span className="text-primary-content">
                             Thể loại phim bộ

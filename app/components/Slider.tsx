@@ -10,7 +10,7 @@ import { Virtual } from "swiper";
 import "swiper/css/pagination";
 import Link from "next/link";
 import useStore from "../(store)/store";
-import { MovieList } from "@/service/TMDB.type";
+import { Movie, MovieList } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 
