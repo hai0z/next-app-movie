@@ -14,15 +14,15 @@ export default async function Home() {
     return (
         <div className="flex flex-col h-screen rounded-tl-[20px]">
             <div className="h-screen w-full rounded-tl-[20px] relative">
-                <Slider movie={popularList} />
+                <Slider movie={trendingList} />
                 <div className="h-44 w-full bottom-0 z-10 absolute lg:flex justify-center items-center gap-4 img-shadow2 hidden">
-                    <MiniSlider movie={popularList} />
+                    <MiniSlider movie={trendingList} />
                 </div>
             </div>
 
             <div className="pl-6 flex flex-col">
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
-                    Trending Movies
+                    Popular Movies
                 </span>
                 <Link
                     href={"/trending/today"}
@@ -32,7 +32,7 @@ export default async function Home() {
                 </Link>
 
                 <div className="flex items-center">
-                    <ListMovie movie={trendingList} />
+                    <ListMovie movie={popularList} />
                 </div>
 
                 <span className="text-[1.5rem] font-semibold mt-12 text-base-content">

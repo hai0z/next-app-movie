@@ -10,11 +10,11 @@ async function page({ params }: { params: any }) {
         const data = await respone.json();
         return data;
     };
-    const { cast }: Cast = await getCast();
+    const cast: { cast: Cast[] } = await getCast();
 
     return (
         <div className="min-h-screen w-full px-24 grid grid-cols-1 md:grid-cols-4 gap-4 pb-96">
-            {cast.map((c) => (
+            {cast.cast.map((c) => (
                 <div key={c.id} className="">
                     <Image
                         src={tmdb.getImage(c.profile_path, "w500")}

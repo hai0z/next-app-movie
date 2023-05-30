@@ -15,6 +15,7 @@ async function page({ params }: { params: { movieId: number } }) {
                     src={tmdb.getImage(backdrop.file_path)}
                     priority
                     alt="img"
+                    className="object-cover"
                 />
             ))}
         </div>

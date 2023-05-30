@@ -18,7 +18,7 @@ function Slider({ movie }: { movie: MovieList }) {
     const [listLogo, setListLogo] = useState<any>([]);
 
     useEffect(() => {
-        const promises: any = [];
+        const promises = [];
         for (const m of movie.results) {
             promises.push(tmdb.getPhotos("movie", m.id));
         }
