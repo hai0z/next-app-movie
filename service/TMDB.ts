@@ -93,7 +93,13 @@ class TMDB {
         const data = await respone.json();
         return data;
     }
-    async getPhotos() {}
+    async getPhotos(type: "movie" | "tv", id: number) {
+        const respone = await fetch(
+            `${this.BASE_URL}/${type}/${id}/images?api_key=${process.env.TMDB}`
+        );
+        const data = await respone.json();
+        return data;
+    }
     async getVideos() {}
 }
 const tmdb = new TMDB();

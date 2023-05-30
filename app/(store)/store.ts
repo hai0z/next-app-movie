@@ -15,10 +15,9 @@ const useStore = create<Store>((set) => ({
     theme: "",
     currentSlideIndex: 0,
     movie: {} as Movie,
-
-    setMovie: (param) => set(() => ({ movie: param })),
-    setVideoId: (param) => set(() => ({ videoId: param })),
-    setTheme: (param) => set(() => ({ theme: param })),
-    setCurrentSlideIndex: (param) => set(() => ({ currentSlideIndex: param })),
+    setMovie: (param) => set({ movie: param }),
+    setVideoId: (param) => set({ videoId: param }),
+    setTheme: (param) => set({ theme: param }),
+    setCurrentSlideIndex: (param) => set({ currentSlideIndex: param }),
 }));
 export default useStore;

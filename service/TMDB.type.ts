@@ -1,6 +1,6 @@
 export interface MovieList {
     results: {
-        id?: number;
+        id: number;
         title: string;
         overview: string;
         backdrop_path: string;
@@ -41,4 +41,18 @@ export interface TVShow {}
 export interface Genres {
     id: number;
     name: string;
+}
+export interface Photo {
+    aspect_ratio: number;
+    height: number;
+    iso_639_1: string;
+    file_path: string;
+    vote_average: number;
+    vote_count: number;
+    width: number;
+}
+export interface ListPhotos {
+    backdrops: Photo[];
+    logos: Photo[];
+    posters: Photo[];
 }

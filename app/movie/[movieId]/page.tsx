@@ -1,15 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { Movie, MovieList } from "@/service/TMDB.type";
+import { Movie } from "@/service/TMDB.type";
 import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 export interface Cast {
-    cast: {
-        id: number;
-        profile_path: string;
-        name: string;
-    }[];
+    id: number;
+    profile_path: string;
+    name: string;
 }
 async function Page({
     params,
@@ -19,8 +17,11 @@ async function Page({
     };
 }) {
     const movie: Movie = await tmdb.getMovieOrTV(params.movieId, "movie");
-    const { cast }: Cast = await tmdb.getCast(params.movieId, "movie");
-    const { results: listRecommendations }: MovieList =
+    const { cast }: { cast: Cast[] } = await tmdb.getCast(
+        params.movieId,
+        "movie"
+    );
+    const { results: listRecommendations }: { results: Movie[] } =
         await tmdb.getRecomendations(params.movieId, "movie");
     return (
         <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 md:mt-20 mt-8">
@@ -73,7 +74,7 @@ async function Page({
             </div>
             <div className="flex flex-col md:w-7/12 lg:w-9/12 w-full">
                 <div className="bg-primary/5 shadow-lg p-6 rounded-md space-y-3">
-                    <p> {movie.overview}</p>
+                    <p className="text-justify"> {movie.overview}</p>
                     <div className="flex flex-row gap-4">
                         <div>
                             <p className="font-bold">Production Countries</p>

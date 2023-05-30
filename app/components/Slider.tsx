@@ -6,17 +6,30 @@ import "swiper/css/effect-creative";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
-import { Virtual } from "swiper";
 import "swiper/css/pagination";
 import Link from "next/link";
-import useStore from "../(store)/store";
-import { Movie, MovieList } from "@/service/TMDB.type";
+import { MovieList } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 
 function Slider({ movie }: { movie: MovieList }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const [listLogo, setListLogo] = useState<any>([]);
+
+    useEffect(() => {
+        const promises: any = [];
+        for (const m of movie.results) {
+            promises.push(tmdb.getPhotos("movie", m.id));
+        }
+        Promise.all(promises)
+            .then((data) => {
+                setListLogo(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [movie.results]);
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -83,9 +96,25 @@ function Slider({ movie }: { movie: MovieList }) {
                                     }}
                                     key={currentIndex}
                                 >
-                                    <motion.p className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full">
-                                        {m.title}
-                                    </motion.p>
+                                    <motion.div className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full">
+                                        {listLogo?.[index]?.logos[0]
+                                            ?.file_path ? (
+                                            <Image
+                                                src={tmdb.getImage(
+                                                    listLogo?.[index]?.logos[0]
+                                                        ?.file_path,
+                                                    "w300"
+                                                )}
+                                                width={500}
+                                                height={500}
+                                                priority
+                                                className="w-auto h-auto mb-4"
+                                                alt="img"
+                                            />
+                                        ) : (
+                                            <p>{m.title}</p>
+                                        )}
+                                    </motion.div>
                                     <motion.p
                                         initial={{
                                             opacity: 0,
