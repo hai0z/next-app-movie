@@ -8,7 +8,7 @@ function MovieDetailTab() {
 
     return (
         <div
-            className={`tabs tabs-boxed w-full py-4 rounded-none bg-opacity-80 bg-base-100 px-4 sticky top-16 border-b-[1px] border-b-base-content border-solid mb-4 transition duration-300 z-30`}
+            className={`tabs tabs-boxed w-full py-4 rounded-none bg-opacity-80 bg-base-100 px-4 sticky top-16 border-b-[1px] border-b-base-content border-solid mb-4 transition duration-300 z-30 backdrop-blur-md`}
         >
             <Link
                 scroll={false}
