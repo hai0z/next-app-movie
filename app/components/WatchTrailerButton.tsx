@@ -8,9 +8,9 @@ function WatchTrailerButton({ videoId }: { videoId: string }) {
         <label
             htmlFor="my-modal"
             onClick={() => setVideoId(videoId)}
-            className="btn btn-sm btn-primary md:btn-md lg:btn-md w-fit"
+            className="btn btn-primary w-fit"
         >
-            <span className="text-[20px]">Xem Trailer</span>
+            <span className="capitalize">Xem Trailer</span>
         </label>
     );
 }

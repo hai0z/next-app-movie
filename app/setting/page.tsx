@@ -20,10 +20,10 @@ function Page() {
                         <a>Giao diện</a>
                     </li>
                     <li>
-                        <a>Item 2</a>
+                        <a>Comming soon</a>
                     </li>
                     <li>
-                        <a>Item 3</a>
+                        <a>Comming soon</a>
                     </li>
                 </ul>
                 <div className="flex flex-col w-full p-8 rounded-lg shadow-lg bg-primary/5">
@@ -158,18 +158,18 @@ function Page() {
                             <p className={"block md:hidden"}>forest</p>
                         </div>
                         <div
-                            data-theme="garden"
+                            data-theme="halloween"
                             className="flex gap-2 bg-transparent"
                         >
                             <input
-                                onClick={() => handleChangeTheme("garden")}
+                                onClick={() => handleChangeTheme("halloween")}
                                 type="radio"
                                 name="radio-1"
                                 className="radio radio-primary md:tooltip hover:bg-primary"
-                                data-tip="garden"
-                                checked={theme === "garden"}
+                                data-tip="halloween"
+                                checked={theme === "halloween"}
                             />
-                            <p className={"block md:hidden"}>garden</p>
+                            <p className={"block md:hidden"}>halloween</p>
                         </div>
                     </div>
                 </div>

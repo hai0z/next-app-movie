@@ -6,6 +6,7 @@ import WatchTrailerButton from "@/app/components/WatchTrailerButton";
 import Modal from "@/app/components/Modal";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "@/app/components/ShadowImg";
+import Link from "next/link";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -38,39 +39,40 @@ async function Layout({ params, children }: MovieDetailProp) {
                 />
                 <ShadowImg />
             </div>
-            <div className="w-full relative pt-[35%]">
-                <div className="flex flex-row  justify-between  relative bottom-0 md:pb-16">
+            <div className="w-full relative md:px-4 mt-[35%]">
+                <div className="flex flex-row justify-around  relative bottom-0 md:pb-16">
                     <div className="flex w-4/12 justify-center drop-shadow-md z-10 mb-3">
                         <Image
                             src={tmdb.getImage(movie.poster_path, "w500")}
                             width={500}
                             height={100}
                             priority
-                            className="md:w-[350px] md:rounded-[32px] rounded-md w-28"
+                            className="md:w-[250px] lg:w-[300px] h-fit md:rounded-xl rounded-md w-32"
                             alt={movie.title}
                         />
                     </div>
                     <div className="w-8/12 z-10">
                         <div className="flex flex-col ml-8">
-                            <p className="md:text-[4rem] font-semibold text-base-content drop-shadow-2xl">
+                            <p className="md:text-[4rem] font-bold text-base-content drop-shadow-2xl text-[1.2rem]">
                                 {movie.title}
                             </p>
-                            <p className="text-base-content mt-4 text-[16px] lg:text-lg italic">
+                            <p className="text-base-content mt-4 text-[16px] lg:text-lg italic font-semibold">
                                 {movie?.tagline}
                             </p>
-                            <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-4 ring-primary mt-4 hidden md:block">
+                            <button className="bg-primary w-fit rounded-full ring-2 ring-secondary mt-4 hidden md:block capitalize font-bold text-primary-content p-1">
                                 {movie.release_date} •{" "}
                                 {convertToHourMinute(movie.runtime)}
                             </button>
                             <div className="md:flex flex-row gap-4 mt-4 flex-wrap hidden">
                                 {movie.genres.map((genres) => {
                                     return (
-                                        <div
+                                        <Link
+                                            href={`discover/movies?with_genres=${genres.id}`}
                                             key={genres.id}
-                                            className="btn btn-secondary md:btn-md "
+                                            className="btn btn-secondary capitalize"
                                         >
                                             <span>{genres.name}</span>
-                                        </div>
+                                        </Link>
                                     );
                                 })}
                             </div>

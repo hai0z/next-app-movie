@@ -6,8 +6,10 @@ export interface MovieList {
         backdrop_path: string;
         poster_path: string;
         adult: boolean;
-        genres: number[];
+        genre_ids: number[];
         name?: string;
+        media_type: string;
+        vote_average: number;
     }[];
     total_pages: number;
 }
@@ -18,7 +20,7 @@ export interface Movie {
     backdrop_path: string;
     poster_path: string;
     adult: boolean;
-    genres: { id: string | number; name: string }[];
+    genres: Genres[];
     name?: string;
     tagline: string;
     release_date: string;

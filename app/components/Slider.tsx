@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Autoplay } from "swiper";
 import "swiper/css/pagination";
 import Link from "next/link";
-import { MovieList } from "@/service/TMDB.type";
+import { Genres, MovieList } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 
@@ -16,8 +16,12 @@ function Slider({ movie }: { movie: MovieList }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const [listLogo, setListLogo] = useState<any>([]);
-
+    const [listGenres, setListGenres] = useState<Genres[]>([]);
     useEffect(() => {
+        const getListGenres = async () => {
+            const data = await tmdb.getListGenres("movie");
+            setListGenres(data.genres);
+        };
         const promises = [];
         for (const m of movie.results) {
             promises.push(tmdb.getPhotos("movie", m.id));
@@ -29,7 +33,12 @@ function Slider({ movie }: { movie: MovieList }) {
             .catch((error) => {
                 console.error(error);
             });
+        getListGenres();
     }, [movie.results]);
+    const getGenres = (m: any) => {
+        const genres = listGenres.filter((g) => m.genre_ids.includes(g.id));
+        return genres;
+    };
     return (
         <Swiper
             onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
@@ -46,7 +55,6 @@ function Slider({ movie }: { movie: MovieList }) {
             <AnimatePresence>
                 {movie.results.slice(0, 10).map((m, index) => (
                     <SwiperSlide key={m.id}>
-                        <ShadowImg />
                         <motion.div
                             initial={{
                                 scale: 1.1,
@@ -72,7 +80,7 @@ function Slider({ movie }: { movie: MovieList }) {
                             />
                         </motion.div>
                         <ShadowImg />
-                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center">
+                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20">
                             <div
                                 className={`${
                                     currentIndex === index
@@ -108,13 +116,32 @@ function Slider({ movie }: { movie: MovieList }) {
                                                 width={500}
                                                 height={500}
                                                 priority
-                                                className="w-auto h-auto mb-4"
+                                                className="md:w-auto md:h-auto mb-4 w-40"
                                                 alt="img"
                                             />
                                         ) : (
                                             <p>{m.title}</p>
                                         )}
                                     </motion.div>
+                                    <div className="flex items-center mb-6">
+                                        <p className="badge badge-info font-bold">
+                                            TMDB
+                                        </p>
+                                        <span className="font-bold ml-2">
+                                            {m.vote_average.toPrecision(2)}
+                                        </span>
+                                        <div className="flex gap-2 ml-6 flex-wrap">
+                                            {getGenres(m).map((x) => (
+                                                <div
+                                                    key={x.id}
+                                                    className="badge badge-secondary font-bold"
+                                                >
+                                                    {x.name}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
                                     <motion.p
                                         initial={{
                                             opacity: 0,
@@ -153,11 +180,9 @@ function Slider({ movie }: { movie: MovieList }) {
                                     >
                                         <Link
                                             href={`${"/movie/" + m.id}#top`}
-                                            className="btn btn-primary"
+                                            className="btn btn-primary capitalize"
                                         >
-                                            <span className="md:text-lg">
-                                                Xem chi tiết
-                                            </span>
+                                            <span>Xem chi tiết</span>
                                         </Link>
                                     </motion.div>
                                 </motion.div>
@@ -173,8 +198,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={tmdb.getImage(m.poster_path)}
                                     alt="film"
-                                    style={{ width: 300 }}
-                                    className="rounded-3xl"
+                                    className="rounded-3xl w-[300px]"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}

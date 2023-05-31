@@ -15,7 +15,7 @@ export default async function Home() {
         <div className="flex flex-col h-screen rounded-tl-[20px]">
             <div className="h-screen w-full rounded-tl-[20px] relative">
                 <Slider movie={trendingList} />
-                <div className="h-44 w-full bottom-0 z-10 absolute lg:flex justify-center items-center gap-4 img-shadow2 hidden">
+                <div className="h-44 w-full bottom-0 z-10 absolute lg:flex justify-center items-center gap-4 hidden">
                     <MiniSlider movie={trendingList} />
                 </div>
             </div>
