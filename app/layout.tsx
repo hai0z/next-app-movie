@@ -9,7 +9,8 @@ const poppins = Lexend({
 import Header from "./components/Header";
 import NextTopLoader from "nextjs-toploader";
 import MobileTab from "./components/mobile/MobileTab";
-export const metadata = {
+import { Metadata } from "next";
+export const metadata: Metadata = {
     title: "The Movies",
     description: "The Movies DB",
 };

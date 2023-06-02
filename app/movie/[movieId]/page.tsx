@@ -4,10 +4,21 @@ import { Movie } from "@/service/TMDB.type";
 import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
+import { Metadata } from "next";
 export interface Cast {
     id: number;
     profile_path: string;
     name: string;
+}
+export async function generateMetadata({
+    params,
+}: {
+    params: { movieId: string };
+}): Promise<Metadata> {
+    const movie: Movie = await tmdb.getMovieOrTV(+params.movieId, "movie");
+    return {
+        title: movie.title,
+    };
 }
 async function Page({
     params,

@@ -26,7 +26,7 @@ async function page({ searchParams }: PageProp) {
             </div>
             <div className="flex justify-center items-center mt-4 mb-10">
                 <Pagination
-                    totalPages={listMovie.total_pages}
+                    totalPages={500}
                     href={`/discover/movies?with_genres=${searchParams.with_genres}&`}
                 />
             </div>

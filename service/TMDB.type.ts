@@ -38,6 +38,7 @@ export interface Movie {
     spoken_languages: {
         name: string;
     }[];
+    vote_average: number;
 }
 export interface TVShow {}
 export interface Genres {

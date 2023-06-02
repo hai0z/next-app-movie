@@ -16,7 +16,9 @@ function Slider({ movie }: { movie: MovieList }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const [listLogo, setListLogo] = useState<any>([]);
+
     const [listGenres, setListGenres] = useState<Genres[]>([]);
+
     useEffect(() => {
         const getListGenres = async () => {
             const data = await tmdb.getListGenres("movie");
@@ -35,7 +37,7 @@ function Slider({ movie }: { movie: MovieList }) {
             });
         getListGenres();
     }, [movie.results]);
-    const getGenres = (m: any) => {
+    const getGenresOfMovie = (m: any) => {
         const genres = listGenres.filter((g) => m.genre_ids.includes(g.id));
         return genres;
     };
@@ -128,10 +130,10 @@ function Slider({ movie }: { movie: MovieList }) {
                                             TMDB
                                         </p>
                                         <span className="font-bold ml-2">
-                                            {m.vote_average.toPrecision(2)}
+                                            {m.vote_average.toFixed(1)}
                                         </span>
                                         <div className="flex gap-2 ml-6 flex-wrap">
-                                            {getGenres(m).map((x) => (
+                                            {getGenresOfMovie(m).map((x) => (
                                                 <div
                                                     key={x.id}
                                                     className="badge badge-secondary font-bold"
@@ -198,7 +200,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     key={currentIndex}
                                     src={tmdb.getImage(m.poster_path)}
                                     alt="film"
-                                    className="rounded-3xl w-[300px]"
+                                    className="rounded-3xl w-72"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0 }}
@@ -211,19 +213,6 @@ function Slider({ movie }: { movie: MovieList }) {
             </AnimatePresence>
         </Swiper>
     );
-}
-function getWindowDimensions() {
-    if (typeof window !== "undefined") {
-        const { innerWidth: width, innerHeight: height } = window;
-        return {
-            width,
-            height,
-        };
-    }
-    return {
-        width: 0,
-        height: 0,
-    };
 }
 
 export default Slider;

@@ -60,10 +60,18 @@ async function Layout({ params, children }: MovieDetailProp) {
                             <p className="text-base-content mt-4 text-[16px] lg:text-lg italic font-semibold">
                                 {movie?.tagline}
                             </p>
-                            <button className="bg-primary w-fit rounded-full ring-2 ring-secondary mt-4 hidden md:block capitalize font-bold text-primary-content p-1">
-                                {movie.release_date} •{" "}
-                                {convertToHourMinute(movie.runtime)}
-                            </button>
+                            <div className="flex gap-4">
+                                <button className="bg-secondary w-fit rounded-full ring-2 ring-primary mt-4 hidden md:block capitalize font-bold text-secondary-content p-1">
+                                    <span className="badge badge-primary">
+                                        TMDB
+                                    </span>{" "}
+                                    {movie.vote_average.toFixed(1)}
+                                </button>
+                                <button className="bg-secondary w-fit rounded-full ring-2 ring-primary mt-4 hidden md:block capitalize font-bold text-secondary-content p-1">
+                                    {movie.release_date} •{" "}
+                                    {convertToHourMinute(movie.runtime)}
+                                </button>
+                            </div>
                             <div className="md:flex flex-row gap-4 mt-4 flex-wrap hidden">
                                 {movie.genres.map((genres) => {
                                     return (
@@ -87,10 +95,16 @@ async function Layout({ params, children }: MovieDetailProp) {
             </div>
             <div className=" w-full bg-base-100 z-10">
                 <div className="md:hidden p-4 md:p-0 z-10">
-                    <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm">
-                        {movie.release_date} •{" "}
-                        {convertToHourMinute(movie.runtime)}
-                    </button>
+                    <div>
+                        <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm mr-2 gap-1">
+                            <span className="badge badge-primary">TMDB</span>{" "}
+                            {movie.vote_average.toFixed(1)}
+                        </button>
+                        <button className="btn btn-secondary w-fit md:btn-md  rounded-full  ring-2 ring-primary my-2 btn-sm">
+                            {movie.release_date} •{" "}
+                            {convertToHourMinute(movie.runtime)}
+                        </button>
+                    </div>
                     <div className="flex flex-row gap-2 flex-wrap">
                         {movie.genres.map((genres) => {
                             return (
