@@ -85,7 +85,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             : tmdb.getImage(m.backdrop_path)
                                     }
                                     alt="film"
-                                    className="md:w-full w-full md:brightness-50 object-cover h-[55vh] lg:h-[95vh] md:rounded-tl-[20px] rounded-xl"
+                                    className="md:w-full w-full md:brightness-50 object-cover h-[60vh] lg:h-[95vh] md:rounded-tl-[20px] rounded-xl"
                                     width={1920}
                                     height={1080}
                                     priority
@@ -93,13 +93,13 @@ function Slider({ movie }: { movie: MovieList }) {
                             </Link>
                             <ShadowImg />
                         </motion.div>
-                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20 ">
+                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20">
                             <div
                                 className={`${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
-                                } w-full lg:w-8/12 flex flex-col justify-end items-center`}
+                                } w-full lg:w-8/12 flex flex-col justify-center items-center`}
                             >
                                 <motion.div
                                     initial={{
@@ -116,9 +116,8 @@ function Slider({ movie }: { movie: MovieList }) {
                                         delay: 0.5,
                                     }}
                                     key={currentIndex}
-                                    className="text-center"
                                 >
-                                    <motion.div className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full">
+                                    <motion.div className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full ">
                                         {listLogo?.[index]?.logos[0]
                                             ?.file_path && width > 768 ? (
                                             <Image
@@ -134,7 +133,9 @@ function Slider({ movie }: { movie: MovieList }) {
                                                 alt="img"
                                             />
                                         ) : (
-                                            <p>{m.title}</p>
+                                            <p className="text-center">
+                                                {m.title}
+                                            </p>
                                         )}
                                     </motion.div>
                                     <div className="md:flex items-center mb-6 hidden">
@@ -144,7 +145,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                         <span className="font-bold ml-2">
                                             {m.vote_average.toFixed(1)}
                                         </span>
-                                        <div className="md:flex gap-2 ml-6 flex-wrap hidden">
+                                        <div className="md:flex gap-2 ml-6 flex-wrap ">
                                             {getGenresOfMovie(m).map((x) => (
                                                 <div
                                                     key={x.id}
@@ -171,7 +172,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             delay: 0.7,
                                         }}
                                         key={currentIndex}
-                                        className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left  text-base-content md:block"
+                                        className="hidden drop-shadow-2xl shadow-black text-[1rem]  w-full text-left text-base-content md:block"
                                     >
                                         {m.overview}
                                     </motion.p>
