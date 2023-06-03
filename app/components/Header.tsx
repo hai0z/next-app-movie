@@ -6,6 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import useStore from "../(store)/store";
 import { Movie } from "@/service/TMDB.type";
+import useWindowDimensions from "@/hooks/useWindowDemensions";
 function Header() {
     const [data, setData] = useState<Movie>({} as Movie);
     const pathname = usePathname();
@@ -13,6 +14,9 @@ function Header() {
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [isScroll, setIsScroll] = useState(false);
     const setTheme = useStore((state) => state.setTheme);
+
+    const { width } = useWindowDimensions();
+
     useEffect(() => {
         const onScrollTop = () => {
             if (window.scrollY > 90) {
@@ -36,7 +40,6 @@ function Header() {
         };
         getData();
     }, [params.movieId]);
-
     useEffect(() => {
         const currentTheme = localStorage.getItem("theme");
         setTheme(currentTheme as string);
@@ -50,8 +53,10 @@ function Header() {
     return (
         <div
             className={`md:left-[80px] w-full px-4 ${
-                isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80 "
-            } flex flex-row items-center fixed z-50 transition-all duration-300 h-16 md:h-16`}
+                isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
+            } ${
+                pathname == "/" && width <= 768 && "shadow-lg"
+            } flex flex-row items-center z-50 transition-all duration-300 h-16 md:h-16 fixed`}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
@@ -66,6 +71,15 @@ function Header() {
                         onClick={() => router.forward()}
                     />
                 </div>
+            </div>
+            <div
+                className={`${
+                    pathname == "/" && width < 768 ? "flex" : "hidden"
+                }`}
+            >
+                <h2 className="bg-gradient-to-br from-[hsl(var(--p))]  to-[hsl(var(--s))] text-transparent bg-clip-text font-bold text-2xl">
+                    The Movies
+                </h2>
             </div>
             <div className={`flex flex-row`}>
                 {isScroll &&
@@ -92,7 +106,7 @@ function Header() {
                             </div>
                         </div>
                     )}
-                {isScroll && pathname == "/" && (
+                {isScroll && pathname == "/" && width > 768 && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl">Trang chủ</p>
                     </div>

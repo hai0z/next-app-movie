@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
 import { MovieList } from "@/service/TMDB.type";
@@ -11,9 +11,9 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css";
 import "swiper/css/navigation";
+import useWindowDimensions from "@/hooks/useWindowDemensions";
 function MiniSlider({ movie }: { movie: MovieList }) {
     const currentIndex = useStore((state) => state.currentSlideIndex);
-    const swiper = useSwiper();
     const { width } = useWindowDimensions();
     const setSlideIndex = useStore((state) => state.setCurrentSlideIndex);
     return (
@@ -69,36 +69,5 @@ function MiniSlider({ movie }: { movie: MovieList }) {
         </div>
     );
 }
-function getWindowDimensions() {
-    if (typeof window !== "undefined") {
-        const { innerWidth: width, innerHeight: height } = window;
-        return {
-            width,
-            height,
-        };
-    }
-    return {
-        width: 0,
-        height: 0,
-    };
-}
 
-function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-        getWindowDimensions()
-    );
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []);
-
-    return windowDimensions;
-}
 export default MiniSlider;

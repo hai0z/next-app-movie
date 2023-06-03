@@ -5,13 +5,14 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Autoplay } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css/pagination";
 import Link from "next/link";
 import { Genres, MovieList } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
-
+import useWindowDimensions from "@/hooks/useWindowDemensions";
+import "swiper/css/pagination";
 function Slider({ movie }: { movie: MovieList }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -41,54 +42,64 @@ function Slider({ movie }: { movie: MovieList }) {
         const genres = listGenres.filter((g) => m.genre_ids.includes(g.id));
         return genres;
     };
+    const { width } = useWindowDimensions();
     return (
         <Swiper
-            onActiveIndexChange={(index) => setCurrentIndex(index.activeIndex)}
+            onSlideChange={(e) => setCurrentIndex(e.realIndex)}
             autoplay={{
                 delay: 10000,
             }}
+            pagination
             initialSlide={currentIndex}
-            slidesPerView={1}
-            centeredSlides
+            slidesPerView={width < 768 ? 1.2 : 1}
             grabCursor={true}
-            modules={[Autoplay]}
+            modules={[Autoplay, Pagination]}
             className="mb-6"
+            spaceBetween={15}
+            centeredSlides
+            loop
         >
             <AnimatePresence>
                 {movie.results.slice(0, 10).map((m, index) => (
-                    <SwiperSlide key={m.id}>
+                    <SwiperSlide
+                        key={m.id}
+                        className={`${
+                            width <= 768 && "pt-24 transition-all duration-200"
+                        }`}
+                    >
                         <motion.div
+                            className="w-full"
                             initial={{
-                                scale: 1.1,
-                                translateX: 300,
+                                scale: 1.05,
                             }}
-                            animate={{
-                                scale: 1,
-                                translateX: 0,
-                            }}
-                            exit={{ scale: 1.1, translateX: 300 }}
-                            transition={{
-                                duration: 0.85,
-                            }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 1.05 }}
+                            transition={{ duration: 1 }}
                             key={currentIndex}
                         >
-                            <Image
-                                src={tmdb.getImage(m.backdrop_path)}
-                                alt="film"
-                                className="w-full brightness-50  object-cover h-[50vh] lg:h-[95vh] rounded-tl-[20px]"
-                                width={1920}
-                                height={1080}
-                                priority
-                            />
+                            <Link href={`${"/movie/" + m.id}#top`}>
+                                <Image
+                                    src={
+                                        width < 768
+                                            ? tmdb.getImage(m.poster_path)
+                                            : tmdb.getImage(m.backdrop_path)
+                                    }
+                                    alt="film"
+                                    className="md:w-full w-full md:brightness-50 object-cover h-[55vh] lg:h-[95vh] md:rounded-tl-[20px] rounded-xl"
+                                    width={1920}
+                                    height={1080}
+                                    priority
+                                />
+                            </Link>
+                            <ShadowImg />
                         </motion.div>
-                        <ShadowImg />
-                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20">
+                        <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20 ">
                             <div
                                 className={`${
                                     currentIndex === index
                                         ? "opacity-100"
                                         : "opacity-0"
-                                } w-full lg:w-8/12 flex flex-col`}
+                                } w-full lg:w-8/12 flex flex-col justify-end items-center`}
                             >
                                 <motion.div
                                     initial={{
@@ -105,10 +116,11 @@ function Slider({ movie }: { movie: MovieList }) {
                                         delay: 0.5,
                                     }}
                                     key={currentIndex}
+                                    className="text-center"
                                 >
                                     <motion.div className="lg:text-[3rem] md:text-[2rem] text-[1.5rem] text-base-content font-semibold drop-shadow-2xl shadow-black w-full">
                                         {listLogo?.[index]?.logos[0]
-                                            ?.file_path ? (
+                                            ?.file_path && width > 768 ? (
                                             <Image
                                                 src={tmdb.getImage(
                                                     listLogo?.[index]?.logos[0]
@@ -125,14 +137,14 @@ function Slider({ movie }: { movie: MovieList }) {
                                             <p>{m.title}</p>
                                         )}
                                     </motion.div>
-                                    <div className="flex items-center mb-6">
+                                    <div className="md:flex items-center mb-6 hidden">
                                         <p className="badge badge-info font-bold">
                                             TMDB
                                         </p>
                                         <span className="font-bold ml-2">
                                             {m.vote_average.toFixed(1)}
                                         </span>
-                                        <div className="flex gap-2 ml-6 flex-wrap">
+                                        <div className="md:flex gap-2 ml-6 flex-wrap hidden">
                                             {getGenresOfMovie(m).map((x) => (
                                                 <div
                                                     key={x.id}
@@ -182,7 +194,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     >
                                         <Link
                                             href={`${"/movie/" + m.id}#top`}
-                                            className="btn btn-primary capitalize"
+                                            className="md:btn md:btn-primary capitalize hidden"
                                         >
                                             <span>Xem chi tiết</span>
                                         </Link>
