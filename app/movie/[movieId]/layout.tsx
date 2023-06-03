@@ -7,6 +7,7 @@ import Modal from "@/app/components/Modal";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "@/app/components/ShadowImg";
 import Link from "next/link";
+import { Metadata } from "next";
 interface MovieDetailProp {
     params: {
         movieId: string;
@@ -14,9 +15,16 @@ interface MovieDetailProp {
     children: React.ReactNode;
 }
 
-export const metadata = {
-    title: "Hai0z Movie",
-};
+export async function generateMetadata({
+    params,
+}: {
+    params: { movieId: string };
+}): Promise<Metadata> {
+    const movie: Movie = await tmdb.getMovieOrTV(+params.movieId, "movie");
+    return {
+        title: movie.title,
+    };
+}
 
 async function Layout({ params, children }: MovieDetailProp) {
     const movie: Movie = await tmdb.getMovieOrTV(+params.movieId, "movie");

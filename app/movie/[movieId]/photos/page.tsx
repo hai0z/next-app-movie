@@ -24,29 +24,9 @@ async function Page({ params }: { params: { movieId: number } }) {
             }
         >
             <div className="flex justify-center flex-col max-w-7xl items-center mx-auto">
-                <h2 className="font-bold text-lg">Backdrops</h2>
+                <h2 className="font-bold text-lg pb-2">Backdrops</h2>
                 <div className="pb-20 flex gap-4 flex-wrap justify-center">
-                    {listPhoto?.backdrops
-                        .slice(0, 10)
-                        .map((backdrop, index) => (
-                            <PhotoView
-                                key={index}
-                                src={tmdb.getImage(backdrop.file_path)}
-                            >
-                                <Image
-                                    width={240}
-                                    height={240}
-                                    src={tmdb.getImage(backdrop.file_path)}
-                                    priority
-                                    alt="img"
-                                    className="object-cover w-64"
-                                />
-                            </PhotoView>
-                        ))}
-                </div>
-                <h2 className="font-bold text-lg">Logos</h2>
-                <div className="pb-20 flex gap-4 flex-wrap justify-center">
-                    {listPhoto?.logos.slice(0, 2).map((backdrop, index) => (
+                    {listPhoto?.backdrops.slice(0, 8).map((backdrop, index) => (
                         <PhotoView
                             key={index}
                             src={tmdb.getImage(backdrop.file_path)}
@@ -57,14 +37,14 @@ async function Page({ params }: { params: { movieId: number } }) {
                                 src={tmdb.getImage(backdrop.file_path)}
                                 priority
                                 alt="img"
-                                className="object-cover w-64"
+                                className="object-cover w-64 cursor-pointer"
                             />
                         </PhotoView>
                     ))}
                 </div>
-                <h2 className="font-bold text-lg">Posters</h2>
-                <div className="pb-20 flex gap-4 flex-wrap items-center justify-center">
-                    {listPhoto?.posters.slice(0, 5).map((backdrop, index) => (
+                <h2 className="font-bold text-lg pb-2">Logos</h2>
+                <div className="pb-20 flex gap-4 flex-wrap justify-center">
+                    {listPhoto?.logos.slice(0, 4).map((backdrop, index) => (
                         <PhotoView
                             key={index}
                             src={tmdb.getImage(backdrop.file_path)}
@@ -75,7 +55,25 @@ async function Page({ params }: { params: { movieId: number } }) {
                                 src={tmdb.getImage(backdrop.file_path)}
                                 priority
                                 alt="img"
-                                className="object-cover w-64"
+                                className="object-cover w-64 cursor-pointer"
+                            />
+                        </PhotoView>
+                    ))}
+                </div>
+                <h2 className="font-bold text-lg pb-2">Posters</h2>
+                <div className="pb-20 flex gap-4 flex-wrap items-center justify-center">
+                    {listPhoto?.posters.slice(0, 4).map((backdrop, index) => (
+                        <PhotoView
+                            key={index}
+                            src={tmdb.getImage(backdrop.file_path)}
+                        >
+                            <Image
+                                width={240}
+                                height={240}
+                                src={tmdb.getImage(backdrop.file_path)}
+                                priority
+                                alt="img"
+                                className="object-cover w-64 cursor-pointer"
                             />
                         </PhotoView>
                     ))}

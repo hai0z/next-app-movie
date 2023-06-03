@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import NextTopLoader from "nextjs-toploader";
 import MobileTab from "./components/mobile/MobileTab";
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
     title: "The Movies",
     description: "The Movies DB",
@@ -37,7 +38,7 @@ export default function RootLayout({
                     </div>
                     <div className="flex flex-col w-full md:pl-[80px]">
                         <NextTopLoader
-                            showSpinner={false}
+                            showSpinner={true}
                             color="hsl(var(--p))"
                         />
                         <Header />
