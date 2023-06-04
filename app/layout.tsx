@@ -33,7 +33,7 @@ export default function RootLayout({
             <body className={poppins.className}>
                 <div className="flex flex-row">
                     <Sidebar />
-                    <div className="md:hidden">
+                    <div>
                         <MobileTab />
                     </div>
                     <div className="flex flex-col w-full md:pl-[80px]">

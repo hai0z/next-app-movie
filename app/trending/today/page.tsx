@@ -20,10 +20,7 @@ async function Page({ searchParams }: IPageProps) {
                 ))}
             </div>
             <div className="flex flex-row items-center justify-center pb-10">
-                <Pagination
-                    totalPages={movie.total_pages}
-                    href="/trending/today?"
-                />
+                <Pagination totalPages={500} href="/trending/today?" />
             </div>
         </div>
     );

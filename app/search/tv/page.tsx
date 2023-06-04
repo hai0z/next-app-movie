@@ -36,7 +36,7 @@ async function page({ searchParams }: IPageProps) {
                 </div>
             )}
             <div className="flex flex-row items-center justify-center pb-10">
-                <Pagination totalPages={movie.total_pages} />
+                <Pagination totalPages={500} />
             </div>
         </div>
     );

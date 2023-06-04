@@ -85,7 +85,7 @@ function Slider({ movie }: { movie: MovieList }) {
                 autoplay={{
                     delay: 10000,
                 }}
-                pagination
+                pagination={width < 768 ? true : false}
                 slidesPerView={width < 768 ? 1.25 : 1}
                 grabCursor={true}
                 modules={[Autoplay, Pagination, Thumbs, Controller]}

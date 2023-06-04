@@ -17,9 +17,7 @@ function MobileTab() {
     }, []);
     return (
         <div
-            className={`fixed bottom-0 z-50 bg-base-300 h-16 w-full flex flex-row items-center bg-opacity-80 backdrop-blur-sm justify-around transition-all duration-300 ${
-                isScroll && "-bottom-20 transition-all duration-300"
-            }`}
+            className={`fixed bottom-0 z-50 bg-base-300 h-16 w-full flex flex-row items-center bg-opacity-80 backdrop-blur-sm justify-around transition-all duration-500 md:-bottom-96 `}
         >
             <div>
                 <Link
