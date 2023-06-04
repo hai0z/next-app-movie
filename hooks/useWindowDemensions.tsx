@@ -14,16 +14,23 @@ function getWindowDimensions() {
 }
 
 function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(() =>
-        getWindowDimensions()
-    );
+    const [windowDimensions, setWindowDimensions] = useState({});
+
+    useEffect(() => {
+        setWindowDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    }, []);
 
     useEffect(() => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
         }
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
     }, []);
 
     return windowDimensions;

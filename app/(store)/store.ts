@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { Movie } from "@/service/TMDB.type";
 interface Store {
     videoId: string;
     setVideoId: (id: string) => void;
