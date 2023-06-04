@@ -12,6 +12,8 @@ import "swiper/css/effect-creative";
 import "swiper/css/thumbs";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/free-mode";
+
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import SwiperCore, {
@@ -19,7 +21,7 @@ import SwiperCore, {
     Pagination,
     Thumbs,
     Controller,
-    Navigation,
+    FreeMode,
 } from "swiper";
 import Link from "next/link";
 import { Genres, MovieList } from "@/service/TMDB.type";
@@ -27,6 +29,7 @@ import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
 import { useRouter } from "next/navigation";
+
 function Slider({ movie }: { movie: MovieList }) {
     const router = useRouter();
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore>();
@@ -277,13 +280,14 @@ function Slider({ movie }: { movie: MovieList }) {
                 <Swiper
                     className="absolute bottom-40 hidden lg:block"
                     controller={{ control: firstSwiper }}
-                    modules={[Thumbs, Controller]}
+                    modules={[Thumbs, Controller, FreeMode]}
                     onSwiper={setThumbsSwiper}
                     watchSlidesProgress
                     slideToClickedSlide={true}
                     touchRatio={0.2}
                     slidesPerGroup={1}
                     spaceBetween={15}
+                    freeMode
                     slidesPerView={width > 1700 ? 1700 / 255 : width / 255}
                 >
                     {movie.results.slice(0, 10).map((m, index) => {

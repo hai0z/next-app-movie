@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Slider from "./components/Slider";
 import ListMovie from "./components/ListMovie";
-import MiniSlider from "./components/MiniSlider";
 import tmdb from "@/service/TMDB";
 
 export default async function Home() {
