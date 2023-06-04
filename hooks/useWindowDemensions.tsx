@@ -14,7 +14,7 @@ function getWindowDimensions() {
 }
 
 function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
+    const [windowDimensions, setWindowDimensions] = useState(() =>
         getWindowDimensions()
     );
 
@@ -22,11 +22,8 @@ function useWindowDimensions() {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
         }
-
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return windowDimensions;

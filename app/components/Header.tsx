@@ -74,8 +74,8 @@ function Header() {
             </div>
             <div
                 className={`${
-                    pathname == "/" && width < 768 && "flex"
-                } md:hidden`}
+                    pathname == "/" && width < 768 ? "flex" : "hidden"
+                } md:hidden `}
             >
                 <h2 className="bg-gradient-to-br from-[hsl(var(--p))]  to-[hsl(var(--s))] text-transparent bg-clip-text font-bold text-2xl">
                     The Movies
