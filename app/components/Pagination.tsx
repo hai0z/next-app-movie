@@ -11,8 +11,6 @@ function Pagination({
     totalPages: number;
     href?: string;
 }) {
-    const pathName = usePathname();
-    const searchParams = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
 
     const handlePageClick = (pageNumber: number) => {

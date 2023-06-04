@@ -2,15 +2,18 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
+import useStore from "../(store)/store";
+import ChangeMediaListBtn from "../components/MediaList/ChangeMediaListBtn";
 
 interface PageProps {
     children: React.ReactNode;
 }
 function Page({ children }: PageProps) {
     const pathName = usePathname();
+
     return (
         <div className="pt-16">
-            <div className="fixed z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80">
+            <div className="fixed z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between">
                 <ul className="menu menu-horizontal bg-base-100 rounded-box">
                     <li>
                         <Link
@@ -38,6 +41,7 @@ function Page({ children }: PageProps) {
                         </Link>
                     </li>
                 </ul>
+                <ChangeMediaListBtn />
             </div>
             <div className="h-[1500px] pt-24 px-4">{children}</div>
         </div>

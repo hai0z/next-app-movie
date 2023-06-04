@@ -111,7 +111,7 @@ async function Page({
                     >
                         Xem Thêm
                     </Link>
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-row gap-4 flex-wrap">
                         {cast?.slice(0, 5).map((cast) => (
                             <div
                                 key={cast.id}
@@ -144,7 +144,7 @@ async function Page({
                     >
                         Xem Thêm
                     </Link>
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-row gap-4 flex-wrap">
                         {listRecommendations?.slice(0, 3).map((r: any) => (
                             <MovieCard m={r} key={r.id} />
                         ))}

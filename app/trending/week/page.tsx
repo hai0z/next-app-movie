@@ -1,23 +1,21 @@
 import React from "react";
 import tmdb from "@/service/TMDB";
-import { MovieList } from "@/service/TMDB.type";
-import MovieCard from "@/app/components/MovieCard";
+import { Movie } from "@/service/TMDB.type";
 import Pagination from "@/app/components/Pagination";
+import MediaList from "@/app/components/MediaList/MediaList";
 async function page({ searchParams }: { searchParams: { page: number } }) {
-    const movie: MovieList = await tmdb.getTrending(
+    const movie: { results: Movie[] } = await tmdb.getTrending(
         "movie",
         "week",
         searchParams.page ?? 1
     );
     return (
-        <div>
-            <div className="flex flex-row flex-wrap items-center justify-around gap-8 pb-6 md:justify-between md:gap-4 md:pb-8">
-                {movie.results.map((m: any) => (
-                    <MovieCard m={m} key={m.id} />
-                ))}
+        <div className="pb-16">
+            <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8">
+                <MediaList movie={movie} />
             </div>
             <div className="flex flex-row items-center justify-center pb-10">
-                <Pagination totalPages={500} href="/trending/week?" />
+                <Pagination totalPages={500} href="/trending/today?" />
             </div>
         </div>
     );

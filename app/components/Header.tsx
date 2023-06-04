@@ -56,7 +56,7 @@ function Header() {
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
                 pathname == "/" && width < 768 && "shadow-lg bg-base-100"
-            } flex flex-row items-center z-50 transition-all duration-300 h-16 md:h-16 fixed`}
+            } flex flex-row items-center z-50 transition-all duration-300 h-16 md:h-16 fixed navbar `}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
@@ -77,7 +77,7 @@ function Header() {
                     pathname == "/" && width < 768 ? "flex" : "hidden"
                 } md:hidden `}
             >
-                <h2 className="bg-gradient-to-br from-[hsl(var(--p))]  to-[hsl(var(--s))] text-transparent bg-clip-text font-bold text-2xl">
+                <h2 className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)] font-bold text-lg">
                     The Movies
                 </h2>
             </div>
@@ -108,7 +108,9 @@ function Header() {
                     )}
                 {isScroll && pathname == "/" && width >= 768 && (
                     <div className="flex flex-row gap-2">
-                        <p className="font-bold text-2xl">Trang chủ</p>
+                        <p className="font-bold text-2xl [&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)]">
+                            Trang chủ
+                        </p>
                     </div>
                 )}
                 {isScroll && pathname.includes("trending") && (

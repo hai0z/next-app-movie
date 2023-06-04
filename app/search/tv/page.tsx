@@ -1,9 +1,9 @@
 import React from "react";
 import tmdb from "@/service/TMDB";
-import { MovieList } from "@/service/TMDB.type";
-import MovieCard from "@/app/components/MovieCard";
+import { Movie } from "@/service/TMDB.type";
 import Pagination from "@/app/components/Pagination";
 import Search from "@/app/components/search/Search";
+import MediaList from "@/app/components/MediaList/MediaList";
 interface IPageProps {
     searchParams: {
         page: number;
@@ -11,12 +11,15 @@ interface IPageProps {
     };
 }
 async function page({ searchParams }: IPageProps) {
-    const movie: MovieList = await tmdb.getTrending(
+    const movie: { results: Movie[] } = await tmdb.getTrending(
         "movie",
         "day",
         searchParams.page ?? 1
     );
-    const searchMovie: MovieList = await tmdb.search(searchParams.q, "tv");
+    const searchMovie: { results: Movie[] } = await tmdb.search(
+        searchParams.q,
+        "tv"
+    );
     return (
         <div>
             <Search />
@@ -24,15 +27,11 @@ async function page({ searchParams }: IPageProps) {
             <p className="md:text-2xl font-bold py-8">Xu hướng hôm nay</p>
             {searchParams.q === undefined ? (
                 <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
-                    {movie.results.map((m: any) => (
-                        <MovieCard m={m} key={m.id} />
-                    ))}
+                    <MediaList movie={movie} />
                 </div>
             ) : (
                 <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
-                    {searchMovie.results.map((m: any) => (
-                        <MovieCard m={m} key={m.id} />
-                    ))}
+                    <MediaList movie={searchMovie} />
                 </div>
             )}
             <div className="flex flex-row items-center justify-center pb-10">
