@@ -98,10 +98,7 @@ function Slider({ movie }: { movie: MovieList }) {
                     {movie.results.slice(0, 10).map((m, index) => (
                         <SwiperSlide
                             key={m.id}
-                            className={`${
-                                width < 768 &&
-                                "pt-24 transition-all duration-200 "
-                            }`}
+                            className={`${width < 768 && "pt-24"}`}
                         >
                             <motion.div
                                 onClick={() => router.push("/movie/" + m.id)}

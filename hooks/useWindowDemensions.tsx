@@ -14,7 +14,9 @@ function getWindowDimensions() {
 }
 
 function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState({});
+    const [windowDimensions, setWindowDimensions] = useState(
+        {} as { width: number; height: number }
+    );
 
     useEffect(() => {
         setWindowDimensions({
