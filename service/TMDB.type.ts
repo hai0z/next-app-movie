@@ -59,3 +59,23 @@ export interface ListPhotos {
     logos: Photo[];
     posters: Photo[];
 }
+
+export enum videoTypes {
+    Clip = "Clip",
+    Featurette = "Featurette",
+    BehindTheScenes = "Behind the Scenes",
+    Teaser = "Teaser",
+    Trailer = "Trailer",
+}
+export interface Videos {
+    iso_639_1: string;
+    iso_3166_1: string;
+    name: string;
+    key: string;
+    site: string;
+    size: number;
+    type: videoTypes;
+    official: true;
+    published_at: Date;
+    id: string;
+}

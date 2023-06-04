@@ -55,7 +55,7 @@ function Header() {
             className={`md:left-[80px] w-full px-4 ${
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
-                pathname == "/" && width <= 768 && "shadow-lg"
+                pathname == "/" && width < 768 && "shadow-lg bg-base-100"
             } flex flex-row items-center z-50 transition-all duration-300 h-16 md:h-16 fixed`}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
@@ -74,8 +74,8 @@ function Header() {
             </div>
             <div
                 className={`${
-                    pathname == "/" && width < 768 ? "flex" : "hidden"
-                }`}
+                    pathname == "/" && width < 768 && "flex"
+                } md:hidden`}
             >
                 <h2 className="bg-gradient-to-br from-[hsl(var(--p))]  to-[hsl(var(--s))] text-transparent bg-clip-text font-bold text-2xl">
                     The Movies
@@ -106,7 +106,7 @@ function Header() {
                             </div>
                         </div>
                     )}
-                {isScroll && pathname == "/" && width > 768 && (
+                {isScroll && pathname == "/" && width >= 768 && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl">Trang chủ</p>
                     </div>

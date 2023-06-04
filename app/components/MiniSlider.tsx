@@ -25,7 +25,7 @@ function MiniSlider({ movie }: { movie: MovieList }) {
                 freeMode
                 slidesPerGroup={1}
                 navigation={true}
-                onSlideChange={(i) => setSlideIndex(i.activeIndex)}
+                onSlideChange={(i) => setSlideIndex(i.realIndex)}
                 slidesPerView={width > 1700 ? 1700 / 250 : width / 250}
                 className="w-full"
             >

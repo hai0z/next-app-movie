@@ -37,7 +37,15 @@ function MovieDetailTab() {
             >
                 Photos
             </Link>
-            <a className="tab">Video</a>
+            <Link
+                scroll={false}
+                href={`/movie/${params.movieId}/videos`}
+                className={`tab ${
+                    path === `/movie/${params.movieId}/videos` && "tab-active"
+                }`}
+            >
+                Videos
+            </Link>
             <Link
                 scroll={false}
                 href={`/movie/${params.movieId}/recommendations`}

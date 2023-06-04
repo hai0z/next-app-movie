@@ -7,15 +7,14 @@ interface Store {
     setTheme: (theme: string) => void;
     currentSlideIndex: number;
     setCurrentSlideIndex: (index: number) => void;
-    movie: Movie;
-    setMovie: (movie: Movie) => void;
+    language: string;
 }
 const useStore = create<Store>((set) => ({
     videoId: "",
     theme: "",
     currentSlideIndex: 0,
-    movie: {} as Movie,
-    setMovie: (param) => set({ movie: param }),
+    language: "vi-VN",
+
     setVideoId: (param) => set({ videoId: param }),
     setTheme: (param) => set({ theme: param }),
     setCurrentSlideIndex: (param) => set({ currentSlideIndex: param }),
