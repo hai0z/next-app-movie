@@ -5,6 +5,8 @@ import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 import { Metadata } from "next";
+import MediaList from "@/app/components/MediaList/MediaList";
+import ChangeMediaListBtn from "@/app/components/MediaList/ChangeMediaListBtn";
 export interface Cast {
     id: number;
     profile_path: string;
@@ -32,8 +34,11 @@ async function Page({
         params.movieId,
         "movie"
     );
-    const { results: listRecommendations }: { results: Movie[] } =
+    const listRecommendations: { results: Movie[] } =
         await tmdb.getRecomendations(params.movieId, "movie");
+    const slicedRecommendations = {
+        results: listRecommendations.results.slice(0, 3),
+    };
     return (
         <div className="md:mx-24 flex flex-col md:flex-row h-full px-2 md:px-0 gap-2 md:mt-20 mt-8">
             <div className="md:w-5/12 lg:w-3/12 flex w-full gap-4">
@@ -135,19 +140,20 @@ async function Page({
                     </div>
                 </div>
                 <div>
-                    <p className="md:text-3xl  text-base-content pt-4">
-                        Phim Đề Xuất
-                    </p>
+                    <div className="md:text-3xl  text-base-content pt-4 flex">
+                        <p> Phim Đề Xuất</p>
+                        <div className="ml-auto -mr-20">
+                            <ChangeMediaListBtn />
+                        </div>
+                    </div>
                     <Link
                         href={`movie/${params.movieId}/recommendations`}
                         className="btn btn-primary btn-outline w-40 my-4"
                     >
                         Xem Thêm
                     </Link>
-                    <div className="flex flex-row gap-4 flex-wrap">
-                        {listRecommendations?.slice(0, 3).map((r: any) => (
-                            <MovieCard m={r} key={r.id} />
-                        ))}
+                    <div className="flex flex-row flex-wrap">
+                        <MediaList movie={slicedRecommendations} />
                     </div>
                 </div>
                 <div className="h-screen"></div>

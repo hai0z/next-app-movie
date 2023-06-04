@@ -12,7 +12,7 @@ function MediaList({ movie }: IPageProps) {
     const { width } = useWindowDimensions();
     const mediaType = useStore((state) => state.mediaType);
     return (
-        <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-8 pb-6 md:gap-4 md:pb-8">
             {movie?.results.map((m, index) => {
                 return width < 768 ? (
                     <MovieCard2 m={m} key={m.id} index={index} />
