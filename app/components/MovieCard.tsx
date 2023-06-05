@@ -91,7 +91,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                             height={250}
                             alt="cast"
                             priority
-                            className="group-hover:scale-110 transition-all duration-300 w-full"
+                            className="group-hover:scale-110 transition-all duration-300 w-96"
                         />
                     </Link>
                 </motion.div>

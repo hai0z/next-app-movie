@@ -24,13 +24,15 @@ class TMDB {
     ) {
         if (page) {
             const respone = await fetch(
-                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&page=${page}&language=vi-VN`
+                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&page=${page}&language=vi-VN`,
+                { cache: "no-store" }
             );
             const data = await respone.json();
             return data;
         } else {
             const respone = await fetch(
-                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&language=vi-VN`
+                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&language=vi-VN`,
+                { cache: "no-store" }
             );
             const data = await respone.json();
             return data;
