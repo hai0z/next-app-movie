@@ -143,16 +143,21 @@ async function Page({
                     <div className="md:text-3xl  text-base-content pt-4">
                         <p> Phim Đề Xuất</p>
                     </div>
-                    <Link
-                        href={`movie/${params.movieId}/recommendations`}
-                        className="btn btn-primary btn-outline w-40 my-4"
-                    >
-                        Xem Thêm
-                    </Link>
+                    {!!slicedRecommendations.results.length && (
+                        <Link
+                            href={`movie/${params.movieId}/recommendations`}
+                            className="btn btn-primary btn-outline w-40 my-4"
+                        >
+                            Xem Thêm
+                        </Link>
+                    )}
+
                     <div className="ml-auto w-full flex sticky top-14 py-4 justify-end z-50 overflow-hidden">
-                        <ChangeMediaListBtn />
+                        {!!slicedRecommendations.results.length && (
+                            <ChangeMediaListBtn />
+                        )}
                     </div>
-                    <div className="flex flex-row overflow-hidden">
+                    <div className="flex flex-row items-center overflow-hidden px-1">
                         <MediaList movie={slicedRecommendations} />
                     </div>
                 </div>
