@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import ChangeMediaListBtn from "../components/MediaList/ChangeMediaListBtn";
 
 function Page({ children }: { children: React.ReactNode }) {
     const pathName = usePathname();
@@ -34,7 +33,6 @@ function Page({ children }: { children: React.ReactNode }) {
                         </Link>
                     </li>
                 </ul>
-                <ChangeMediaListBtn />
             </div>
             <div className="h-[1500px] pt-24 px-4">{children}</div>
         </div>

@@ -2,7 +2,7 @@
 import useWindowDimensions from "@/hooks/useWindowDemensions";
 import { Movie } from "@/service/TMDB.type";
 import React from "react";
-import MovieCard, { MovieCard2 } from "../MovieCard";
+import MovieCard, { MovieCard2, MovieCard3 } from "../MovieCard";
 import useStore from "../../(store)/store";
 
 interface IPageProps {
@@ -18,6 +18,8 @@ function MediaList({ movie }: IPageProps) {
                     <MovieCard2 m={m} key={m.id} index={index} />
                 ) : mediaType == "list" ? (
                     <MovieCard2 m={m} key={m.id} index={index} />
+                ) : mediaType == "compact" ? (
+                    <MovieCard3 m={m} key={m.id} index={index} />
                 ) : (
                     <MovieCard m={m} key={m.id} />
                 );
