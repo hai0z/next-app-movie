@@ -37,7 +37,7 @@ async function Page({
     const listRecommendations: { results: Movie[] } =
         await tmdb.getRecomendations(params.movieId, "movie");
     const slicedRecommendations = {
-        results: listRecommendations.results.slice(0, 3),
+        results: listRecommendations.results.slice(0, 4),
     };
     return (
         <div className="lg:mx-24 flex flex-col lg:flex-row h-full px-2 md:px-4 gap-2 lg:mt-20 mt-8">

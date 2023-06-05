@@ -26,11 +26,11 @@ async function page({ searchParams }: IPageProps) {
 
             <p className="md:text-2xl font-bold py-8">Xu hướng hôm nay</p>
             {searchParams.q === undefined ? (
-                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
+                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden">
                     <MediaList movie={movie} />
                 </div>
             ) : (
-                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6">
+                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden">
                     <MediaList movie={searchMovie} />
                 </div>
             )}

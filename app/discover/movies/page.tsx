@@ -1,4 +1,5 @@
-import MovieCard from "@/app/components/MovieCard";
+import ChangeMediaListBtn from "@/app/components/MediaList/ChangeMediaListBtn";
+import MediaList from "@/app/components/MediaList/MediaList";
 import Pagination from "@/app/components/Pagination";
 import tmdb from "@/service/TMDB";
 import { Movie } from "@/service/TMDB.type";
@@ -18,11 +19,12 @@ async function page({ searchParams }: PageProp) {
         );
 
     return (
-        <div className="pt-24 px-4">
-            <div className="flex flex-wrap gap-4">
-                {listMovie.results.map((m) => (
-                    <MovieCard key={m.id} m={m} />
-                ))}
+        <div className="pt-24 px-4 w-full">
+            <div className="py-2 sticky z-50 top-0 flex justify-end -mr-20 w-full">
+                <ChangeMediaListBtn />
+            </div>
+            <div className="flex flex-wrap gap-4 overflow-hidden">
+                <MediaList movie={listMovie} />
             </div>
             <div className="flex justify-center items-center mt-4 mb-10">
                 <Pagination

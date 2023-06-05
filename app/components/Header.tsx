@@ -82,7 +82,8 @@ function Header() {
             <div className={`flex flex-row`}>
                 {isScroll &&
                     pathname.includes("movie") &&
-                    !pathname.includes("search") && (
+                    !pathname.includes("search") &&
+                    !pathname.includes("discover") && (
                         <div className="flex flex-row gap-2 items-center bottom-0  ">
                             <Image
                                 src={`${ImagePath}/w500/${data?.poster_path}`}
