@@ -121,6 +121,13 @@ function Header() {
                         </p>
                     </div>
                 )}
+                {isScroll && pathname.includes("discover") && (
+                    <div className="flex flex-row gap-2">
+                        <p className="font-bold text-2xl text-gradient">
+                            Khám phá
+                        </p>
+                    </div>
+                )}
             </div>
         </div>
     );

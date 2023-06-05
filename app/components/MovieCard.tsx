@@ -63,7 +63,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
 function MovieCard3({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card w-96 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
+            className="card lg:w-96 md:w-10/12 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
             layout
             initial={{
                 opacity: 0,
@@ -89,7 +89,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                         height={250}
                         alt="cast"
                         priority
-                        className="w-96 object-cover group-hover:scale-110 transition-all duration-300"
+                        className="lg:w-96 md:w-full object-cover group-hover:scale-110 transition-all duration-300"
                     />
                 </Link>
             </figure>
