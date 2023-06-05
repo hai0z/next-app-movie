@@ -34,14 +34,14 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
                         height={250}
                         alt="cast"
                         priority
-                        className="h-full"
+                        className="h-full object-cover"
                     />
                 </Link>
             </figure>
             <div className="card-body w-full">
                 <h2 className="card-title">{m.title}</h2>
                 <div>
-                    <p className="overflow-ellipsis line-clamp-3">
+                    <p className="overflow-ellipsis line-clamp-2 md:line-clamp-3">
                         {m.overview}
                     </p>
                     <p className="badge badge-info font-semibold">

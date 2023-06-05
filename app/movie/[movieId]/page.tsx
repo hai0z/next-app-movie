@@ -149,7 +149,7 @@ async function Page({
                     >
                         Xem Thêm
                     </Link>
-                    <div className="ml-auto -mr-20 flex sticky top-14 py-4 justify-end z-50">
+                    <div className="ml-auto w-full flex sticky top-14 py-4 justify-end z-50 overflow-hidden">
                         <ChangeMediaListBtn />
                     </div>
                     <div className="flex flex-row overflow-hidden">

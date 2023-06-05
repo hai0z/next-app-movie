@@ -2,8 +2,6 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import useStore from "../(store)/store";
-import ChangeMediaListBtn from "../components/MediaList/ChangeMediaListBtn";
 
 interface PageProps {
     children: React.ReactNode;
@@ -41,7 +39,6 @@ function Page({ children }: PageProps) {
                         </Link>
                     </li>
                 </ul>
-                <ChangeMediaListBtn />
             </div>
             <div className="h-[1500px] pt-24 px-4">{children}</div>
         </div>

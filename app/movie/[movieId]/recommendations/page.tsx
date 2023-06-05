@@ -8,7 +8,7 @@ async function page({ params }: { params: any }) {
         await tmdb.getRecomendations(params.movieId, "movie");
     return (
         <div>
-            <div className="flex items-center justify-end mb-6 sticky top-[72px] transition-all duration-300 z-50">
+            <div className="ml-auto sticky top-[72px] z-50 w-fit  md:px-24 mb-6">
                 <ChangeMediaListBtn />
             </div>
             <div className="min-h-screen w-full md:px-24 flex flex-wrap justify-center gap-8 px-2 overflow-hidden">

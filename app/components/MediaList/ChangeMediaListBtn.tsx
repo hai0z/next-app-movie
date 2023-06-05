@@ -6,7 +6,7 @@ function ChangeMediaListBtn() {
     const mediaType = useStore((state) => state.mediaType);
     const setMediaType = useStore((state) => state.setMediaType);
     return (
-        <div className="md:flex gap-2 md:mr-20 hidden">
+        <div className="md:flex gap-2 hidden">
             <button
                 onClick={() => setMediaType("list")}
                 className={`btn ${

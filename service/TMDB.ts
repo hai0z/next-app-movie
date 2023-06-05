@@ -107,6 +107,7 @@ class TMDB {
         const data = await respone.json();
         return data;
     }
+    async getPeople() {}
 }
 const tmdb = new TMDB();
 export default tmdb;

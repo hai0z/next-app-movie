@@ -116,7 +116,9 @@ function Header() {
                 )}
                 {isScroll && pathname.includes("trending") && (
                     <div className="flex flex-row gap-2">
-                        <p className="font-bold text-2xl">Trending</p>
+                        <p className="font-bold text-2xl text-gradient">
+                            Trending
+                        </p>
                     </div>
                 )}
             </div>
