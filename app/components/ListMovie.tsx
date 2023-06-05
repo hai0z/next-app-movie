@@ -1,18 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-
-import { Movie, MovieList } from "@/service/TMDB.type";
+import React from "react";
+import { MovieList } from "@/service/TMDB.type";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import MovieCard from "./MovieCard";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
 import "swiper/css";
 import "swiper/css/navigation";
+import useWindowDimensions from "@/hooks/useWindowDemensions";
 function ListMovie({ movie }: { movie: MovieList }) {
     const { width } = useWindowDimensions();
-    console.log(width);
     return (
         <Swiper
             modules={[Navigation]}
@@ -32,36 +29,5 @@ function ListMovie({ movie }: { movie: MovieList }) {
         </Swiper>
     );
 }
-function getWindowDimensions() {
-    if (typeof window !== "undefined") {
-        const { innerWidth: width, innerHeight: height } = window;
-        return {
-            width,
-            height,
-        };
-    }
-    return {
-        width: 0,
-        height: 0,
-    };
-}
 
-function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-        getWindowDimensions()
-    );
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []);
-
-    return windowDimensions;
-}
 export default ListMovie;

@@ -6,7 +6,7 @@ function ChangeMediaListBtn() {
     const mediaType = useStore((state) => state.mediaType);
     const setMediaType = useStore((state) => state.setMediaType);
     return (
-        <div className="md:flex hidden btn-group">
+        <div className="translate-x-96 md:translate-x-0 btn-group transition-all duration-1000">
             <button
                 onClick={() => setMediaType("list")}
                 className={`btn ${

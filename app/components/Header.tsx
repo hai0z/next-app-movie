@@ -42,8 +42,9 @@ function Header() {
     }, [params.movieId]);
     useEffect(() => {
         const currentTheme = localStorage.getItem("theme");
-        setTheme(currentTheme as string);
         if (currentTheme) {
+            setTheme(currentTheme as string);
+
             document
                 .getElementById("html")
                 ?.setAttribute("data-theme", currentTheme);

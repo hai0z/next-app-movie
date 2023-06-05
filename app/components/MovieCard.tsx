@@ -51,7 +51,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
                 <div className="card-actions justify-end">
                     <Link
                         href={"/movie/" + m.id}
-                        className="btn btn-outline btn-secondary"
+                        className="btn btn-primary btn-outline"
                     >
                         Xem chi tiết
                     </Link>
@@ -73,7 +73,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
             animate={{ opacity: 1, translateX: 0, translateY: 0 }}
             transition={{
                 duration: 0.75,
-                delay: index * 0.15,
+                delay: index * 0.1,
             }}
             exit={{
                 opacity: 0,
@@ -106,13 +106,21 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
 function MovieCard({ m }: { m: Movie }) {
     return (
         <motion.div
-            initial={{ opacity: 0, translateX: -150 }}
-            animate={{ opacity: 1, translateX: 0 }}
+            initial={{
+                opacity: 0,
+                translateX: Math.random() > 0.5 ? -150 : 150,
+                translateY: Math.random() > 0.5 ? -150 : 150,
+            }}
+            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
             transition={{
                 duration: 0.75,
-                delay: Math.random() * 2 * 0.3,
+                delay: Math.random() * 2 * 0.11,
             }}
-            exit={{ opacity: 0, translateX: -150 }}
+            exit={{
+                opacity: 0,
+                translateX: Math.random() > 0.5 ? -150 : 150,
+                translateY: Math.random() > 0.5 ? -150 : 150,
+            }}
             key={m.id}
             layout
             className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-primary/5 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card"

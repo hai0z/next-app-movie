@@ -22,7 +22,7 @@ async function Page({ searchParams }: IPageProps) {
             <div className="ml-auto sticky top-16 z-50 w-fit">
                 <ChangeMediaListBtn />
             </div>
-            <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8 overflow-hidden mt-6">
+            <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8 overflow-hidden md:mt-6">
                 <MediaList movie={movie} />
             </div>
             <div className="flex flex-row items-center justify-center pb-10">

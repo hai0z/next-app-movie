@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 interface Store {
     videoId: string;
     setVideoId: (id: string) => void;
@@ -6,18 +7,19 @@ interface Store {
     setTheme: (theme: string) => void;
     currentSlideIndex: number;
     setCurrentSlideIndex: (index: number) => void;
-    mediaType: string;
-    setMediaType: (type: string) => void;
+    mediaType: "grid" | "compact" | "list";
+    setMediaType: (type: "grid" | "compact" | "list") => void;
 }
 const useStore = create<Store>((set) => ({
     videoId: "",
     theme: "",
     currentSlideIndex: 0,
-    mediaType: "grid",
+    mediaType: "compact",
 
     setVideoId: (param) => set({ videoId: param }),
     setTheme: (param) => set({ theme: param }),
     setCurrentSlideIndex: (param) => set({ currentSlideIndex: param }),
-    setMediaType: (type) => set({ mediaType: type }),
+    setMediaType: (type: "grid" | "compact" | "list") =>
+        set({ mediaType: type }),
 }));
 export default useStore;
