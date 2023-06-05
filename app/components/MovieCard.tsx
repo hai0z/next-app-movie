@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 function MovieCard2({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            layout
             className="card card-side bg-primary/5 shadow-xl w-full"
             initial={{
                 opacity: 0,
@@ -39,7 +38,9 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
                 </Link>
             </figure>
             <div className="card-body w-full">
-                <h2 className="card-title">{m.title}</h2>
+                <motion.h2 className="card-title" layoutId={m.id + "title"}>
+                    {m.title}
+                </motion.h2>
                 <div>
                     <p className="overflow-ellipsis line-clamp-2 md:line-clamp-3">
                         {m.overview}
@@ -63,7 +64,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
 function MovieCard3({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card lg:w-96 md:w-10/12 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
+            className="card w-96 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
             layout
             initial={{
                 opacity: 0,
@@ -82,23 +83,27 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
             }}
         >
             <figure>
-                <Link href={"/movie/" + m.id + "#top"}>
-                    <Image
-                        src={tmdb.getImage(m.backdrop_path)}
-                        width={250}
-                        height={250}
-                        alt="cast"
-                        priority
-                        className="lg:w-96 md:w-full object-cover group-hover:scale-110 transition-all duration-300"
-                    />
-                </Link>
+                <motion.div>
+                    <Link href={"/movie/" + m.id + "#top"}>
+                        <Image
+                            src={tmdb.getImage(m.backdrop_path)}
+                            width={250}
+                            height={250}
+                            alt="cast"
+                            priority
+                            className="group-hover:scale-110 transition-all duration-300 w-full"
+                        />
+                    </Link>
+                </motion.div>
             </figure>
             <div className="card-body">
-                <Link href={"/movie/" + m.id}>
-                    <h2 className="card-title">{m.title}</h2>
+                <Link
+                    href={"/movie/" + m.id}
+                    className="card-title line-clamp-1"
+                >
+                    <motion.h2 layoutId={m.id + "title"}>{m.title}</motion.h2>
                 </Link>
-
-                <p className="overflow-ellipsis line-clamp-4">{m.overview}</p>
+                <p className="overflow-ellipsis line-clamp-3">{m.overview}</p>
             </div>
         </motion.div>
     );
@@ -123,7 +128,7 @@ function MovieCard({ m }: { m: Movie }) {
             }}
             key={m.id}
             layout
-            className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-primary/5 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card"
+            className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-primary/5 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1"
         >
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>

@@ -25,8 +25,9 @@ export default function RootLayout({
         <html lang="en" data-theme="night" className="font-poppins" id="html">
             <head>
                 <link
-                    rel="stylesheet"
+                    rel="stylesheet preload prefetch"
                     as="style"
+                    type="text/css"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                 />
             </head>
