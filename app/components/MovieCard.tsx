@@ -63,7 +63,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
 function MovieCard3({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card lg:w-96 md:w-10/12 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
+            className="card w-96 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary "
             layout
             initial={{
                 opacity: 0,
