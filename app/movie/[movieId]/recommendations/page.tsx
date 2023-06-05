@@ -11,7 +11,7 @@ async function page({ params }: { params: any }) {
             <div className="flex items-center justify-end mb-6 sticky top-[72px] transition-all duration-300 z-50">
                 <ChangeMediaListBtn />
             </div>
-            <div className="min-h-screen w-full md:px-24 flex flex-wrap justify-center gap-8 px-2">
+            <div className="min-h-screen w-full md:px-24 flex flex-wrap justify-center gap-8 px-2 overflow-hidden">
                 <MediaList movie={listRecommendations} />
             </div>
         </div>

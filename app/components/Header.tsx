@@ -77,9 +77,7 @@ function Header() {
                     pathname == "/" && width < 768 ? "flex" : "hidden"
                 } md:hidden `}
             >
-                <h2 className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)] font-bold text-lg">
-                    The Movies
-                </h2>
+                <h2 className="text-gradient font-bold text-lg">The Movies</h2>
             </div>
             <div className={`flex flex-row`}>
                 {isScroll &&
@@ -94,10 +92,12 @@ function Header() {
                                 className="w-8 rounded-md cursor-pointer"
                             />
                             <div>
-                                <p className={`md:text-xl text-sm font-bold `}>
+                                <p
+                                    className={`md:text-xl text-sm font-bold text-gradient`}
+                                >
                                     {data?.title}
                                 </p>
-                                <p className="md:text-xl text-sm">
+                                <p className="md:text-xl text-sm text-gradient">
                                     {pathname.split("/").at(-1) ===
                                     params.movieId
                                         ? "overview"
@@ -108,7 +108,7 @@ function Header() {
                     )}
                 {isScroll && pathname == "/" && width >= 768 && (
                     <div className="flex flex-row gap-2">
-                        <p className="font-bold text-2xl [&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)]">
+                        <p className="font-bold text-2xl text-gradient">
                             Trang chủ
                         </p>
                     </div>

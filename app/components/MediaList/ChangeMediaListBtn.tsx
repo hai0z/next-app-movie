@@ -9,7 +9,9 @@ function ChangeMediaListBtn() {
         <div className="md:flex gap-2 md:mr-20 hidden">
             <button
                 onClick={() => setMediaType("list")}
-                className={`btn ${mediaType == "list" && "btn-primary"}`}
+                className={`btn ${
+                    mediaType == "list" ? "btn-primary" : "btn-ghost"
+                }`}
             >
                 <i
                     className={`fa-solid fa-list text-3xl ${
@@ -19,7 +21,9 @@ function ChangeMediaListBtn() {
             </button>
             <button
                 onClick={() => setMediaType("grid")}
-                className={`btn ${mediaType == "grid" && "btn-primary"}`}
+                className={`btn ${
+                    mediaType == "grid" ? "btn-primary" : "btn-ghost"
+                }`}
             >
                 <i
                     className={`fa-solid fa-table-cells-large text-3xl ${

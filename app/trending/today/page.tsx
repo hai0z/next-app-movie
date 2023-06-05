@@ -18,7 +18,7 @@ async function Page({ searchParams }: IPageProps) {
 
     return (
         <div className="pb-16">
-            <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8">
+            <div className="flex flex-row flex-wrap items-center justify-evenly gap-8 pb-6 md:gap-4 md:pb-8 overflow-hidden">
                 <MediaList movie={movie} />
             </div>
             <div className="flex flex-row items-center justify-center pb-10">

@@ -10,10 +10,10 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
         <motion.div
             layout
             className="card card-side bg-primary/5 shadow-xl w-full"
-            initial={{ opacity: 0, translateX: -300 }}
+            initial={{ opacity: 0, translateX: index % 2 === 0 ? -150 : 150 }}
             animate={{ opacity: 1, translateX: 0 }}
             transition={{ duration: 0.75, delay: index * 0.25 }}
-            exit={{ opacity: 0, translateX: -300 }}
+            exit={{ opacity: 0, translateX: index % 2 === 0 ? -150 : 150 }}
         >
             <figure>
                 <Link href={"/movie/" + m.id + "#top"}>
