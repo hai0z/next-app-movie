@@ -89,7 +89,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                         height={250}
                         alt="cast"
                         priority
-                        className="w-full object-cover group-hover:scale-110 transition-all duration-300"
+                        className="w-96 object-cover group-hover:scale-110 transition-all duration-300"
                     />
                 </Link>
             </figure>
