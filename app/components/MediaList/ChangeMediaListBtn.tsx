@@ -6,7 +6,7 @@ function ChangeMediaListBtn() {
     const mediaType = useStore((state) => state.mediaType);
     const setMediaType = useStore((state) => state.setMediaType);
     return (
-        <div className="md:flex gap-2 hidden">
+        <div className="md:flex hidden btn-group">
             <button
                 onClick={() => setMediaType("list")}
                 className={`btn ${
@@ -14,7 +14,7 @@ function ChangeMediaListBtn() {
                 }`}
             >
                 <i
-                    className={`fa-solid fa-list text-3xl ${
+                    className={`fa-solid fa-list text-xl ${
                         mediaType === "list" && "text-primary-content"
                     }`}
                 ></i>
@@ -26,7 +26,7 @@ function ChangeMediaListBtn() {
                 }`}
             >
                 <i
-                    className={`fa-solid fa-table-cells-large text-3xl ${
+                    className={`fa-solid fa-table-cells-large text-xl ${
                         mediaType === "compact" && "text-primary-content"
                     }`}
                 ></i>
@@ -38,7 +38,7 @@ function ChangeMediaListBtn() {
                 }`}
             >
                 <i
-                    className={`fa-solid fa-table-cells text-3xl ${
+                    className={`fa-solid fa-table-cells text-xl ${
                         mediaType === "grid" && "text-primary-content"
                     }`}
                 ></i>
