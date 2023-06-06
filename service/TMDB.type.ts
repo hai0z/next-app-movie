@@ -11,7 +11,7 @@ export interface MovieList {
         media_type: string;
         vote_average: number;
     }[];
-    total_pages: number;
+    total_pages?: number;
 }
 export interface Movie {
     id: number;

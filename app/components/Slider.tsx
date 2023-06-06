@@ -94,7 +94,7 @@ function Slider({ movie }: { movie: MovieList }) {
                 centeredSlides
                 loop
             >
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                     {movie.results.slice(0, 10).map((m, index) => (
                         <SwiperSlide
                             key={m.id}

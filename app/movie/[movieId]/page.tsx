@@ -2,11 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { Movie } from "@/service/TMDB.type";
 import Link from "next/link";
-import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 import { Metadata } from "next";
-import MediaList from "@/app/components/MediaList/MediaList";
-import ChangeMediaListBtn from "@/app/components/MediaList/ChangeMediaListBtn";
+
+import ListMovie from "@/app/components/ListMovie";
 export interface Cast {
     id: number;
     profile_path: string;
@@ -37,12 +36,12 @@ async function Page({
     const listRecommendations: { results: Movie[] } =
         await tmdb.getRecomendations(params.movieId, "movie");
     const slicedRecommendations = {
-        results: listRecommendations.results.slice(0, 4),
+        results: listRecommendations.results.slice(0, 9),
     };
     return (
-        <div className="lg:mx-24 flex flex-col lg:flex-row h-full px-2 md:px-4 gap-2 lg:mt-20 mt-8">
-            <div className="lg:w-6/12 xl:w-3/12 flex w-full gap-4">
-                <div className=" bg-primary/5 shadow-lg p-4 rounded-lg space-y-4 lg:max-w-[75%] h-fit w-full flex flex-col">
+        <div className="flex flex-col lg:flex-row h-full px-2 md:px-4 gap-2 lg:mt-20 mt-8 justify-center">
+            <div className="lg:w-6/12 xl:w-3/12 flex w-full gap- justify-center">
+                <div className="bg-primary/5 shadow-lg p-4 rounded-lg space-y-4 lg:max-w-[75%] h-fit w-full flex flex-col">
                     <div className="grid grid-cols-2 lg:flex-col  lg:flex">
                         <p className="font-bold">Original Title</p>
                         <p className="font-mono font-extralight">
@@ -139,8 +138,8 @@ async function Page({
                         ))}
                     </div>
                 </div>
-                <div>
-                    <div className="md:text-3xl  text-base-content pt-4">
+                <div className="w-full flex flex-col">
+                    <div className="md:text-3xl text-base-content pt-4">
                         <p> Phim Đề Xuất</p>
                     </div>
                     {!!slicedRecommendations.results.length && (
@@ -151,14 +150,8 @@ async function Page({
                             Xem Thêm
                         </Link>
                     )}
-
-                    <div className="ml-auto w-full flex sticky top-14 py-4 justify-end z-50 overflow-hidden">
-                        {!!slicedRecommendations.results.length && (
-                            <ChangeMediaListBtn />
-                        )}
-                    </div>
-                    <div className="flex flex-row items-center overflow-hidden px-1">
-                        <MediaList movie={slicedRecommendations} />
+                    <div className="w-full flex justify-center">
+                        <ListMovie movie={slicedRecommendations} />
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@ export default async function Home() {
                     View more
                 </Link>
 
-                <div className="flex items-center">
+                <div className="flex justify-center">
                     <ListMovie movie={popularList} />
                 </div>
 
@@ -40,7 +40,7 @@ export default async function Home() {
                 >
                     <span className="text-base-content">View more</span>
                 </Link>
-                <div className="mb-20">
+                <div className="mb-20 flex justify-center">
                     <ListMovie movie={topRateList} />
                 </div>
             </div>

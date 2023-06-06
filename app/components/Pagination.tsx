@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-
+import { motion } from "framer-motion";
 function Pagination({
     totalPages,
     href,
@@ -40,7 +39,7 @@ function Pagination({
                     }
                     onClick={() => handlePageClick(i)}
                 >
-                    <p>{i}</p>
+                    <motion.p layoutId={"page" + i}>{i}</motion.p>
                 </Link>
             );
         }

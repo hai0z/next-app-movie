@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { MovieList } from "@/service/TMDB.type";
+import { Movie } from "@/service/TMDB.type";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import MovieCard from "./MovieCard";
 import "swiper/css";
 import "swiper/css/navigation";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
-function ListMovie({ movie }: { movie: MovieList }) {
+function ListMovie({ movie }: { movie: { results: Movie[] } }) {
     const { width } = useWindowDimensions();
     return (
         <Swiper
@@ -19,10 +19,13 @@ function ListMovie({ movie }: { movie: MovieList }) {
             slidesPerGroupAuto
             navigation={true}
             slidesPerView={width > 1700 ? 1700 / 275 : width / 275}
-            className="w-full"
         >
-            {movie.results.slice(0, 10).map((m: any) => (
-                <SwiperSlide key={m.id} className="w-auto px-2 py-3 md:py-8">
+            {movie.results.slice(0, 10).map((m) => (
+                <SwiperSlide
+                    key={m.id}
+                    className="px-2 py-3 md:py-8"
+                    style={{ display: "flex" }}
+                >
                     <MovieCard m={m} />
                 </SwiperSlide>
             ))}

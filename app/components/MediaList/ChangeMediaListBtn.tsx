@@ -6,10 +6,10 @@ function ChangeMediaListBtn() {
     const mediaType = useStore((state) => state.mediaType);
     const setMediaType = useStore((state) => state.setMediaType);
     return (
-        <div className="md:flex hidden btn-group">
+        <div className="flex btn-group">
             <button
                 onClick={() => setMediaType("list")}
-                className={`btn ${
+                className={`btn btn-sm ${
                     mediaType == "list" ? "btn-primary" : "btn-ghost"
                 }`}
             >
@@ -21,7 +21,7 @@ function ChangeMediaListBtn() {
             </button>
             <button
                 onClick={() => setMediaType("compact")}
-                className={`btn ${
+                className={`btn btn-sm ${
                     mediaType == "compact" ? "btn-primary" : "btn-ghost"
                 }`}
             >
@@ -33,7 +33,7 @@ function ChangeMediaListBtn() {
             </button>
             <button
                 onClick={() => setMediaType("grid")}
-                className={`btn ${
+                className={`btn btn-sm ${
                     mediaType == "grid" ? "btn-primary" : "btn-ghost"
                 }`}
             >

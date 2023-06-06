@@ -26,7 +26,10 @@ async function page({ searchParams }: IPageProps) {
         <div>
             <Search />
             <p className="md:text-2xl font-bold py-8">Xu hướng hôm nay</p>
-            <div className="ml-auto sticky top-16 z-50 w-fit">
+            <div className="flex flex-row items-center justify-center pb-10 mt-6">
+                <Pagination totalPages={500} />
+            </div>
+            <div className="ml-auto md:sticky top-[70px] z-50 w-fit">
                 <ChangeMediaListBtn />
             </div>
             {searchParams.q === undefined ? (
@@ -38,9 +41,6 @@ async function page({ searchParams }: IPageProps) {
                     <MediaList movie={searchMovie} />
                 </div>
             )}
-            <div className="flex flex-row items-center justify-center pb-10 mt-6">
-                <Pagination totalPages={500} />
-            </div>
         </div>
     );
 }
