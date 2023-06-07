@@ -39,7 +39,7 @@ function Pagination({
                     }
                     onClick={() => handlePageClick(i)}
                 >
-                    <motion.p layoutId={"page" + i}>{i}</motion.p>
+                    <motion.p>{i}</motion.p>
                 </Link>
             );
         }

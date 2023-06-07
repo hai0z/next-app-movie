@@ -146,7 +146,7 @@ function MovieCard1({ m }: { m: Movie }) {
 }
 function MovieCard({ m }: { m: Movie }) {
     return (
-        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-primary/5 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1">
+        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1">
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image

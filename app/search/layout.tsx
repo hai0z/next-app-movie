@@ -8,7 +8,7 @@ function Page({ children }: { children: React.ReactNode }) {
     const pathName = usePathname();
     return (
         <div className="pt-16">
-            <div className="fixed z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10">
+            <div className="sticky top-16 z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10">
                 <div className="flex py-4 gap-8">
                     <Link
                         href={"/search/movie"}
@@ -36,7 +36,7 @@ function Page({ children }: { children: React.ReactNode }) {
                     </Link>
                 </div>
             </div>
-            <div className="h-[1500px] pt-24 px-4">{children}</div>
+            <div className="pt-24 px-4">{children}</div>
         </div>
     );
 }

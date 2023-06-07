@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import NextTopLoader from "nextjs-toploader";
 import MobileTab from "./components/mobile/MobileTab";
 import { Metadata } from "next";
+import PageWraper from "./PageWraper";
 
 export const metadata: Metadata = {
     title: "The Movies",
@@ -32,20 +33,7 @@ export default function RootLayout({
                 />
             </head>
             <body className={poppins.className}>
-                <div className="flex flex-row">
-                    <Sidebar />
-                    <div>
-                        <MobileTab />
-                    </div>
-                    <div className="flex flex-col w-full md:pl-[80px]">
-                        <NextTopLoader
-                            showSpinner={true}
-                            color="hsl(var(--p))"
-                        />
-                        <Header />
-                        {children}
-                    </div>
-                </div>
+                <PageWraper>{children}</PageWraper>
             </body>
         </html>
     );

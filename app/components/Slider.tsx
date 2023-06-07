@@ -132,7 +132,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                         className="md:w-full w-full md:brightness-50 object-cover h-[60vh] lg:h-[95vh] md:rounded-tl-[20px] rounded-xl"
                                         width={1920}
                                         height={1080}
-                                        priority
+                                        loading="lazy"
                                     />
                                 </Link>
                                 <ShadowImg />
@@ -257,6 +257,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                     } hidden lg:block ml-4`}
                                 >
                                     <motion.img
+                                        loading="lazy"
                                         key={currentIndex}
                                         src={tmdb.getImage(m.poster_path)}
                                         alt="film"

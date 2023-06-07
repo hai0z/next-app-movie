@@ -11,7 +11,7 @@ async function page({ params }: { params: any }) {
             <div className="ml-auto sticky top-[72px] z-50 w-fit  md:px-24 mb-6">
                 <ChangeMediaListBtn />
             </div>
-            <div className="w-full md:px-24 flex flex-wrap justify-center px-2">
+            <div className="w-full md:px-24 flex flex-wrap justify-center px-2 overflow-hidden">
                 <MediaList movie={listRecommendations} />
             </div>
         </div>

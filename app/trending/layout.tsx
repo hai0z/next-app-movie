@@ -12,8 +12,8 @@ function Page({ children }: PageProps) {
 
     return (
         <div className="pt-16">
-            <div className="fixed z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10">
-                <div className="flex py-4 gap-8 relative">
+            <div className="z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10 sticky top-16">
+                <div className="flex py-4 gap-8">
                     <Link
                         href={"/trending/today"}
                         className="text-sm md:text-lg font-semibold relative flex flex-col items-center"
@@ -22,6 +22,7 @@ function Page({ children }: PageProps) {
                         {pathName.includes("/today") && (
                             <motion.div
                                 layoutId="underline"
+                                transition={{ type: "spring" }}
                                 className="absolute h-1 bg-primary w-1/2 rounded-full top-8 md:top-10"
                             ></motion.div>
                         )}
@@ -34,13 +35,14 @@ function Page({ children }: PageProps) {
                         {pathName.includes("/week") && (
                             <motion.div
                                 layoutId="underline"
+                                transition={{ type: "spring" }}
                                 className="absolute h-1 bg-primary w-1/2 rounded-full top-8 md:top-10"
                             ></motion.div>
                         )}
                     </Link>
                 </div>
             </div>
-            <div className="h-[1500px] pt-24 px-4">{children}</div>
+            <div className="pt-24 px-4 w-full">{children}</div>
         </div>
     );
 }

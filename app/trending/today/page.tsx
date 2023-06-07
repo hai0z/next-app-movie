@@ -18,7 +18,7 @@ async function Page({ searchParams }: IPageProps) {
     );
 
     return (
-        <div className="pb-16">
+        <div className="pb-16 relative">
             <div className="ml-auto md:sticky top-[70px] md:z-50 w-fit">
                 <ChangeMediaListBtn />
             </div>

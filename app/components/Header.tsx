@@ -51,9 +51,11 @@ function Header() {
         }
     }, [setTheme]);
     const router = useRouter();
+    const expandedSizeBar = useStore((state) => state.expandedSideBar);
     return (
         <div
-            className={`md:left-[80px] w-full px-4 ${
+            style={{ left: width > 768 ? (expandedSizeBar ? 200 : 80) : 0 }}
+            className={`w-full px-4 ${
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
                 pathname == "/" && width < 768 && "shadow-lg bg-base-100"

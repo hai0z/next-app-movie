@@ -35,7 +35,7 @@ async function Page({ params }: { params: { movieId: number } }) {
                                 width={240}
                                 height={240}
                                 src={tmdb.getImage(backdrop.file_path)}
-                                priority
+                                loading="lazy"
                                 alt="img"
                                 className="object-cover w-64 cursor-pointer"
                             />
@@ -53,7 +53,7 @@ async function Page({ params }: { params: { movieId: number } }) {
                                 width={240}
                                 height={240}
                                 src={tmdb.getImage(backdrop.file_path)}
-                                priority
+                                loading="lazy"
                                 alt="img"
                                 className="object-cover w-64 cursor-pointer"
                             />
@@ -71,7 +71,7 @@ async function Page({ params }: { params: { movieId: number } }) {
                                 width={240}
                                 height={240}
                                 src={tmdb.getImage(backdrop.file_path)}
-                                priority
+                                loading="lazy"
                                 alt="img"
                                 className="object-cover w-64 cursor-pointer"
                             />

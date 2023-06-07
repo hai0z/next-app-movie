@@ -12,7 +12,7 @@ export default async function Home() {
 
     return (
         <div className="flex flex-col h-screen rounded-tl-[20px]">
-            <div className="h-screen w-full rounded-tl-[20px] relative">
+            <div className="h-screen rounded-tl-[20px]">
                 <Slider movie={trendingList} />
             </div>
 
