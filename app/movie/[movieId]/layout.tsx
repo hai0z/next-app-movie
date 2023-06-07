@@ -36,14 +36,14 @@ async function Layout({ params, children }: MovieDetailProp) {
     }
     return (
         <div className="w-full flex flex-col md:rounded-tl-[20px]">
-            <div className="fixed">
+            <div className="fixed w-full">
                 <ShadowImg />
                 <Image
                     src={tmdb.getImage(movie.backdrop_path)}
                     width={1920}
                     height={1080}
                     priority
-                    className="object-cover md:rounded-tl-[20px] md:h-[95vh]"
+                    className="object-cover md:rounded-tl-[20px] md:h-[95vh] "
                     alt={movie.title}
                 />
                 <ShadowImg />
