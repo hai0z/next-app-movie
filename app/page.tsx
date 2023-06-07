@@ -17,12 +17,12 @@ export default async function Home() {
             </div>
 
             <div className="pl-6 flex flex-col">
-                <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
+                <span className="text-4xl font-semibold mt-12 text-base-content">
                     Popular Movies
                 </span>
                 <Link
                     href={"/trending/today"}
-                    className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2"
+                    className="btn btn-secondary w-fit btn-sm rounded-full my-3"
                 >
                     View more
                 </Link>
@@ -31,14 +31,14 @@ export default async function Home() {
                     <ListMovie movie={popularList} />
                 </div>
 
-                <span className="text-[1.5rem] font-semibold mt-12 text-base-content">
+                <span className="text-4xl font-semibold mt-12 text-base-content">
                     Top Rate
                 </span>
                 <Link
                     href={"/"}
-                    className="btn btn-primary btn-outline w-fit btn-sm rounded-full my-2 bg-base-100"
+                    className="btn btn-secondary w-fit btn-sm rounded-full my-3"
                 >
-                    <span className="text-base-content">View more</span>
+                    View more
                 </Link>
                 <div className="mb-20 flex justify-center">
                     <ListMovie movie={topRateList} />

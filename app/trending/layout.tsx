@@ -15,6 +15,7 @@ function Page({ children }: PageProps) {
             <div className="z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10 sticky top-16">
                 <div className="flex py-4 gap-8">
                     <Link
+                        scroll={false}
                         href={"/trending/today"}
                         className="text-sm md:text-lg font-semibold relative flex flex-col items-center"
                     >
@@ -28,6 +29,7 @@ function Page({ children }: PageProps) {
                         )}
                     </Link>
                     <Link
+                        scroll={false}
                         href={"/trending/week"}
                         className="text-sm md:text-lg font-semibold relative flex flex-col items-center"
                     >

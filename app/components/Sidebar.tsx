@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -13,10 +12,16 @@ function Sidebar() {
 
     return (
         <motion.div
-            style={{ width: expandedSizeBar ? 200 : 80 }}
-            className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-500 transition-all items-center py-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+                width: expandedSizeBar ? 250 : 80,
+                alignItems: expandedSizeBar ? "start" : "center",
+            }}
+            className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-500 transition-all py-2"
         >
-            <div className="flex py-2">
+            <div className="flex py-2 w-full justify-center">
                 <button onClick={() => setExpandedSideBar(expandedSizeBar)}>
                     <svg
                         className="swap-off fill-current"
@@ -29,10 +34,10 @@ function Sidebar() {
                     </svg>
                 </button>
                 {expandedSizeBar && (
-                    <Link href={"/"} className="flex items-center">
+                    <Link href={"/"}>
                         {expandedSizeBar && (
                             <motion.p
-                                className="text-gradient text-xl font-bold ml-2"
+                                className="text-gradient text-3xl font-extrabold ml-2"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -49,7 +54,10 @@ function Sidebar() {
                 )}
             </div>
 
-            <ul className="menu space-y-8 menu-md">
+            <ul
+                className="menu space-y-4"
+                style={{ width: expandedSizeBar ? "100%" : "auto" }}
+            >
                 <li
                     className="space-y-4 icon tooltip tooltip-right"
                     data-tip="Trang chủ"
@@ -61,7 +69,7 @@ function Sidebar() {
                         <HomeIcon className="w-6 h-6" />
                         {expandedSizeBar && (
                             <motion.p
-                                className="font-bold ml-2 text-lg"
+                                className="font-normal ml-2 text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -76,7 +84,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li
-                    className="space-y-4 icon tooltip tooltip-right w-full"
+                    className="space-y-4 icon tooltip tooltip-right"
                     data-tip="Xu hướng"
                 >
                     <Link
@@ -99,7 +107,7 @@ function Sidebar() {
                         </svg>
                         {expandedSizeBar && (
                             <motion.p
-                                className="font-bold ml-2  text-lg"
+                                className="font-normal ml-2  text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -115,7 +123,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li
-                    className="space-y-4 icon tooltip tooltip-right w-full"
+                    className="space-y-4 icon tooltip tooltip-right"
                     data-tip="Khám phá"
                 >
                     <Link
@@ -138,7 +146,7 @@ function Sidebar() {
                         </svg>
                         {expandedSizeBar && (
                             <motion.p
-                                className="font-bold ml-2  text-lg"
+                                className="font-normal ml-2  text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -154,7 +162,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li
-                    className="space-y-4 icon tooltip tooltip-right w-full"
+                    className="space-y-4 icon tooltip tooltip-right"
                     data-tip="Tìm kiếm"
                 >
                     <Link
@@ -177,7 +185,7 @@ function Sidebar() {
                         </svg>
                         {expandedSizeBar && (
                             <motion.p
-                                className="font-bold ml-2  text-lg"
+                                className="font-normal ml-2  text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -192,7 +200,7 @@ function Sidebar() {
                         )}
                     </Link>
                 </li>
-                <li className="tooltip tooltip-right w-full" data-tip="Cài đặt">
+                <li className="tooltip tooltip-right" data-tip="Cài đặt">
                     <Link
                         href={"/setting"}
                         className={`${pathname === "/setting" && "active"}`}
@@ -211,7 +219,7 @@ function Sidebar() {
                         </svg>
                         {expandedSizeBar && (
                             <motion.p
-                                className="font-bold ml-2  text-lg"
+                                className="font-normal ml-2  text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}

@@ -1,3 +1,4 @@
+import useStore from "@/app/(store)/store";
 import { useState, useEffect } from "react";
 function getWindowDimensions() {
     if (typeof window !== "undefined") {
@@ -31,6 +32,7 @@ function useWindowDimensions() {
         }
         if (typeof window !== "undefined") {
             window.addEventListener("resize", handleResize);
+
             return () => window.removeEventListener("resize", handleResize);
         }
     }, []);

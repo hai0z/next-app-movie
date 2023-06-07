@@ -106,13 +106,11 @@ function Slider({ movie }: { movie: MovieList }) {
                                 className="w-full z-10"
                                 initial={{
                                     scale: 1.05,
-                                    translateX: 100,
                                 }}
-                                animate={{ scale: 1, translateX: 0 }}
-                                exit={{ scale: 1.05, translateX: 100 }}
+                                animate={{ scale: 1 }}
+                                exit={{ scale: 1.05 }}
                                 transition={{ duration: 1 }}
                                 key={currentIndex}
-                                layout
                             >
                                 <Link
                                     href={`${"/movie/" + m.id}#top`}
@@ -273,7 +271,7 @@ function Slider({ movie }: { movie: MovieList }) {
 
             <div className="hidden lg:block">
                 <Swiper
-                    className="absolute bottom-40 hidden lg:block"
+                    className="absolute bottom-48 hidden lg:block"
                     controller={{ control: firstSwiper }}
                     modules={[Thumbs, Controller, FreeMode]}
                     onSwiper={setThumbsSwiper}
@@ -281,14 +279,13 @@ function Slider({ movie }: { movie: MovieList }) {
                     slideToClickedSlide={true}
                     touchRatio={0.2}
                     slidesPerGroup={1}
-                    spaceBetween={15}
                     freeMode
                     slidesPerView={
                         width > 1700
-                            ? 1700 / 255
+                            ? 1700 / 270
                             : expandedSideBar
-                            ? (width - 200) / 255
-                            : width / 255
+                            ? (width - 200) / 270
+                            : width / 270
                     }
                 >
                     {movie.results.slice(0, 10).map((m, index) => {
@@ -299,7 +296,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                 virtualIndex={index}
                             >
                                 <div
-                                    className={`md:w-56 rounded-md relative flex justify-center items-center  ${
+                                    className={`md:w-60 rounded-md relative flex justify-center items-center  ${
                                         index === currentIndex &&
                                         "ring-4 ring-primary"
                                     } overflow-hidden cursor-pointer hover:ring-4 hover:ring-primary`}
@@ -310,7 +307,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                             "w500"
                                         )}
                                         alt="film"
-                                        className={`md:w-56 rounded-md group-hover:scale-110 group-hover:w-56 transition-all duration-150 hover:brightness-50`}
+                                        className={`md:w-60 rounded-md group-hover:scale-110 group-hover:w-60 transition-all duration-150 hover:brightness-50`}
                                         width={500}
                                         height={500}
                                         priority

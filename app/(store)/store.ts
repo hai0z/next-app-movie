@@ -16,7 +16,7 @@ const useStore = create<Store>((set) => ({
     videoId: "",
     theme: "",
     currentSlideIndex: 0,
-    mediaType: "compact",
+    mediaType: "grid",
     expandedSideBar: true,
     setVideoId: (param) => set({ videoId: param }),
     setTheme: (param) => set({ theme: param }),

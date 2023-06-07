@@ -13,11 +13,11 @@ function MediaList({ movie }: IPageProps) {
         <div className="gap-8 pb-6 md:gap-4 md:pb-8 flex flex-wrap justify-center">
             {movie?.results.map((m, index) => {
                 return mediaType === "list" ? (
-                    <MovieCard2 m={m} index={index} />
+                    <MovieCard2 m={m} index={index} key={m.id} />
                 ) : mediaType == "compact" ? (
-                    <MovieCard3 m={m} index={index} />
+                    <MovieCard3 m={m} index={index} key={m.id} />
                 ) : (
-                    <MovieCard1 m={m} />
+                    <MovieCard1 m={m} key={m.id} />
                 );
             })}
         </div>

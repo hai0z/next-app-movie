@@ -8,18 +8,16 @@ import { motion } from "framer-motion";
 function MovieCard2({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card card-side bg-base-200 shadow-xl w-full hover:ring-1 hover:ring-primary hover:bg-primary/10 transition-all duration-300 my-1 mx-1"
+            className="card card-side bg-base-200 shadow-xl w-full hover:ring-1 hover:ring-primary hover:bg-primary/10 transition-all duration-300 my-1 mx-1 cursor-pointer"
             initial={{
                 opacity: 0,
             }}
-            animate={{ opacity: 1 }}
-            transition={{
-                duration: 0.75,
-                delay: index * 0.15,
-            }}
+            key={m.id}
+            transition={{ duration: 0.5 }}
             exit={{
                 opacity: 0,
             }}
+            whileInView={{ opacity: 1 }}
         >
             <figure>
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -57,11 +55,8 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
             initial={{
                 opacity: 0,
             }}
-            animate={{ opacity: 1 }}
-            transition={{
-                duration: 0.75,
-                delay: index * 0.1,
-            }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             exit={{
                 opacity: 0,
             }}
@@ -100,15 +95,12 @@ function MovieCard1({ m }: { m: Movie }) {
             initial={{
                 opacity: 0,
             }}
-            animate={{ opacity: 1 }}
-            transition={{
-                duration: 0.75,
-                delay: Math.random() * 2 * 0.11,
-            }}
+            whileInView={{ opacity: 1 }}
             exit={{
                 opacity: 0,
             }}
             key={m.id}
+            transition={{ duration: 0.5 }}
             layout
             className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-[45%] md:w-56 lg:w-64 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1 hover:bg-primary/10"
         >
@@ -134,7 +126,7 @@ function MovieCard1({ m }: { m: Movie }) {
 }
 function MovieCard({ m }: { m: Movie }) {
     return (
-        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1 hover:bg-primary/10">
+        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-60 lg:w-64 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1 hover:bg-primary/10">
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
@@ -143,7 +135,7 @@ function MovieCard({ m }: { m: Movie }) {
                         height={500}
                         alt="cast"
                         loading="lazy"
-                        className="object-cover transition-all duration-300 md:w-56 group-hover:scale-110 lg:w-60 "
+                        className="object-cover transition-all duration-300 w-60  group-hover:scale-110 lg:w-64 "
                     />
                 </Link>
             </figure>

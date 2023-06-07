@@ -13,7 +13,6 @@ function Header() {
     const params = useParams();
     const ImagePath = "https://image.tmdb.org/t/p/";
     const [isScroll, setIsScroll] = useState(false);
-    const setTheme = useStore((state) => state.setTheme);
 
     const { width } = useWindowDimensions();
 
@@ -44,7 +43,7 @@ function Header() {
     const expandedSizeBar = useStore((state) => state.expandedSideBar);
     return (
         <div
-            style={{ left: width > 768 ? (expandedSizeBar ? 200 : 80) : 0 }}
+            style={{ left: width > 768 ? (expandedSizeBar ? 250 : 80) : 0 }}
             className={`w-full px-4 ${
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
