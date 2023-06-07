@@ -29,6 +29,7 @@ import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
 import { useRouter } from "next/navigation";
+import useStore from "../(store)/store";
 
 function Slider({ movie }: { movie: MovieList }) {
     const router = useRouter();
@@ -37,7 +38,7 @@ function Slider({ movie }: { movie: MovieList }) {
     const swiper1Ref = useRef<any>(null);
     const swiper2Ref = useRef();
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const expandedSideBar = useStore((state) => state.expandedSideBar);
     const [listLogo, setListLogo] = useState<any>([]);
 
     const [listGenres, setListGenres] = useState<Genres[]>([]);
@@ -111,6 +112,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                 exit={{ scale: 1.05, translateX: 100 }}
                                 transition={{ duration: 1 }}
                                 key={currentIndex}
+                                layout
                             >
                                 <Link
                                     href={`${"/movie/" + m.id}#top`}
@@ -129,7 +131,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                                 : tmdb.getImage(m.backdrop_path)
                                         }
                                         alt="film"
-                                        className="md:w-full w-full md:brightness-50 object-cover h-[60vh] lg:h-[95vh] md:rounded-tl-[20px] rounded-xl"
+                                        className="md:w-full w-full md:brightness-50 object-cover h-[60vh] lg:h-[95vh] md:rounded-tl-none rounded-xl md:rounded-tr-none"
                                         width={1920}
                                         height={1080}
                                         loading="lazy"
@@ -249,13 +251,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                         </motion.div>
                                     </motion.div>
                                 </div>
-                                <div
-                                    className={`${
-                                        currentIndex === index
-                                            ? "opacity-100"
-                                            : "opacity-0"
-                                    } hidden lg:block ml-4`}
-                                >
+                                <div className={`hidden lg:block ml-4`}>
                                     <motion.img
                                         loading="lazy"
                                         key={currentIndex}
@@ -266,6 +262,7 @@ function Slider({ movie }: { movie: MovieList }) {
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0 }}
                                         transition={{ duration: 1 }}
+                                        layout
                                     />
                                 </div>
                             </div>
@@ -286,7 +283,13 @@ function Slider({ movie }: { movie: MovieList }) {
                     slidesPerGroup={1}
                     spaceBetween={15}
                     freeMode
-                    slidesPerView={width > 1700 ? 1700 / 255 : width / 255}
+                    slidesPerView={
+                        width > 1700
+                            ? 1700 / 255
+                            : expandedSideBar
+                            ? (width - 200) / 255
+                            : width / 255
+                    }
                 >
                     {movie.results.slice(0, 10).map((m, index) => {
                         return (

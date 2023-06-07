@@ -14,15 +14,15 @@ function Sidebar() {
     return (
         <motion.div
             style={{ width: expandedSizeBar ? 200 : 80 }}
-            className="h-screen md:bg-base-200 fixed top-0 md:left-0 -left-96 flex flex-col space-y-8 z-30 duration-500 transition-all items-center py-2"
+            className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-500 transition-all items-center py-2"
         >
-            <div className="flex">
+            <div className="flex py-2">
                 <button onClick={() => setExpandedSideBar(expandedSizeBar)}>
                     <svg
                         className="swap-off fill-current"
                         xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
+                        width="28"
+                        height="28"
                         viewBox="0 0 512 512"
                     >
                         <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
@@ -32,11 +32,15 @@ function Sidebar() {
                     <Link href={"/"} className="flex items-center">
                         {expandedSizeBar && (
                             <motion.p
-                                className="text-gradient text-lg font-bold ml-2"
+                                className="text-gradient text-xl font-bold ml-2"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    type: "spring",
+                                }}
                             >
                                 The Movies
                             </motion.p>
@@ -54,14 +58,17 @@ function Sidebar() {
                         href={"/"}
                         className={`${pathname === "/" && "active"}`}
                     >
-                        <HomeIcon className="w-6 h-6 text-base-content" />
+                        <HomeIcon className="w-6 h-6" />
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-bold ml-2 text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                }}
                             >
                                 Trang chủ
                             </motion.p>
@@ -82,7 +89,7 @@ function Sidebar() {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-6 h-6 text-base-content"
+                            className="w-6 h-6"
                         >
                             <path
                                 strokeLinecap="round"
@@ -96,7 +103,11 @@ function Sidebar() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    type: "spring",
+                                }}
                             >
                                 Xu hướng
                             </motion.p>
@@ -131,7 +142,11 @@ function Sidebar() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    type: "spring",
+                                }}
                             >
                                 Khám phá
                             </motion.p>
@@ -152,7 +167,7 @@ function Sidebar() {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-6 h-6 text-base-content"
+                            className="w-6 h-6"
                         >
                             <path
                                 strokeLinecap="round"
@@ -166,7 +181,11 @@ function Sidebar() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    type: "spring",
+                                }}
                             >
                                 Tìm kiếm
                             </motion.p>
@@ -182,7 +201,7 @@ function Sidebar() {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="w-6 h-6 text-base-content"
+                            className="w-6 h-6"
                         >
                             <path
                                 fillRule="evenodd"
@@ -196,7 +215,11 @@ function Sidebar() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.75, delay: 0.25 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.35,
+                                    type: "spring",
+                                }}
                             >
                                 Cài đặt
                             </motion.p>

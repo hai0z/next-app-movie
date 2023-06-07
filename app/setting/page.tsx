@@ -16,7 +16,7 @@ function Page() {
         <div className="px-10 pt-16 pb-10">
             <p className="text-2xl font-bold">Cài đặt</p>
             <div className="flex flex-col gap-4 py-4 md:flex-row md:gap-8">
-                <ul className="menu-horizontal menu md:menu-vertical md:w-56 rounded-box md:text-lg bg-base-200 h-fit">
+                <ul className="menu-horizontal menu md:menu-vertical md:w-56 rounded-box md:text-lg bg-base-200 h-fit shadow-md">
                     <li>
                         <a className="active">Giao diện</a>
                     </li>
@@ -28,7 +28,7 @@ function Page() {
                     </li>
                 </ul>
                 <div className="space-y-4 w-full">
-                    <div className="collapse bg-base-200 collapse-arrow">
+                    <div className="collapse bg-base-200 collapse-arrow shadow-md">
                         <input type="checkbox" />
                         <div className="collapse-title">
                             <p className="text-xl font-bold">Giao diện</p>
@@ -210,7 +210,7 @@ function Page() {
                     </div>
                     <div
                         tabIndex={0}
-                        className="collapse bg-base-200 collapse-arrow"
+                        className="collapse bg-base-200 collapse-arrow shadow-md"
                     >
                         <input type="checkbox" />
                         <div className="collapse-title">

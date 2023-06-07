@@ -40,16 +40,6 @@ function Header() {
         };
         getData();
     }, [params.movieId]);
-    useEffect(() => {
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme) {
-            setTheme(currentTheme as string);
-
-            document
-                .getElementById("html")
-                ?.setAttribute("data-theme", currentTheme);
-        }
-    }, [setTheme]);
     const router = useRouter();
     const expandedSizeBar = useStore((state) => state.expandedSideBar);
     return (
@@ -59,7 +49,7 @@ function Header() {
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
                 pathname == "/" && width < 768 && "shadow-lg bg-base-100"
-            } flex flex-row items-center z-50 transition-all duration-300 h-16 md:h-16 fixed navbar `}
+            } flex flex-row items-center z-50 transition-all duration-150 h-16 md:h-16 fixed navbar `}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">

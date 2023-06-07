@@ -8,21 +8,17 @@ import { motion } from "framer-motion";
 function MovieCard2({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card card-side bg-primary/5 shadow-xl w-full hover:ring-1 hover:ring-primary hover:bg-primary/10 transition-all duration-300 my-1 mx-1"
+            className="card card-side bg-base-200 shadow-xl w-full hover:ring-1 hover:ring-primary hover:bg-primary/10 transition-all duration-300 my-1 mx-1"
             initial={{
                 opacity: 0,
-                translateX: index % 2 === 0 ? -150 : 150,
-                translateY: index % 2 === 0 ? -150 : 150,
             }}
-            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
                 duration: 0.75,
-                delay: index * 0.25,
+                delay: index * 0.15,
             }}
             exit={{
                 opacity: 0,
-                translateX: index % 2 === 0 ? -150 : 150,
-                translateY: index % 2 === 0 ? -150 : 150,
             }}
         >
             <figure>
@@ -56,22 +52,18 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
 function MovieCard3({ m, index }: { m: Movie; index: number }) {
     return (
         <motion.div
-            className="card w-96 bg-primary/5 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary card-compact"
+            className="card w-96 bg-base-200 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary card-compact hover:bg-primary/10"
             layout
             initial={{
                 opacity: 0,
-                translateX: index % 2 === 0 ? -150 : 150,
-                translateY: index % 2 === 0 ? -150 : 150,
             }}
-            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
                 duration: 0.75,
                 delay: index * 0.1,
             }}
             exit={{
                 opacity: 0,
-                translateX: index % 2 === 0 ? -150 : 150,
-                translateY: index % 2 === 0 ? -150 : 150,
             }}
         >
             <figure>
@@ -107,22 +99,18 @@ function MovieCard1({ m }: { m: Movie }) {
         <motion.div
             initial={{
                 opacity: 0,
-                translateX: Math.random() > 0.5 ? -150 : 150,
-                translateY: Math.random() > 0.5 ? -150 : 150,
             }}
-            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
                 duration: 0.75,
                 delay: Math.random() * 2 * 0.11,
             }}
             exit={{
                 opacity: 0,
-                translateX: Math.random() > 0.5 ? -150 : 150,
-                translateY: Math.random() > 0.5 ? -150 : 150,
             }}
             key={m.id}
             layout
-            className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-[45%] md:w-56 lg:w-64 bg-primary/5 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1"
+            className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-[45%] md:w-56 lg:w-64 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1 hover:bg-primary/10"
         >
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -146,7 +134,7 @@ function MovieCard1({ m }: { m: Movie }) {
 }
 function MovieCard({ m }: { m: Movie }) {
     return (
-        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1">
+        <motion.div className="transition-all duration-300 rounded-lg shadow-md cursor-pointer w-52 md:w-56 lg:w-60 bg-base-200 hover:ring-1 hover:ring-primary hover:scale-[1.01] hover:shadow-primary group card my-1 hover:bg-primary/10">
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image

@@ -30,7 +30,7 @@ function PageWraper({ children }: { children: React.ReactNode }) {
                 >
                     <NextTopLoader showSpinner={true} color="hsl(var(--p))" />
                     <Header />
-                    <motion.div layout transition={{ type: "spring" }}>
+                    <motion.div layout transition={{ type: "keyframes" }}>
                         {children}
                     </motion.div>
                 </motion.div>
