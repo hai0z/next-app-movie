@@ -15,17 +15,12 @@ function PageWraper({ children }: { children: React.ReactNode }) {
 
     return (
         <AppProvider>
-            <motion.div
-                className="flex flex-row w-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2.5 }}
-            >
+            <motion.div className="flex flex-row w-full">
                 <div>
                     <Sidebar />
                     <MobileTab />
                 </div>
-                <motion.div
+                <div
                     className="flex flex-col w-full"
                     style={{
                         paddingLeft:
@@ -34,10 +29,13 @@ function PageWraper({ children }: { children: React.ReactNode }) {
                 >
                     <NextTopLoader showSpinner={true} color="hsl(var(--p))" />
                     <Header />
-                    <motion.div layout transition={{ type: "tween" }}>
+                    <motion.div
+                        layout
+                        transition={{ type: "keyframes", duration: 0.5 }}
+                    >
                         {children}
                     </motion.div>
-                </motion.div>
+                </div>
             </motion.div>
         </AppProvider>
     );

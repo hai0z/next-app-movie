@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ function Sidebar() {
             }}
             className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-500 transition-all py-2"
         >
-            <div className="flex py-2 w-full justify-center">
+            <div className="flex py-2 justify-center self-center">
                 <button onClick={() => setExpandedSideBar(expandedSizeBar)}>
                     <svg
                         className="swap-off fill-current"
@@ -33,25 +33,32 @@ function Sidebar() {
                         <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                     </svg>
                 </button>
-                {expandedSizeBar && (
-                    <Link href={"/"}>
-                        {expandedSizeBar && (
-                            <motion.p
-                                className="text-gradient text-3xl font-extrabold ml-2"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: 0.35,
-                                    type: "spring",
-                                }}
-                            >
+
+                <Link href={"/"}>
+                    {expandedSizeBar && (
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                                display: "none",
+                                translateX: -200,
+                            }}
+                            animate={{
+                                opacity: 1,
+                                display: "inline-grid",
+                                translateX: 0,
+                            }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 0.6,
+                            }}
+                        >
+                            <p className="text-gradient text-3xl font-extrabold ml-2">
                                 The Movies
-                            </motion.p>
-                        )}
-                    </Link>
-                )}
+                            </p>
+                        </motion.div>
+                    )}
+                </Link>
             </div>
 
             <ul
@@ -70,12 +77,20 @@ function Sidebar() {
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-normal ml-2 text-lg"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                initial={{
+                                    opacity: 0,
+                                    display: "none",
+                                    translateX: -200,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    display: "inline-grid",
+                                    translateX: 0,
+                                }}
                                 exit={{ opacity: 0 }}
                                 transition={{
                                     duration: 0.5,
-                                    delay: 0.35,
+                                    delay: 0.6,
                                 }}
                             >
                                 Trang chủ
@@ -108,13 +123,20 @@ function Sidebar() {
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                initial={{
+                                    opacity: 0,
+                                    display: "none",
+                                    translateX: -200,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    display: "inline-grid",
+                                    translateX: 0,
+                                }}
                                 exit={{ opacity: 0 }}
                                 transition={{
                                     duration: 0.5,
-                                    delay: 0.35,
-                                    type: "spring",
+                                    delay: 0.65,
                                 }}
                             >
                                 Xu hướng
@@ -147,13 +169,20 @@ function Sidebar() {
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                initial={{
+                                    opacity: 0,
+                                    display: "none",
+                                    translateX: -200,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    display: "inline-grid",
+                                    translateX: 0,
+                                }}
                                 exit={{ opacity: 0 }}
                                 transition={{
                                     duration: 0.5,
-                                    delay: 0.35,
-                                    type: "spring",
+                                    delay: 0.7,
                                 }}
                             >
                                 Khám phá
@@ -186,13 +215,20 @@ function Sidebar() {
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                initial={{
+                                    opacity: 0,
+                                    display: "none",
+                                    translateX: -200,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    display: "inline-grid",
+                                    translateX: 0,
+                                }}
                                 exit={{ opacity: 0 }}
                                 transition={{
                                     duration: 0.5,
-                                    delay: 0.35,
-                                    type: "spring",
+                                    delay: 0.75,
                                 }}
                             >
                                 Tìm kiếm
@@ -220,13 +256,20 @@ function Sidebar() {
                         {expandedSizeBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
+                                initial={{
+                                    opacity: 0,
+                                    display: "none",
+                                    translateX: -200,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    display: "inline-grid",
+                                    translateX: 0,
+                                }}
                                 exit={{ opacity: 0 }}
                                 transition={{
                                     duration: 0.5,
-                                    delay: 0.35,
-                                    type: "spring",
+                                    delay: 0.8,
                                 }}
                             >
                                 Cài đặt

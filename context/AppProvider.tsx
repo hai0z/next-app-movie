@@ -25,21 +25,26 @@ function AppProvider({ children }: IProps) {
         <AppContext.Provider value={{}}>
             {loading ? (
                 <motion.div
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 0 }}
-                    transition={{ duration: 1.2 }}
-                    className="h-screen w-full flex justify-center items-center flex-col bg-base-300"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="h-screen w-full flex justify-center items-center flex-col bg-base-100"
                 >
-                    <Image
-                        src={
-                            "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-                        }
-                        alt="logo"
-                        width={64}
-                        height={64}
-                        className="w-12 h-12 md:w-16 md:h-16 mb-4"
-                    />
-                    <span className="loading loading-dots loading-lg text-primary"></span>
+                    <div className="flex gap-4 items-center">
+                        <Image
+                            src={
+                                "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                            }
+                            alt="logo"
+                            width={64}
+                            height={64}
+                            className="h-20 w-20"
+                        />
+                        <span className="text-gradient font-bold text-4xl">
+                            The Movies
+                        </span>
+                    </div>
+                    <span className="loading loading-dots text-primary"></span>
                 </motion.div>
             ) : (
                 children

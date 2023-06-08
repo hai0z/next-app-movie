@@ -43,7 +43,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("black")
                                         }
                                         type="radio"
@@ -59,7 +59,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("light")
                                         }
                                         type="radio"
@@ -75,7 +75,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("luxury")
                                         }
                                         type="radio"
@@ -91,7 +91,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("dracula")
                                         }
                                         type="radio"
@@ -107,7 +107,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("night")
                                         }
                                         type="radio"
@@ -123,7 +123,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("retro")
                                         }
                                         type="radio"
@@ -139,7 +139,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("business")
                                         }
                                         type="radio"
@@ -158,7 +158,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("synthwave")
                                         }
                                         type="radio"
@@ -176,7 +176,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("forest")
                                         }
                                         type="radio"
@@ -192,7 +192,7 @@ function Page() {
                                     className="flex gap-2 bg-transparent"
                                 >
                                     <input
-                                        onClick={() =>
+                                        onChange={() =>
                                             handleChangeTheme("halloween")
                                         }
                                         type="radio"

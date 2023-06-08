@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import useStore from "../(store)/store";
 import { Movie } from "@/service/TMDB.type";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
+import { motion } from "framer-motion";
 function Header() {
     const [data, setData] = useState<Movie>({} as Movie);
     const pathname = usePathname();
@@ -42,13 +43,14 @@ function Header() {
     const router = useRouter();
     const expandedSizeBar = useStore((state) => state.expandedSideBar);
     return (
-        <div
+        <motion.div
+            transition={{ duration: 1 }}
             style={{ left: width > 768 ? (expandedSizeBar ? 250 : 80) : 0 }}
             className={`w-full px-4 ${
                 isScroll && "bg-base-100 backdrop-blur-lg bg-opacity-80"
             } ${
                 pathname == "/" && width < 768 && "shadow-lg bg-base-100"
-            } flex flex-row items-center z-50 transition-all duration-150 h-16 md:h-16 fixed navbar `}
+            } flex flex-row items-center z-50 transition-all duration-150  h-16 md:h-16 fixed navbar `}
         >
             <div className="flex gap-2 md:gap-4 mr-2">
                 <div className="btn btn-primary btn-circle btn-sm">
@@ -121,7 +123,7 @@ function Header() {
                     </div>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 }
 
