@@ -1,15 +1,31 @@
 "use client";
 
 import React from "react";
-import { Movie } from "@/service/TMDB.type";
+import { Movie, TrendingPeople } from "@/service/TMDB.type";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import MovieCard from "./MovieCard";
 import "swiper/css";
 import "swiper/css/navigation";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
-function ListMovie({ movie }: { movie: { results: Movie[] } }) {
+import PeopleCard from "./PeopleCard";
+
+interface ICardPropsMovie {
+    type: "movie";
+    data: { results: Movie[] };
+}
+
+interface ICardPropsPeople {
+    type: "people";
+    data: { results: TrendingPeople[] };
+}
+
+type CardProps = ICardPropsMovie | ICardPropsPeople;
+
+function CardSlide({ data, type }: CardProps) {
     const { width } = useWindowDimensions();
+    const isMovie = type === "movie";
+    const isPeople = type === "people";
     return (
         <Swiper
             modules={[Navigation]}
@@ -20,17 +36,18 @@ function ListMovie({ movie }: { movie: { results: Movie[] } }) {
             navigation={true}
             slidesPerView={width > 1700 ? 1700 / 275 : width / 275}
         >
-            {movie.results.slice(0, 10).map((m) => (
+            {data.results.slice(0, 10).map((m) => (
                 <SwiperSlide
                     key={m.id}
-                    className="px-2 py-3 md:py-8"
+                    className="px-2 py-3 md:py-8 w-full"
                     style={{ display: "flex" }}
                 >
-                    <MovieCard m={m} />
+                    {isMovie && <MovieCard m={m as Movie} />}
+                    {isPeople && <PeopleCard people={m as TrendingPeople} />}
                 </SwiperSlide>
             ))}
         </Swiper>
     );
 }
 
-export default ListMovie;
+export default CardSlide;

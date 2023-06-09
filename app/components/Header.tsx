@@ -30,15 +30,15 @@ function Header() {
     }, []);
     useEffect(() => {
         const getData = async () => {
-            if (params.movieId !== undefined) {
-                const respone = await fetch(
-                    `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
-                );
-                const data = await respone.json();
-                setData(data);
-            }
+            const respone = await fetch(
+                `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.TMDB}&language=vi-VN`
+            );
+            const data = await respone.json();
+            setData(data);
         };
-        getData();
+        if (params.movieId !== undefined) {
+            getData();
+        }
     }, [params.movieId]);
     const router = useRouter();
     const expandedSizeBar = useStore((state) => state.expandedSideBar);
@@ -77,7 +77,8 @@ function Header() {
                 {isScroll &&
                     pathname.includes("movie") &&
                     !pathname.includes("search") &&
-                    !pathname.includes("discover") && (
+                    !pathname.includes("discover") &&
+                    !pathname.includes("genres") && (
                         <div className="flex flex-row gap-2 items-center bottom-0  ">
                             <Image
                                 src={`${ImagePath}/w500/${data?.poster_path}`}
@@ -111,11 +112,18 @@ function Header() {
                 {isScroll && pathname.includes("trending") && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl text-gradient">
-                            Trending
+                            Xu hướng
                         </p>
                     </div>
                 )}
                 {isScroll && pathname.includes("discover") && (
+                    <div className="flex flex-row gap-2">
+                        <p className="font-bold text-2xl text-gradient">
+                            Khám phá
+                        </p>
+                    </div>
+                )}
+                {isScroll && pathname.includes("genres") && (
                     <div className="flex flex-row gap-2">
                         <p className="font-bold text-2xl text-gradient">
                             Khám phá

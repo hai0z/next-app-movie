@@ -1,3 +1,5 @@
+import { MovieCredits, People, Photo } from "./TMDB.type";
+
 class TMDB {
     private readonly IMG_PATH: string = "https://image.tmdb.org/t/p/" as const;
     private readonly BASE_URL: string = "https://api.themoviedb.org/3" as const;
@@ -18,7 +20,7 @@ class TMDB {
         return data;
     }
     async getTrending(
-        type: "movie" | "tv",
+        type: "movie" | "tv" | "person",
         timeWindow: "day" | "week",
         page?: number
     ) {
@@ -66,9 +68,15 @@ class TMDB {
 
         return data;
     }
-    async search(query: string, type: "movie" | "tv") {
+    async search(
+        query: string,
+        type: "movie" | "tv" | "person",
+        page?: number
+    ) {
         const respone = await fetch(
-            `${this.BASE_URL}/search/${type}?api_key=${process.env.TMDB}&query=${query}&language=vi-VN`
+            `${this.BASE_URL}/search/${type}?api_key=${
+                process.env.TMDB
+            }&query=${query}&language=vi-VN&page=${page ?? 1}`
         );
         const data = await respone.json();
 
@@ -107,7 +115,27 @@ class TMDB {
         const data = await respone.json();
         return data;
     }
-    async getPeople() {}
+    async getPeople(id: number): Promise<People> {
+        const respone = await fetch(
+            `${this.BASE_URL}/person/${id}?api_key=${process.env.TMDB}`
+        );
+        const data = await respone.json();
+        return data;
+    }
+    async getMovieCredits(id: number): Promise<{ cast: MovieCredits[] }> {
+        const respone = await fetch(
+            `${this.BASE_URL}/person/${id}/movie_credits?api_key=${process.env.TMDB}&language=vi-VN`
+        );
+        const data = await respone.json();
+        return data;
+    }
+    async getPeoplePhotos(id: number): Promise<{ profiles: Photo[] }> {
+        const respone = await fetch(
+            `${this.BASE_URL}/person/${id}/images?api_key=${process.env.TMDB}`
+        );
+        const data = await respone.json();
+        return data;
+    }
 }
 const tmdb = new TMDB();
 export default tmdb;

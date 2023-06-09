@@ -5,7 +5,8 @@ import Link from "next/link";
 import tmdb from "@/service/TMDB";
 import { Metadata } from "next";
 
-import ListMovie from "@/app/components/ListMovie";
+import ListMovie from "@/app/components/CardSlide";
+import PeopleCard from "@/app/components/PeopleCard";
 export interface Cast {
     id: number;
     profile_path: string;
@@ -115,25 +116,10 @@ async function Page({
                     >
                         Xem Thêm
                     </Link>
-                    <div className="flex flex-row gap-4 flex-wrap">
+                    <div className="flex flex-wrap gap-4">
                         {cast?.slice(0, 5).map((cast) => (
-                            <div
-                                key={cast.id}
-                                className="text-white cursor-pointer"
-                            >
-                                <Image
-                                    src={tmdb.getImage(
-                                        cast.profile_path,
-                                        "w500"
-                                    )}
-                                    width={500}
-                                    height={500}
-                                    alt="cast"
-                                    className="object-cover w-32"
-                                />
-                                <span className="font-thin text-base-content">
-                                    {cast.name}
-                                </span>
+                            <div key={cast.id} className="carousel-item">
+                                <PeopleCard people={cast as any} />
                             </div>
                         ))}
                     </div>
@@ -150,8 +136,8 @@ async function Page({
                             Xem Thêm
                         </Link>
                     )}
-                    <div className="w-full flex justify-center">
-                        <ListMovie movie={slicedRecommendations} />
+                    <div className="flex justify-center">
+                        <ListMovie data={slicedRecommendations} type="movie" />
                     </div>
                 </div>
             </div>

@@ -24,14 +24,14 @@ import SwiperCore, {
     FreeMode,
 } from "swiper";
 import Link from "next/link";
-import { Genres, MovieList } from "@/service/TMDB.type";
+import { Genre, TrendingMovie } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "./ShadowImg";
 import useWindowDimensions from "@/hooks/useWindowDemensions";
 import { useRouter } from "next/navigation";
 import useStore from "../(store)/store";
 
-function Slider({ movie }: { movie: MovieList }) {
+function Slider({ movie }: { movie: { results: TrendingMovie[] } }) {
     const router = useRouter();
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore>();
     const [firstSwiper, setFirstSwiper] = useState<SwiperClass>();
@@ -41,7 +41,7 @@ function Slider({ movie }: { movie: MovieList }) {
     const expandedSideBar = useStore((state) => state.expandedSideBar);
     const [listLogo, setListLogo] = useState<any>([]);
 
-    const [listGenres, setListGenres] = useState<Genres[]>([]);
+    const [listGenres, setListGenres] = useState<Genre[]>([]);
 
     useEffect(() => {
         const getListGenres = async () => {

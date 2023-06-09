@@ -19,7 +19,7 @@ function AppProvider({ children }: IProps) {
                 .getElementById("html")
                 ?.setAttribute("data-theme", currentTheme);
         }
-        setTimeout(() => setLoading(false), 1200);
+        setTimeout(() => setLoading(false), 2000);
     }, [setTheme]);
     return (
         <AppContext.Provider value={{}}>
@@ -27,7 +27,7 @@ function AppProvider({ children }: IProps) {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.7, delay: 0.5 }}
                     className="h-screen w-full flex justify-center items-center flex-col bg-base-100"
                 >
                     <div className="flex gap-4 items-center">

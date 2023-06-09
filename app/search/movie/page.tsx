@@ -18,27 +18,46 @@ async function page({ searchParams }: IPageProps) {
         "day",
         searchParams.page ?? 1
     );
-    const searchMovie: { results: Movie[] } = await tmdb.search(
-        searchParams.q,
-        "movie"
-    );
+    const searchMovie: { results: Movie[]; total_pages: number } =
+        await tmdb.search(searchParams.q, "movie", searchParams.page);
     return (
         <div>
             <Search />
-            <p className="md:text-2xl font-bold py-8">Xu hướng hôm nay</p>
+
             <div className="flex flex-row items-center justify-center pb-10 mt-6">
-                <Pagination totalPages={500} />
+                <Pagination
+                    totalPages={
+                        searchParams.q === undefined
+                            ? 500
+                            : searchMovie.total_pages
+                    }
+                    href={
+                        searchParams.q === undefined
+                            ? "/search/movie?"
+                            : `/search/movie?q=${searchParams.q}&`
+                    }
+                />
             </div>
             <div className="ml-auto md:sticky top-[70px] z-50 w-fit">
                 <ChangeMediaListBtn />
             </div>
             {searchParams.q === undefined ? (
-                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden mt-6">
-                    <MediaList movie={movie} />
+                <div>
+                    <p className="md:text-2xl font-bold py-8">
+                        Xu hướng hôm nay
+                    </p>
+                    <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden mt-6">
+                        <MediaList movie={movie} />
+                    </div>
                 </div>
             ) : (
-                <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden">
-                    <MediaList movie={searchMovie} />
+                <div>
+                    <p className="md:text-2xl font-bold py-8">
+                        Kết quả tìm kiếm cho {`"${searchParams.q}"`}
+                    </p>
+                    <div className="flex flex-row justify-between items-center flex-wrap gap-4 md:pb-8 pb-6 overflow-hidden">
+                        <MediaList movie={searchMovie} />
+                    </div>
                 </div>
             )}
         </div>

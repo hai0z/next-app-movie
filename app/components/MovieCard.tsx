@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Movie } from "@/service/TMDB.type";
+import { Movie, MovieCredits } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import { motion } from "framer-motion";
 function MovieCard2({ m, index }: { m: Movie; index: number }) {
@@ -33,7 +33,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
             </figure>
             <div className="card-body w-full">
                 <motion.h2 className="card-title">
-                    <Link href={"/movie/" + m.id}> {m.title}</Link>
+                    <Link href={"/movie/" + m.id}> {m.name ?? m.title}</Link>
                 </motion.h2>
                 <div>
                     <p className="badge badge-info font-semibold">
@@ -80,7 +80,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                     href={"/movie/" + m.id}
                     className="card-title line-clamp-1"
                 >
-                    <motion.h2>{m.title}</motion.h2>
+                    <motion.h2> {m.name ?? m.title}</motion.h2>
                 </Link>
                 <p className="overflow-ellipsis line-clamp-4 text-justify">
                     {m.overview}
@@ -118,7 +118,9 @@ function MovieCard1({ m }: { m: Movie }) {
             </figure>
             <div className="card-body">
                 <Link href={"/movie/" + m.id}>
-                    <p className="line-clamp-2 font-semibold"> {m.title}</p>
+                    <p className="line-clamp-2 font-semibold">
+                        {m.name ?? m.title}
+                    </p>
                 </Link>
             </div>
         </motion.div>
@@ -141,7 +143,10 @@ function MovieCard({ m }: { m: Movie }) {
             </figure>
             <div className="card-body">
                 <Link href={"/movie/" + m.id}>
-                    <p className="line-clamp-2 font-semibold"> {m.title}</p>
+                    <p className="line-clamp-2 font-semibold">
+                        {" "}
+                        {m.name ?? m.title}
+                    </p>
                 </Link>
             </div>
         </motion.div>

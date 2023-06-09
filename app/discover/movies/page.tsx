@@ -23,14 +23,14 @@ async function page({ searchParams }: PageProp) {
             <div className="py-2 sticky z-50 top-0 flex justify-end -mr-20 w-full">
                 <ChangeMediaListBtn />
             </div>
-            <div className="flex flex-wrap gap-4 overflow-hidden">
-                <MediaList movie={listMovie} />
-            </div>
             <div className="flex justify-center items-center mt-4 mb-10">
                 <Pagination
                     totalPages={500}
                     href={`/discover/movies?with_genres=${searchParams.with_genres}&`}
                 />
+            </div>
+            <div className="flex flex-wrap gap-4 overflow-hidden">
+                <MediaList movie={listMovie} />
             </div>
         </div>
     );

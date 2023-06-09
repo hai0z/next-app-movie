@@ -1,7 +1,7 @@
 import React from "react";
 import { Cast } from "../page";
-import Image from "next/image";
-import tmdb from "@/service/TMDB";
+
+import PeopleCard from "@/app/components/PeopleCard";
 async function page({ params }: { params: any }) {
     const getCast = async () => {
         const respone = await fetch(
@@ -15,19 +15,7 @@ async function page({ params }: { params: any }) {
     return (
         <div className="min-h-screen w-full px-24 grid grid-cols-1 md:grid-cols-4 gap-4 pb-96">
             {cast.cast.map((c) => (
-                <div key={c.id} className="">
-                    <Image
-                        src={tmdb.getImage(c.profile_path, "w500")}
-                        width={500}
-                        height={500}
-                        alt="cast"
-                        className="object-cover w-40 rounded-md"
-                        loading="lazy"
-                    />
-                    <span className="font-thin text-base-content">
-                        {c.name}
-                    </span>
-                </div>
+                <PeopleCard people={c as any} key={c.id} />
             ))}
         </div>
     );
