@@ -1,10 +1,10 @@
 import tmdb from "@/service/TMDB";
-import { Genres } from "@/service/TMDB.type";
+import { Genre } from "@/service/TMDB.type";
 import Link from "next/link";
 import React from "react";
 
 async function page() {
-    const listGenres: { genres: Genres[] } = await tmdb.getListGenres("movie");
+    const listGenres: { genres: Genre[] } = await tmdb.getListGenres("movie");
 
     return (
         <div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Movie } from "@/service/TMDB.type";
 import Link from "next/link";
 import tmdb from "@/service/TMDB";
