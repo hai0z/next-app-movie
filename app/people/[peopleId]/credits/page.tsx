@@ -1,4 +1,3 @@
-import ChangeMediaListBtn from "@/app/components/MediaList/ChangeMediaListBtn";
 import { MovieCard2 } from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 import React from "react";

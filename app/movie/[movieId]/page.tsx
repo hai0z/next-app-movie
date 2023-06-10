@@ -136,7 +136,11 @@ async function Page({
                         </Link>
                     )}
                     <div className="flex justify-center">
-                        <ListMovie data={slicedRecommendations} type="movie" />
+                        <ListMovie
+                            data={slicedRecommendations}
+                            type="movie"
+                            sildePerView={4}
+                        />
                     </div>
                 </div>
             </div>

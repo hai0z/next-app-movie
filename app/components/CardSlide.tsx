@@ -13,16 +13,18 @@ import PeopleCard from "./PeopleCard";
 interface ICardPropsMovie {
     type: "movie";
     data: { results: Movie[] };
+    sildePerView?: number | undefined;
 }
 
 interface ICardPropsPeople {
     type: "people";
     data: { results: TrendingPeople[] };
+    sildePerView?: number | undefined;
 }
 
 type CardProps = ICardPropsMovie | ICardPropsPeople;
 
-function CardSlide({ data, type }: CardProps) {
+function CardSlide({ data, type, sildePerView }: CardProps) {
     const { width } = useWindowDimensions();
     const isMovie = type === "movie";
     const isPeople = type === "people";
