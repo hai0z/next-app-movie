@@ -27,7 +27,7 @@ function page() {
             <div className="py-2">
                 <h2 className="my-2 text-xl">Danh mục</h2>
                 <div className="flex flex-row flex-wrap gap-4">
-                    <button className=" btn btn-primary">
+                    <Link href={"/movie/popular"} className=" btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -43,7 +43,7 @@ function page() {
                             />
                         </svg>
                         Phim
-                    </button>
+                    </Link>
                     <button className="btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

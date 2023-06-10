@@ -129,7 +129,7 @@ function Slider({ movie }: { movie: { results: TrendingMovie[] } }) {
                                                 : tmdb.getImage(m.backdrop_path)
                                         }
                                         alt="film"
-                                        className="md:w-full w-full md:brightness-50 object-cover h-[60vh] lg:h-[95vh] md:rounded-tl-none rounded-xl md:rounded-tr-none"
+                                        className="w-full md:brightness-50 object-center h-[60vh] lg:h-[95vh] md:rounded-tl-none rounded-xl md:rounded-tr-none"
                                         width={1920}
                                         height={1080}
                                         loading="lazy"
@@ -137,7 +137,7 @@ function Slider({ movie }: { movie: { results: TrendingMovie[] } }) {
                                 </Link>
                                 <ShadowImg />
                             </motion.div>
-                            <div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20">
+                            <motion.div className="absolute bottom-0 md:top-0 flex flex-col md:justify-around lg:px-8 md:flex-row w-full px-8 justify-center items-center xl:-mt-20">
                                 <div
                                     className={`${
                                         currentIndex === index
@@ -263,7 +263,7 @@ function Slider({ movie }: { movie: { results: TrendingMovie[] } }) {
                                         layout
                                     />
                                 </div>
-                            </div>
+                            </motion.div>
                         </SwiperSlide>
                     ))}
                 </AnimatePresence>

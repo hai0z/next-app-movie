@@ -17,7 +17,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
             exit={{
                 opacity: 0,
             }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
         >
             <figure>
                 <Link href={"/movie/" + m.id + "#top"}>
@@ -55,7 +55,7 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
             initial={{
                 opacity: 0,
             }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             exit={{
                 opacity: 0,
@@ -95,7 +95,7 @@ function MovieCard1({ m }: { m: Movie }) {
             initial={{
                 opacity: 0,
             }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             exit={{
                 opacity: 0,
             }}

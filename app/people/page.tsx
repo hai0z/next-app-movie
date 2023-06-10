@@ -10,9 +10,9 @@ interface IPageProps {
     };
 }
 async function page({ searchParams }: IPageProps) {
-    const popularPeople: { results: TrendingPeople[] } = await tmdb.getTrending(
+    const popularPeople: { results: TrendingPeople[] } = await tmdb.getPopular(
         "person",
-        "day",
+
         searchParams.page ?? 1
     );
     return (

@@ -19,7 +19,7 @@ function Sidebar() {
                 width: expandedSizeBar ? 250 : 80,
                 alignItems: expandedSizeBar ? "start" : "center",
             }}
-            className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-500 transition-all py-2"
+            className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-150 transition-transform py-2"
         >
             <div className="flex py-2 justify-center self-center">
                 <button onClick={() => setExpandedSideBar(expandedSizeBar)}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Movie } from "@/service/TMDB.type";
+import { Movie, People } from "@/service/TMDB.type";
 import Link from "next/link";
 import tmdb from "@/service/TMDB";
 import { Metadata } from "next";
@@ -116,11 +116,7 @@ async function Page({
                         Xem Thêm
                     </Link>
                     <div className="flex flex-wrap gap-4">
-                        {cast?.slice(0, 5).map((cast) => (
-                            <div key={cast.id} className="carousel-item">
-                                <PeopleCard people={cast as any} />
-                            </div>
-                        ))}
+                        <ListMovie data={cast as People[]} type="people" />
                     </div>
                 </div>
                 <div className="w-full flex flex-col">
@@ -137,7 +133,7 @@ async function Page({
                     )}
                     <div className="flex justify-center">
                         <ListMovie
-                            data={slicedRecommendations}
+                            data={slicedRecommendations.results}
                             type="movie"
                             sildePerView={4}
                         />

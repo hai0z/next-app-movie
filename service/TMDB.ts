@@ -24,19 +24,14 @@ class TMDB {
         timeWindow: "day" | "week",
         page?: number
     ) {
-        if (page) {
-            const respone = await fetch(
-                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&page=${page}&language=vi-VN`
-            );
-            const data = await respone.json();
-            return data;
-        } else {
-            const respone = await fetch(
-                `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${process.env.TMDB}&language=vi-VN`
-            );
-            const data = await respone.json();
-            return data;
-        }
+        const respone = await fetch(
+            `${this.BASE_URL}/trending/${type}/${timeWindow}?api_key=${
+                process.env.TMDB
+            }&page=${page ?? 1}&language=vi-VN`,
+            { cache: "no-store" }
+        );
+        const data = await respone.json();
+        return data;
     }
 
     async getTopRate(type: "movie" | "tv" | "person") {
@@ -46,9 +41,11 @@ class TMDB {
         const data = await respone.json();
         return data;
     }
-    async getPopular(type: "movie" | "tv" | "person") {
+    async getPopular(type: "movie" | "tv" | "person", page?: number) {
         const respone = await fetch(
-            `${this.BASE_URL}/${type}/popular?api_key=${process.env.TMDB}&language=vi-VN`
+            `${this.BASE_URL}/${type}/popular?api_key=${
+                process.env.TMDB
+            }&language=vi-VN&page=${page ?? 1}`
         );
         const data = await respone.json();
         return data;
@@ -132,6 +129,18 @@ class TMDB {
     async getPeoplePhotos(id: number): Promise<{ profiles: Photo[] }> {
         const respone = await fetch(
             `${this.BASE_URL}/person/${id}/images?api_key=${process.env.TMDB}`
+        );
+        const data = await respone.json();
+        return data;
+    }
+    async getListMovie(
+        type: "popular" | "upcoming" | "top_rated" | "now_playing",
+        page?: number
+    ) {
+        const respone = await fetch(
+            `${this.BASE_URL}/movie/${type}?api_key=${
+                process.env.TMDB
+            }&language=vi-VN&page=${page ?? 1}`
         );
         const data = await respone.json();
         return data;

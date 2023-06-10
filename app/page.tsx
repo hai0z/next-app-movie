@@ -2,6 +2,7 @@ import Link from "next/link";
 import Slider from "./components/Slider";
 import tmdb from "@/service/TMDB";
 import CardSlide from "./components/CardSlide";
+import { Movie, TrendingPeople } from "@/service/TMDB.type";
 
 export default async function Home() {
     const [trendingList, popularList, topRateList, popularPeople] =
@@ -9,7 +10,7 @@ export default async function Home() {
             tmdb.getTrending("movie", "day"),
             tmdb.getPopular("movie"),
             tmdb.getTopRate("movie"),
-            tmdb.getTrending("person", "day"),
+            tmdb.getPopular("person"),
         ]);
 
     return (
@@ -24,14 +25,17 @@ export default async function Home() {
                         Popular Movies
                     </p>
                     <Link
-                        href={"/trending/today"}
+                        href={"/movie/popular"}
                         className="btn btn-secondary w-fit btn-sm rounded-full my-3"
                     >
                         View more
                     </Link>
 
                     <div className="flex justify-center">
-                        <CardSlide data={popularList} type="movie" />
+                        <CardSlide
+                            data={popularList.results as Movie[]}
+                            type="movie"
+                        />
                     </div>
                 </div>
 
@@ -46,7 +50,10 @@ export default async function Home() {
                         View more
                     </Link>
                     <div className="flex justify-center">
-                        <CardSlide data={topRateList} type="movie" />
+                        <CardSlide
+                            data={topRateList.results as Movie[]}
+                            type="movie"
+                        />
                     </div>
                 </div>
                 <div>
@@ -60,7 +67,10 @@ export default async function Home() {
                         View more
                     </Link>
                     <div className="mb-20 flex justify-center">
-                        <CardSlide data={popularPeople} type="people" />
+                        <CardSlide
+                            data={popularPeople.results as TrendingPeople[]}
+                            type="people"
+                        />
                     </div>
                 </div>
             </div>

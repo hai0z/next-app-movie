@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Movie, TrendingPeople } from "@/service/TMDB.type";
+import { Movie, People, TrendingPeople } from "@/service/TMDB.type";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import MovieCard from "./MovieCard";
@@ -12,13 +12,13 @@ import PeopleCard from "./PeopleCard";
 
 interface ICardPropsMovie {
     type: "movie";
-    data: { results: Movie[] };
+    data: Movie[];
     sildePerView?: number | undefined;
 }
 
 interface ICardPropsPeople {
     type: "people";
-    data: { results: TrendingPeople[] };
+    data: TrendingPeople[] | People[];
     sildePerView?: number | undefined;
 }
 
@@ -38,7 +38,7 @@ function CardSlide({ data, type, sildePerView }: CardProps) {
             navigation={true}
             slidesPerView={width > 1700 ? 1700 / 275 : width / 275}
         >
-            {data.results.slice(0, 10).map((m) => (
+            {data.slice(0, 10).map((m) => (
                 <SwiperSlide
                     key={m.id}
                     className="px-2 py-3 md:py-8 w-full"
