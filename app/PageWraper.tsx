@@ -15,7 +15,12 @@ function PageWraper({ children }: { children: React.ReactNode }) {
 
     return (
         <AppProvider>
-            <motion.div className="flex flex-row w-full">
+            <motion.div
+                className="flex flex-row w-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+            >
                 <div>
                     <Sidebar />
                     <MobileTab />

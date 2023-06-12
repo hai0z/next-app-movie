@@ -3,7 +3,7 @@ import { create } from "zustand";
 interface Store {
     videoId: string;
     setVideoId: (id: string) => void;
-    theme: string;
+    theme: string | undefined | null;
     setTheme: (theme: string) => void;
     currentSlideIndex: number;
     setCurrentSlideIndex: (index: number) => void;
@@ -12,6 +12,7 @@ interface Store {
     expandedSideBar: boolean;
     setExpandedSideBar: (open: boolean) => void;
 }
+
 const useStore = create<Store>((set) => ({
     videoId: "",
     theme: "",

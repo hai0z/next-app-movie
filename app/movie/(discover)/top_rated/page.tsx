@@ -22,7 +22,10 @@ async function page({ searchParams }: IPageProps) {
                 <ChangeMediaListBtn />
             </div>
             <div className="flex justify-center items-center py-8">
-                <Pagination totalPages={500} href="/movie/top_rated?" />
+                <Pagination
+                    totalPages={popularMovie.total_pages}
+                    href="/movie/top_rated?"
+                />
             </div>
             <div className="">
                 <MediaList movie={popularMovie} />

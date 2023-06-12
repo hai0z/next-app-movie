@@ -23,7 +23,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" data-theme="night" className="font-poppins" id="html">
+        <html lang="en" className="font-poppins" data-theme="night" id="html">
             <head>
                 <link
                     rel="stylesheet preload prefetch"

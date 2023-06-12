@@ -2,7 +2,6 @@ import ChangeMediaListBtn from "@/app/components/MediaList/ChangeMediaListBtn";
 import MediaList from "@/app/components/MediaList/MediaList";
 import Pagination from "@/app/components/Pagination";
 import tmdb from "@/service/TMDB";
-import { Movie } from "@/service/TMDB.type";
 import React from "react";
 
 interface IPageProps {
@@ -22,7 +21,10 @@ async function page({ searchParams }: IPageProps) {
                 <ChangeMediaListBtn />
             </div>
             <div className="flex justify-center items-center py-8">
-                <Pagination totalPages={500} href="/movie/upcoming?" />
+                <Pagination
+                    totalPages={popularMovie.total_pages}
+                    href="/movie/upcoming?"
+                />
             </div>
             <div className="">
                 <MediaList movie={popularMovie} />

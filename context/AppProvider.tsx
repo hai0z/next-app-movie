@@ -25,10 +25,10 @@ function AppProvider({ children }: IProps) {
         <AppContext.Provider value={{}}>
             {loading ? (
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
-                    className="h-screen w-full flex justify-center items-center flex-col bg-base-100"
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0 }}
+                    transition={{ duration: 2 }}
+                    className="h-screen w-full flex justify-center items-center flex-col"
                 >
                     <div className="flex gap-4 items-center">
                         <Image

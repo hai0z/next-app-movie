@@ -45,7 +45,8 @@ class TMDB {
         const respone = await fetch(
             `${this.BASE_URL}/${type}/popular?api_key=${
                 process.env.TMDB
-            }&language=vi-VN&page=${page ?? 1}`
+            }&language=vi-VN&page=${page ?? 1}`,
+            { cache: "no-store" }
         );
         const data = await respone.json();
         return data;

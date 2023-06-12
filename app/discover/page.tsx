@@ -64,7 +64,7 @@ function page() {
                             Trương trình truyền hình
                         </span>
                     </button>
-                    <button className="btn btn-primary">
+                    <Link href={"/people"} className="btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -80,8 +80,8 @@ function page() {
                             />
                         </svg>
                         Người nổi tiếng
-                    </button>
-                    <button className="btn btn-primary">
+                    </Link>
+                    <Link href={"/trending/today"} className="btn btn-primary">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -97,7 +97,7 @@ function page() {
                             />
                         </svg>
                         Xu hướng
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div className="py-2">

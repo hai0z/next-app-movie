@@ -37,11 +37,12 @@ function CardSlide({ data, type, sildePerView }: CardProps) {
             slidesPerGroupAuto
             navigation={true}
             slidesPerView={width > 1700 ? 1700 / 275 : width / 275}
+            className="w-full"
         >
             {data.slice(0, 10).map((m) => (
                 <SwiperSlide
                     key={m.id}
-                    className="px-2 py-3 md:py-8 w-full"
+                    className="px-2 py-3 md:py-8"
                     style={{ display: "flex" }}
                 >
                     {isMovie && <MovieCard m={m as Movie} />}

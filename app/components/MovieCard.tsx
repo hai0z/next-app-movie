@@ -22,7 +22,11 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
             <figure>
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
-                        src={tmdb.getImage(m.poster_path)}
+                        src={
+                            m.poster_path
+                                ? tmdb.getImage(m.poster_path)
+                                : "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                        }
                         width={250}
                         height={250}
                         alt="cast"
@@ -36,9 +40,12 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
                     <Link href={"/movie/" + m.id}> {m.name ?? m.title}</Link>
                 </motion.h2>
                 <div>
-                    <p className="badge badge-info font-semibold">
-                        TMDB {m.vote_average.toFixed(1)}
-                    </p>
+                    <div>
+                        <span className="badge badge-info font-semibold">
+                            TMDB {m.vote_average.toFixed(1)}
+                        </span>
+                        <span className="ml-4 font-bold">{m.release_date}</span>
+                    </div>
                     <p className="line-clamp-2  md:line-clamp-4 lg:line-clamp-none text-justify">
                         {m.overview}
                     </p>
@@ -65,7 +72,11 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                 <motion.div>
                     <Link href={"/movie/" + m.id + "#top"}>
                         <Image
-                            src={tmdb.getImage(m.backdrop_path)}
+                            src={
+                                m.backdrop_path
+                                    ? tmdb.getImage(m.backdrop_path)
+                                    : "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                            }
                             width={250}
                             height={250}
                             alt="cast"
@@ -107,7 +118,11 @@ function MovieCard1({ m }: { m: Movie }) {
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
-                        src={tmdb.getImage(m.poster_path, "w500")}
+                        src={
+                            m.poster_path
+                                ? tmdb.getImage(m.poster_path, "w500")
+                                : "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                        }
                         width={500}
                         height={500}
                         alt="cast"
@@ -132,7 +147,11 @@ function MovieCard({ m }: { m: Movie }) {
             <figure className="overflow-hidden rounded-t-lg">
                 <Link href={"/movie/" + m.id + "#top"}>
                     <Image
-                        src={tmdb.getImage(m.poster_path, "w500")}
+                        src={
+                            m.poster_path
+                                ? tmdb.getImage(m.poster_path)
+                                : "//www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                        }
                         width={500}
                         height={500}
                         alt="cast"

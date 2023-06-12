@@ -44,7 +44,7 @@ export default async function Home() {
                         Top Rate
                     </p>
                     <Link
-                        href={"/"}
+                        href={"/movie/top_rated"}
                         className="btn btn-secondary w-fit btn-sm rounded-full my-3"
                     >
                         View more
