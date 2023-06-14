@@ -34,7 +34,7 @@ function PageWraper({ children }: { children: React.ReactNode }) {
                 >
                     <NextTopLoader showSpinner={true} color="hsl(var(--p))" />
                     <Header />
-                    <motion.div layout transition={{ type: "just" }}>
+                    <motion.div layout transition={{ type: "tween" }}>
                         {children}
                     </motion.div>
                 </div>

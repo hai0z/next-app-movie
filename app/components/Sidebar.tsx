@@ -6,23 +6,19 @@ import { motion } from "framer-motion";
 import useStore from "../(store)/store";
 import { usePathname } from "next/navigation";
 function Sidebar() {
-    const expandedSizeBar = useStore((state) => state.expandedSideBar);
-    const setExpandedSideBar = useStore((state) => state.setExpandedSideBar);
+    const { expandedSideBar, setExpandedSideBar } = useStore((state) => state);
     const pathname = usePathname();
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             style={{
-                width: expandedSizeBar ? 250 : 80,
-                alignItems: expandedSizeBar ? "start" : "center",
+                width: expandedSideBar ? 250 : 80,
+                alignItems: expandedSideBar ? "start" : "center",
             }}
             className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-150 transition-transform py-2"
         >
             <div className="flex py-2 justify-center self-center">
-                <button onClick={() => setExpandedSideBar(expandedSizeBar)}>
+                <button onClick={() => setExpandedSideBar(expandedSideBar)}>
                     <svg
                         className="swap-off fill-current"
                         xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +31,7 @@ function Sidebar() {
                 </button>
 
                 <Link href={"/"}>
-                    {expandedSizeBar && (
+                    {expandedSideBar && (
                         <motion.div
                             initial={{
                                 opacity: 0,
@@ -63,7 +59,7 @@ function Sidebar() {
 
             <ul
                 className="menu space-y-4"
-                style={{ width: expandedSizeBar ? "100%" : "auto" }}
+                style={{ width: expandedSideBar ? "100%" : "auto" }}
             >
                 <li
                     className="space-y-4 icon tooltip tooltip-right"
@@ -74,7 +70,7 @@ function Sidebar() {
                         className={`${pathname === "/" && "active"}`}
                     >
                         <HomeIcon className="w-6 h-6" />
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2 text-lg"
                                 initial={{
@@ -120,7 +116,7 @@ function Sidebar() {
                                 d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
                             />
                         </svg>
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
                                 initial={{
@@ -166,7 +162,7 @@ function Sidebar() {
                                 d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64"
                             />
                         </svg>
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
                                 initial={{
@@ -212,7 +208,7 @@ function Sidebar() {
                                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                             />
                         </svg>
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
                                 initial={{
@@ -259,7 +255,7 @@ function Sidebar() {
                             />
                         </svg>
 
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
                                 initial={{
@@ -303,7 +299,7 @@ function Sidebar() {
                                 clipRule="evenodd"
                             />
                         </svg>
-                        {expandedSizeBar && (
+                        {expandedSideBar && (
                             <motion.p
                                 className="font-normal ml-2  text-lg"
                                 initial={{
