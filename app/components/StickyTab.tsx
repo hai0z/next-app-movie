@@ -16,7 +16,7 @@ function StickyTab({ tabs }: ITabProps) {
 
     return (
         <div className="z-20 w-full px-4 bg-base-100 backdrop-blur-lg bg-opacity-80 flex justify-between  border-b border-secondary/10 sticky top-16">
-            <div className="flex py-4 gap-8">
+            <div className="flex py-4 gap-8 flex-wrap w-full">
                 {tabs.map((tab, index) => (
                     <Link
                         key={index}

@@ -11,6 +11,10 @@ function Page({ children }: { children: React.ReactNode }) {
             tabName: "Tìm kiếm phim bộ",
             href: "/search/tv",
         },
+        {
+            tabName: "Tìm kiếm người nổi tiếng",
+            href: "/search/people",
+        },
     ];
     return (
         <div className="pt-16">

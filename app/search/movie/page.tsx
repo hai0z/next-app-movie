@@ -1,7 +1,6 @@
 import React from "react";
 import tmdb from "@/service/TMDB";
-import { Movie, MovieList } from "@/service/TMDB.type";
-import MovieCard from "@/app/components/MovieCard";
+import { Movie } from "@/service/TMDB.type";
 import Pagination from "@/app/components/Pagination";
 import Search from "@/app/components/search/Search";
 import MediaList from "@/app/components/MediaList/MediaList";

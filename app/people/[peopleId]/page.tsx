@@ -1,6 +1,7 @@
 import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 import { TrendingPeople } from "@/service/TMDB.type";
+import { error } from "console";
 import React from "react";
 
 interface IPageProps {
@@ -10,10 +11,11 @@ interface IPageProps {
 }
 async function page({ params }: IPageProps) {
     const people = await tmdb.getPeople(params.peopleId);
-    const knowFor: { results: TrendingPeople[] } = await tmdb.search(
-        people.name,
-        "person"
-    );
+    const knowFor: { results: TrendingPeople[] } = await tmdb
+        .search(people.name, "person")
+        .catch((error) => {
+            throw error;
+        });
     return (
         <div className="px-4 text-justify mb-20 lg:mb-0">
             <p className="font-bold text-lg mb-4">Biography</p>
