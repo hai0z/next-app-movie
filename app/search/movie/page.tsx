@@ -22,7 +22,6 @@ async function page({ searchParams }: IPageProps) {
     return (
         <div>
             <Search />
-
             <div className="flex flex-row items-center justify-center pb-10 mt-6">
                 <Pagination
                     totalPages={

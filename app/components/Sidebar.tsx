@@ -17,7 +17,7 @@ function Sidebar() {
             }}
             className="h-screen md:bg-base-200 shadow-md fixed top-0 md:left-0 -left-96 flex flex-col space-y-4 z-30 duration-150 transition-transform py-2"
         >
-            <div className="flex py-2 justify-center self-center">
+            <div className="flex py-2 justify-center self-center line-clamp-1">
                 <button onClick={() => setExpandedSideBar(expandedSideBar)}>
                     <svg
                         className="swap-off fill-current"
@@ -40,13 +40,12 @@ function Sidebar() {
                             }}
                             animate={{
                                 opacity: 1,
-                                display: "inline-grid",
+                                display: "inline",
                                 translateX: 0,
                             }}
                             exit={{ opacity: 0 }}
                             transition={{
                                 duration: 0.3,
-                                delay: 0.6,
                             }}
                         >
                             <p className="text-gradient text-3xl font-extrabold ml-2">
@@ -80,7 +79,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}
@@ -126,7 +125,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}
@@ -172,7 +171,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}
@@ -218,7 +217,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}
@@ -265,7 +264,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}
@@ -309,7 +308,7 @@ function Sidebar() {
                                 }}
                                 animate={{
                                     opacity: 1,
-                                    display: "inline-grid",
+                                    display: "inline",
                                     translateX: 0,
                                 }}
                                 exit={{ opacity: 0 }}

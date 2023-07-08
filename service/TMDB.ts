@@ -74,7 +74,9 @@ class TMDB {
         const respone = await fetch(
             `${this.BASE_URL}/search/${type}?api_key=${
                 process.env.TMDB
-            }&query=${query}&language=vi-VN&page=${page ?? 1}`
+            }&query=${query}&language=en-US&page=${
+                page ?? 1
+            }&include_adult=false`
         );
         const data = await respone.json();
 

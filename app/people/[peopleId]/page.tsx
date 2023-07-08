@@ -1,7 +1,6 @@
 import MovieCard from "@/app/components/MovieCard";
 import tmdb from "@/service/TMDB";
 import { TrendingPeople } from "@/service/TMDB.type";
-import { error } from "console";
 import React from "react";
 
 interface IPageProps {
