@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Movie, MovieCredits } from "@/service/TMDB.type";
+import { Movie } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import { motion } from "framer-motion";
 function MovieCard2({ m, index }: { m: Movie; index: number }) {
