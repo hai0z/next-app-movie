@@ -1,4 +1,3 @@
-import Sidebar from "./components/Sidebar";
 import "./globals.css";
 import { Lexend } from "next/font/google";
 const poppins = Lexend({
@@ -6,9 +5,7 @@ const poppins = Lexend({
     weight: ["200", "500", "700"],
     variable: "--font-poppins",
 });
-import Header from "./components/Header";
-import NextTopLoader from "nextjs-toploader";
-import MobileTab from "./components/mobile/MobileTab";
+
 import { Metadata } from "next";
 import PageWraper from "./PageWraper";
 

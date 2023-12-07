@@ -205,6 +205,22 @@ function Page() {
                                         halloween
                                     </p>
                                 </div>
+                                <div
+                                    data-theme="nord"
+                                    className="flex gap-2 bg-transparent"
+                                >
+                                    <input
+                                        onChange={() =>
+                                            handleChangeTheme("nord")
+                                        }
+                                        type="radio"
+                                        name="radio-1"
+                                        className="radio radio-primary md:tooltip hover:bg-primary"
+                                        data-tip="nord"
+                                        checked={theme === "nord"}
+                                    />
+                                    <p className={"block md:hidden"}>nord</p>
+                                </div>
                             </div>
                         </div>
                     </div>

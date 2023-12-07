@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Movie } from "@/service/TMDB.type";
 import tmdb from "@/service/TMDB";
 import { motion } from "framer-motion";
-function MovieCard2({ m, index }: { m: Movie; index: number }) {
+function MovieCard2({ m }: { m: Movie; index: number }) {
     return (
         <motion.div
             className="card card-side bg-base-200 shadow-xl w-full hover:ring-1 hover:ring-primary hover:bg-primary/10 transition-all duration-300 my-1 mx-1 cursor-pointer"
@@ -30,6 +30,8 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
                         width={250}
                         height={250}
                         alt="cast"
+                        placeholder="blur"
+                        blurDataURL={tmdb.getImage(m.poster_path, "w500")}
                         loading="lazy"
                         className="object-cover w-52 h-full"
                     />
@@ -54,7 +56,7 @@ function MovieCard2({ m, index }: { m: Movie; index: number }) {
         </motion.div>
     );
 }
-function MovieCard3({ m, index }: { m: Movie; index: number }) {
+function MovieCard3({ m }: { m: Movie; index: number }) {
     return (
         <motion.div
             className="card w-96 bg-base-200 shadow-md hover:ring-2 hover:ring-primary my-1 group overflow-hidden hover:shadow-primary card-compact hover:bg-primary/10"
@@ -81,6 +83,8 @@ function MovieCard3({ m, index }: { m: Movie; index: number }) {
                             height={250}
                             alt="cast"
                             loading="lazy"
+                            placeholder="blur"
+                            blurDataURL={tmdb.getImage(m.poster_path, "w500")}
                             className="group-hover:scale-110 transition-all duration-300 w-96"
                         />
                     </Link>
@@ -126,6 +130,8 @@ function MovieCard1({ m }: { m: Movie }) {
                         width={500}
                         height={500}
                         alt="cast"
+                        placeholder="blur"
+                        blurDataURL={tmdb.getImage(m.poster_path, "w500")}
                         loading="lazy"
                         className="object-cover transition-all duration-300 md:w-56 group-hover:scale-110 lg:w-64 "
                     />
@@ -155,6 +161,8 @@ function MovieCard({ m }: { m: Movie }) {
                         width={500}
                         height={500}
                         alt="cast"
+                        placeholder="blur"
+                        blurDataURL={tmdb.getImage(m.poster_path, "w500")}
                         loading="lazy"
                         className="object-cover transition-all duration-300 w-60  group-hover:scale-110 lg:w-64 "
                     />

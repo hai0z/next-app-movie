@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import MovieDetailTab from "@/app/components/MovieDetailTab";
 import WatchTrailerButton from "@/app/components/WatchTrailerButton";
-import Modal from "@/app/components/Modal";
 import tmdb from "@/service/TMDB";
 import ShadowImg from "@/app/components/ShadowImg";
 import Link from "next/link";
@@ -132,7 +131,6 @@ async function Layout({ params, children }: MovieDetailProp) {
                 <MovieDetailTab />
                 {children}
             </div>
-            {/* <Modal /> */}
         </div>
     );
 }

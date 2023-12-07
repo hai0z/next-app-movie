@@ -4,7 +4,7 @@
 
 @layer components {
     .text-gradient {
-        @apply [&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)];
+        @apply [&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)];
     }
 }
 
@@ -14,7 +14,7 @@
     background-image: linear-gradient(
         180deg,
         rgba(24, 133, 69, 0) 20.77%,
-        hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity)) 100%
+        oklch(var(--b3, var(--b2)) / var(--tw-bg-opacity)) 100%
     );
     top: 0;
     left: 80px;
@@ -28,7 +28,7 @@
     background-image: linear-gradient(
         180deg,
         rgba(24, 133, 69, 0) 30.77%,
-        hsl(var(--b1) / var(--tw-bg-opacity)) 100%
+        oklch(var(--b1) / var(--tw-bg-opacity)) 100%
     );
     top: 0;
     left: 0;

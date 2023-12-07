@@ -52,6 +52,7 @@ module.exports = {
             "night",
             "coffee",
             "winter",
+            "nord",
         ],
     },
     plugins: [require("daisyui")],

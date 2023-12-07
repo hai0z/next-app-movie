@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import useStore from "@/app/(store)/store";
-interface IAppContext {}
 interface IProps {
     children: React.ReactNode;
 }
@@ -21,6 +20,7 @@ function AppProvider({ children }: IProps) {
         }
         setTimeout(() => setLoading(false), 2000);
     }, [setTheme]);
+
     return (
         <AppContext.Provider value={{}}>
             {loading ? (

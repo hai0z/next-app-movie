@@ -1,4 +1,3 @@
-import useStore from "@/app/(store)/store";
 import { useState, useEffect } from "react";
 function getWindowDimensions() {
     if (typeof window !== "undefined") {

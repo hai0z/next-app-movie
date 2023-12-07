@@ -3,9 +3,7 @@ import { Movie, People } from "@/service/TMDB.type";
 import Link from "next/link";
 import tmdb from "@/service/TMDB";
 import { Metadata } from "next";
-
 import ListMovie from "@/app/components/CardSlide";
-import PeopleCard from "@/app/components/PeopleCard";
 export interface Cast {
     id: number;
     profile_path: string;
@@ -38,11 +36,12 @@ async function Page({
     const slicedRecommendations = {
         results: listRecommendations.results.slice(0, 9),
     };
+
     return (
         <div className="flex flex-col lg:flex-row h-full px-2 md:px-4 gap-2 lg:mt-20 mt-8 justify-center pb-20">
             <div className="lg:w-6/12 xl:w-3/12 flex w-full gap-4 md:justify-center">
                 <div className="bg-primary/5 shadow-lg p-4 rounded-lg space-y-4 lg:max-w-[75%] h-fit w-full flex flex-col">
-                    <div className="grid grid-cols-2 lg:flex-col  lg:flex">
+                    <div className="flex flex-row justify-between">
                         <p className="font-bold">Original Title</p>
                         <p className="font-mono font-extralight">
                             {movie.original_title}
